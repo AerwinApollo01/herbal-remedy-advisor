@@ -1,0 +1,62 @@
+name: HerbalRemedyAdvisor
+options:
+  bundleIdPrefix: com.herbalremedyadvisor
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "15.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""
+
+targets:
+  HerbalRemedyAdvisor:
+    type: application
+    platform: iOS
+    sources:
+      - path: HerbalRemedyAdvisor
+    resources:
+      - path: HerbalRemedyAdvisor/Resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.herbalremedyadvisor.app
+        INFOPLIST_FILE: HerbalRemedyAdvisor/Info.plist
+        UILaunchStoryboardName: ""
+        UIMainStoryboardFile: ""
+    info:
+      path: HerbalRemedyAdvisor/Info.plist
+      properties:
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default Configuration
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+        UIStatusBarStyle: UIStatusBarStyleLightContent
+        UIViewControllerBasedStatusBarAppearance: false
+        UIUserInterfaceStyle: Light
+        UIRequiresFullScreen: true
+        UIDeviceFamily:
+          - 1
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIFonts:
+          - NotoSerif-Regular.ttf
+          - NotoSans-Regular.ttf
+
+  HerbalRemedyAdvisorTests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: Tests
+    dependencies:
+      - target: HerbalRemedyAdvisor
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.herbalremedyadvisor.tests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: HerbalRemedyAdvisor
