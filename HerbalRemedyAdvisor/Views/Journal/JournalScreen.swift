@@ -2,6 +2,7 @@ import SwiftUI
 
 struct JournalScreen: View {
     @EnvironmentObject var journalVM: JournalViewModel
+    @State private var isCompletingDay = false
 
     private var recipe: Remedy? { journalVM.journalRecipe }
     private var tradition: Tradition? {
@@ -38,7 +39,7 @@ struct JournalScreen: View {
     private func mainJournal(recipe: Remedy) -> some View {
         VStack(spacing: 0) {
             AppHeader(
-                icon: "📓",
+                icon: "book.closed.fill",
                 label: "Cleanse Journal",
                 title: "Remedy Calendar",
                 subtitle: "Track your daily practice"
@@ -65,7 +66,14 @@ struct JournalScreen: View {
 
                     // Mark Day Complete button
                     if !journalVM.isProtocolComplete {
-                        Button { journalVM.completeDay() } label: {
+                        Button {
+                            guard !isCompletingDay else { return }
+                            isCompletingDay = true
+                            journalVM.completeDay()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                isCompletingDay = false
+                            }
+                        } label: {
                             Text("Mark Day Complete ✓")
                                 .font(.notoSerif(size: 15))
                                 .foregroundColor(.cream)
@@ -107,7 +115,7 @@ struct JournalScreen: View {
                     .foregroundColor(.sage)
             }
             Spacer()
-            Text("🔥 \(journalVM.completedDays.count)")
+            Label("\(journalVM.completedDays.count)", systemImage: "flame.fill")
                 .font(.notoSans(size: 15, weight: .semibold))
                 .foregroundColor(.white)
                 .padding(.horizontal, 14)
@@ -150,7 +158,7 @@ struct JournalScreen: View {
 
     private var reminderRow: some View {
         HStack {
-            Text("⏰ Daily Reminder")
+            Label("Daily Reminder", systemImage: "alarm")
                 .font(.notoSans(size: 12))
                 .foregroundColor(.subtext)
             Text("7:30 AM")
@@ -171,15 +179,16 @@ struct JournalScreen: View {
     private var emptyState: some View {
         VStack(spacing: 0) {
             AppHeader(
-                icon: "📓",
+                icon: "book.closed.fill",
                 label: "Cleanse Journal",
                 title: "Remedy Calendar",
                 subtitle: "Track your daily practice"
             )
             VStack(spacing: 20) {
                 Spacer()
-                Text("📓")
+                Image(systemName: "book.closed.fill")
                     .font(.system(size: 56))
+                    .foregroundColor(.sage)
                 Text("No Active Protocol")
                     .font(.notoSerif(size: 20))
                     .foregroundColor(.forest)

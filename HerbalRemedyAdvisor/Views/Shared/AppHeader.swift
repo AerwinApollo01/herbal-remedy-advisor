@@ -8,11 +8,16 @@ struct AppHeader: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
-            Text("\(icon) \(label)")
-                .font(.notoSans(size: 10, weight: .semibold))
-                .foregroundColor(.fern)
-                .kerning(0.2)
-                .textCase(.uppercase)
+            HStack(spacing: 4) {
+                Image(systemName: icon)
+                    .font(.system(size: 9, weight: .semibold))
+                    .foregroundColor(.fern)
+                Text(label)
+                    .font(.notoSans(size: 10, weight: .semibold))
+                    .foregroundColor(.fern)
+                    .kerning(0.2)
+                    .textCase(.uppercase)
+            }
 
             Text(title)
                 .font(.notoSerif(size: 17))

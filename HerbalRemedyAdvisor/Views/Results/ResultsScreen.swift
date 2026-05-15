@@ -25,7 +25,7 @@ struct ResultsScreen: View {
     var body: some View {
         VStack(spacing: 0) {
             AppHeader(
-                icon: "🍵",
+                icon: "list.bullet.rectangle",
                 label: "Results",
                 title: "Your Remedies",
                 subtitle: "Based on your symptoms"

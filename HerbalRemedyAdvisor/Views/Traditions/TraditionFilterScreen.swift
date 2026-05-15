@@ -8,7 +8,7 @@ struct TraditionFilterScreen: View {
     var body: some View {
         VStack(spacing: 0) {
             AppHeader(
-                icon: "🌍",
+                icon: "globe.americas.fill",
                 label: "Cultures",
                 title: "Healing Traditions",
                 subtitle: "Explore global wisdom"

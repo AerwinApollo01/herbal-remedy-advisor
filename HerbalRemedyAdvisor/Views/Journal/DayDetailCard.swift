@@ -28,8 +28,9 @@ struct DayDetailCard: View {
 
             VStack(alignment: .leading, spacing: 12) {
                 HStack(alignment: .top, spacing: 10) {
-                    Text(recipe?.icon ?? "🌿")
-                        .font(.system(size: 26))
+                    Image(systemName: recipe?.sfSymbol ?? "leaf.fill")
+                        .font(.system(size: 22))
+                        .foregroundColor(.sage)
                     VStack(alignment: .leading, spacing: 2) {
                         Text("PROTOCOL DAY \(selected.protDayNum) · \(dateLabel)")
                             .font(.notoSans(size: 9, weight: .semibold))
@@ -84,21 +85,21 @@ struct DayDetailCard: View {
     private var statusBadge: some View {
         switch status {
         case .done:
-            Text("✅ Done")
+            Label("Done", systemImage: "checkmark.circle.fill")
                 .font(.notoSans(size: 9, weight: .semibold))
                 .foregroundColor(.forest)
                 .padding(.horizontal, 8).padding(.vertical, 4)
                 .background(Color.fern.opacity(0.2))
                 .cornerRadius(8)
         case .today:
-            Text("⭐ Today")
+            Label("Today", systemImage: "star.fill")
                 .font(.notoSans(size: 9, weight: .semibold))
                 .foregroundColor(.copper)
                 .padding(.horizontal, 8).padding(.vertical, 4)
                 .background(Color.gold.opacity(0.2))
                 .cornerRadius(8)
         case .upcoming:
-            Text("🔒 Upcoming")
+            Label("Upcoming", systemImage: "lock.fill")
                 .font(.notoSans(size: 9, weight: .semibold))
                 .foregroundColor(.subtext)
                 .padding(.horizontal, 8).padding(.vertical, 4)

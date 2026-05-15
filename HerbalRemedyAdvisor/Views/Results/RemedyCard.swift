@@ -15,8 +15,9 @@ struct RemedyCard: View {
                     endPoint: .bottomTrailing
                 )
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(remedy.icon)
-                        .font(.system(size: 26))
+                    Image(systemName: remedy.sfSymbol)
+                        .font(.system(size: 22))
+                        .foregroundColor(.white.opacity(0.9))
                     Text(remedy.name)
                         .font(.notoSerif(size: 15, weight: .bold))
                         .foregroundColor(.white)
@@ -66,7 +67,7 @@ struct RemedyCard: View {
                     .accessibilityHint("Opens the full remedy protocol")
 
                     Button(action: onStart) {
-                        Text("📓 Start")
+                        Text("Start Journal")
                             .font(.notoSans(size: 9, weight: .semibold))
                             .foregroundColor(.white)
                             .padding(.horizontal, 10)

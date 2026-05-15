@@ -170,7 +170,7 @@ struct JournalCalendar: View {
         HStack(spacing: 16) {
             if let recipe = journalVM.journalRecipe {
                 HStack(spacing: 5) {
-                    Text(recipe.icon).font(.system(size: 10))
+                    Image(systemName: recipe.sfSymbol).font(.system(size: 10)).foregroundColor(.subtext)
                     Text(recipe.name)
                         .font(.notoSans(size: 9))
                         .foregroundColor(.subtext)
@@ -227,7 +227,7 @@ struct JournalCalendar: View {
     private func cellState(for day: Int) -> CalCellState {
         guard let pd = protocolDayNum(for: day) else { return .nonProtocol }
         if journalVM.completedDays.contains(pd) { return .done }
-        if isToday(day) { return .todayActive }
+        if pd == journalVM.currentDayNumber { return .todayActive }
         return .upcoming
     }
 

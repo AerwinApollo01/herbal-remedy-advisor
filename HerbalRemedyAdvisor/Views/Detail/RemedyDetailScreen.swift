@@ -22,8 +22,9 @@ struct RemedyDetailScreen: View {
                     .frame(height: 160)
 
                     VStack(alignment: .leading, spacing: 6) {
-                        Text(remedy.icon)
-                            .font(.system(size: 40))
+                        Image(systemName: remedy.sfSymbol)
+                            .font(.system(size: 36))
+                            .foregroundColor(.white.opacity(0.9))
                         Text(remedy.name)
                             .font(.notoSerif(size: 20, weight: .bold))
                             .foregroundColor(.white)

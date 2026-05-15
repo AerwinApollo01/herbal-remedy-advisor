@@ -31,7 +31,7 @@ struct SymptomScreen: View {
     private var mainContent: some View {
         VStack(spacing: 0) {
             AppHeader(
-                icon: "🌿",
+                icon: "leaf.fill",
                 label: "Natural Cleanse",
                 title: "Herbal Remedy Advisor",
                 subtitle: "Eastern & Traditional Medicine"
