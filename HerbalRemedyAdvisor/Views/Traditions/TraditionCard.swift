@@ -19,8 +19,9 @@ struct TraditionCard: View {
 
                     HStack(alignment: .top) {
                         VStack(alignment: .leading, spacing: 3) {
-                            Text(tradition.flag)
-                                .font(.system(size: 26))
+                            Image(systemName: tradition.sfSymbol)
+                                .font(.system(size: 24))
+                                .foregroundColor(.white.opacity(0.9))
                             Text(tradition.name)
                                 .font(.notoSerif(size: 14, weight: .bold))
                                 .foregroundColor(.white)

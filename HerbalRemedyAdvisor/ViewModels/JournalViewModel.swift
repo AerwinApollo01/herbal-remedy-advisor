@@ -12,6 +12,7 @@ class JournalViewModel: ObservableObject {
     @Published var selectedCalDay: SelectedCalDay?
     @Published var showDayOverlay: Bool = false
     @Published var showProtocolOverlay: Bool = false
+    @Published var shouldNavigateToJournal: Bool = false
 
     private let calendar = Calendar.current
 
@@ -66,6 +67,7 @@ class JournalViewModel: ObservableObject {
         calYear = comps.year ?? calYear
         calMonth = (comps.month ?? 1) - 1
         persistState()
+        shouldNavigateToJournal = true
     }
 
     func completeDay() {
