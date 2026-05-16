@@ -24,9 +24,11 @@
 		4E0158DA5E1421F054680D63 /* SymptomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73907935D857D6F76E3223D2 /* SymptomViewModel.swift */; };
 		563BA029BEAB646425C05EE6 /* JournalFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FB5C9D2E4C304E6B2F333 /* JournalFlowTests.swift */; };
 		56B94E160DD838DBE46977FB /* TraditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48FF9A7082703FEC9D7C6DB /* TraditionViewModel.swift */; };
+		5CDFFBE963919F6C96B44FFA /* RemedyDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5D1A234E4158FBF9D12BE5 /* RemedyDatabaseTests.swift */; };
 		5E0425DF9925FC98CF58953A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F58678049CAB5C8D0E1716A /* Assets.xcassets */; };
 		6834D686A0B809095609F28C /* TraditionDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C3720EA30795C5747F556 /* TraditionDetailScreen.swift */; };
 		6C6D02D27FC79081E8160057 /* PlaceholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F788253642ACF4BB30D782 /* PlaceholderTests.swift */; };
+		775F6B24E12B49D85CB8FA24 /* JournalViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E778748E14F349B9346845 /* JournalViewModelTests.swift */; };
 		782DA9078A66808B4F8594FA /* Color+Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB895DFD4952611B4666A6 /* Color+Brand.swift */; };
 		78A9223E8851E937DE324434 /* NotoSans-Variable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8AC1580606EA0633F8884CB /* NotoSans-Variable.ttf */; };
 		7CED3B5031F2FB036516CFD0 /* QuoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16934FACD44D944D0F17A5 /* QuoteDatabase.swift */; };
@@ -45,6 +47,7 @@
 		B53609B90539D2A42637DC90 /* JournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1222CE62352BCA67C7206F /* JournalViewModel.swift */; };
 		BB673AD30EEDDD04C35E93B9 /* TraditionFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDD3BE3B5926AFF4115B67B /* TraditionFlagView.swift */; };
 		C80839AEF5035AEFF9001885 /* UIFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150643E27E9AE79B7B4DD7E /* UIFlowTests.swift */; };
+		C9E66EAFD5048D364D62E8E7 /* TraditionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191EF8E2432D18B9A95AA08D /* TraditionViewModelTests.swift */; };
 		CE288987DD3E4EFC54668CDE /* TraditionFilterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF681BE67CB8BF7E0F04EA03 /* TraditionFilterScreen.swift */; };
 		D1A88F2F093A16AF278D34AF /* JournalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07CFFBAD0A17D62B3404936 /* JournalScreen.swift */; };
 		E50B9ED1E355DCE0CD138A64 /* NotoSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85E6DB35232709FE84DA9900 /* NotoSerif-Regular.ttf */; };
@@ -60,12 +63,20 @@
 			remoteGlobalIDString = 57B2669283E7970DEB7EA922;
 			remoteInfo = HerbalRemedyAdvisor;
 		};
+		F724590526687DECCAAAE55A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FDBA55F32F7014CCAE2FB21 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57B2669283E7970DEB7EA922;
+			remoteInfo = HerbalRemedyAdvisor;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0943C88D1462D50E892AED7C /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		0F3017EF7F8B60A99F9A297F /* TraditionBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionBadge.swift; sourceTree = "<group>"; };
 		181FB5C9D2E4C304E6B2F333 /* JournalFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFlowTests.swift; sourceTree = "<group>"; };
+		191EF8E2432D18B9A95AA08D /* TraditionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionViewModelTests.swift; sourceTree = "<group>"; };
 		1BDA127112A261D562623244 /* DayCompleteOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCompleteOverlay.swift; sourceTree = "<group>"; };
 		1BDD3BE3B5926AFF4115B67B /* TraditionFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionFlagView.swift; sourceTree = "<group>"; };
 		1DC5A50EBCC0B2C8561A2568 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -74,6 +85,7 @@
 		2C2A7F34C8EF813082DC081B /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
 		30F788253642ACF4BB30D782 /* PlaceholderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTests.swift; sourceTree = "<group>"; };
 		380E98CA6E1D9725F6602B6E /* HerbalRemedyAdvisorTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HerbalRemedyAdvisorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		38E778748E14F349B9346845 /* JournalViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModelTests.swift; sourceTree = "<group>"; };
 		3B9E68E6E9AFFC66436C29F3 /* DayDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailCard.swift; sourceTree = "<group>"; };
 		48BC91B0A82BFFF3A164A899 /* HerbalLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerbalLoadingView.swift; sourceTree = "<group>"; };
 		4EA30CD0ABCB1734160E852E /* Tradition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tradition.swift; sourceTree = "<group>"; };
@@ -85,6 +97,7 @@
 		6BCA14B8792CF393AA4B8A0A /* HerbalRemedyAdvisorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerbalRemedyAdvisorApp.swift; sourceTree = "<group>"; };
 		6D75C2F1376B2E57A2196CBE /* QuoteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCard.swift; sourceTree = "<group>"; };
 		701F29B0E68AC2E2BA006E0C /* JournalCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCalendar.swift; sourceTree = "<group>"; };
+		7347945B2E24E0920AD357C5 /* HerbalRemedyAdvisorUnitTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HerbalRemedyAdvisorUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73907935D857D6F76E3223D2 /* SymptomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomViewModel.swift; sourceTree = "<group>"; };
 		85E6DB35232709FE84DA9900 /* NotoSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerif-Regular.ttf"; sourceTree = "<group>"; };
 		9B0D0C6307AED946ABFFCEFA /* TraditionDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionDatabase.swift; sourceTree = "<group>"; };
@@ -94,6 +107,7 @@
 		A77A2D93F498E660A85A0300 /* ResultsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsScreen.swift; sourceTree = "<group>"; };
 		AE22BDAAD45A8AEE113733D0 /* TraditionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionCard.swift; sourceTree = "<group>"; };
 		B50E027A7570CA9FAE1F98D2 /* JournalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalState.swift; sourceTree = "<group>"; };
+		BD5D1A234E4158FBF9D12BE5 /* RemedyDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyDatabaseTests.swift; sourceTree = "<group>"; };
 		BE16934FACD44D944D0F17A5 /* QuoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDatabase.swift; sourceTree = "<group>"; };
 		C484133847AA30065F5B4294 /* RemedyDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyDatabase.swift; sourceTree = "<group>"; };
 		C8AC1580606EA0633F8884CB /* NotoSans-Variable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Variable.ttf"; sourceTree = "<group>"; };
@@ -153,6 +167,16 @@
 				1BDD3BE3B5926AFF4115B67B /* TraditionFlagView.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		2BB1289DD35D01661E68120D /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				38E778748E14F349B9346845 /* JournalViewModelTests.swift */,
+				BD5D1A234E4158FBF9D12BE5 /* RemedyDatabaseTests.swift */,
+				191EF8E2432D18B9A95AA08D /* TraditionViewModelTests.swift */,
+			);
+			path = UnitTests;
 			sourceTree = "<group>";
 		};
 		3D78DF298A6FF74BDC1600A9 /* Symptoms */ = {
@@ -231,6 +255,7 @@
 			children = (
 				047A3FA513B68ADEF9223392 /* HerbalRemedyAdvisor */,
 				46E58B1375EE91D33E0802CF /* Tests */,
+				2BB1289DD35D01661E68120D /* UnitTests */,
 				DFDF9AD8065C44CA2444CA55 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -249,6 +274,7 @@
 			children = (
 				DA8ADBAE49491ACEEB87AA3D /* HerbalRemedyAdvisor.app */,
 				380E98CA6E1D9725F6602B6E /* HerbalRemedyAdvisorTests.xctest */,
+				7347945B2E24E0920AD357C5 /* HerbalRemedyAdvisorUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -313,6 +339,24 @@
 			productReference = DA8ADBAE49491ACEEB87AA3D /* HerbalRemedyAdvisor.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BE806514EE3CF729BCDF642C /* HerbalRemedyAdvisorUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2F188E022CE671499765B59 /* Build configuration list for PBXNativeTarget "HerbalRemedyAdvisorUnitTests" */;
+			buildPhases = (
+				FED3466B849E25639CE4D6DB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D65A49FB1B1D77798800CC7 /* PBXTargetDependency */,
+			);
+			name = HerbalRemedyAdvisorUnitTests;
+			packageProductDependencies = (
+			);
+			productName = HerbalRemedyAdvisorUnitTests;
+			productReference = 7347945B2E24E0920AD357C5 /* HerbalRemedyAdvisorUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F8C08C6CB2F37D69F2BC3476 /* HerbalRemedyAdvisorTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CC0EEEBF905A971C98A6FFE /* Build configuration list for PBXNativeTarget "HerbalRemedyAdvisorTests" */;
@@ -343,6 +387,10 @@
 					57B2669283E7970DEB7EA922 = {
 						DevelopmentTeam = "";
 					};
+					BE806514EE3CF729BCDF642C = {
+						DevelopmentTeam = "";
+						TestTargetID = 57B2669283E7970DEB7EA922;
+					};
 					F8C08C6CB2F37D69F2BC3476 = {
 						DevelopmentTeam = "";
 						TestTargetID = 57B2669283E7970DEB7EA922;
@@ -365,6 +413,7 @@
 			targets = (
 				57B2669283E7970DEB7EA922 /* HerbalRemedyAdvisor */,
 				F8C08C6CB2F37D69F2BC3476 /* HerbalRemedyAdvisorTests */,
+				BE806514EE3CF729BCDF642C /* HerbalRemedyAdvisorUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -437,6 +486,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FED3466B849E25639CE4D6DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775F6B24E12B49D85CB8FA24 /* JournalViewModelTests.swift in Sources */,
+				5CDFFBE963919F6C96B44FFA /* RemedyDatabaseTests.swift in Sources */,
+				C9E66EAFD5048D364D62E8E7 /* TraditionViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -444,6 +503,11 @@
 			isa = PBXTargetDependency;
 			target = 57B2669283E7970DEB7EA922 /* HerbalRemedyAdvisor */;
 			targetProxy = D547C6EFA4EF084962F99201 /* PBXContainerItemProxy */;
+		};
+		6D65A49FB1B1D77798800CC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57B2669283E7970DEB7EA922 /* HerbalRemedyAdvisor */;
+			targetProxy = F724590526687DECCAAAE55A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -559,6 +623,24 @@
 			};
 			name = Debug;
 		};
+		83D95A0E9BE6EE33A6FCDB2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.herbalremedyadvisor.unittests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HerbalRemedyAdvisor.app/HerbalRemedyAdvisor";
+				TEST_TARGET_NAME = HerbalRemedyAdvisor;
+			};
+			name = Debug;
+		};
 		911E2A07B5D099924DAB3212 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -643,6 +725,24 @@
 			};
 			name = Debug;
 		};
+		F0A757E10FB7290739DED828 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.herbalremedyadvisor.unittests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HerbalRemedyAdvisor.app/HerbalRemedyAdvisor";
+				TEST_TARGET_NAME = HerbalRemedyAdvisor;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -669,6 +769,15 @@
 			buildConfigurations = (
 				911E2A07B5D099924DAB3212 /* Debug */,
 				69AF58B0AE49734E149B8FA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D2F188E022CE671499765B59 /* Build configuration list for PBXNativeTarget "HerbalRemedyAdvisorUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83D95A0E9BE6EE33A6FCDB2E /* Debug */,
+				F0A757E10FB7290739DED828 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

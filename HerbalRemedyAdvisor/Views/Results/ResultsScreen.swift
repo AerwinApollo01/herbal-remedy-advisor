@@ -149,7 +149,7 @@ struct ResultsScreen: View {
 
     private var disclaimerFooter: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("⚠️ Health Disclaimer")
+            Label("Health Disclaimer", systemImage: "exclamationmark.triangle")
                 .font(.notoSans(size: 10, weight: .semibold))
                 .foregroundColor(.copper)
             Text("These remedies are based on traditional practices from various healing cultures. They are not intended to diagnose, treat, cure, or prevent any medical condition. Always consult a qualified, licensed healthcare provider before beginning any herbal cleanse or protocol — especially if pregnant, nursing, taking medication, or managing a health condition.")

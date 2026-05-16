@@ -4,6 +4,7 @@ import Combine
 class JournalViewModel: ObservableObject {
     @Published var journalRecipe: Remedy?
     @Published var completedDays: [Int] = []
+    @Published var completedProtocols: [String: Int] = [:]
     @Published var taskChecked: [Bool] = []
     @Published var protocolStartDate: Date?
     @Published var reminderOn: Bool = true
@@ -43,13 +44,17 @@ class JournalViewModel: ObservableObject {
         if count == 0 { return "Begin your journey" }
         if count < 3 { return "You're getting started!" }
         if count < 7 { return "3-day streak — keep going!" }
-        if count < 14 { return "One week strong 🌱" }
-        return "Remarkable dedication 🌿"
+        if count < 14 { return "One week strong" }
+        return "Remarkable dedication"
     }
 
     var isProtocolComplete: Bool {
         guard let recipe = journalRecipe else { return false }
         return completedDays.count >= recipe.duration
+    }
+
+    func timesCompleted(remedy: Remedy) -> Int {
+        completedProtocols[remedy.name] ?? 0
     }
 
     // MARK: - Actions
@@ -78,6 +83,7 @@ class JournalViewModel: ObservableObject {
         }
         taskChecked = Array(repeating: false, count: recipe.steps.count)
         if completedDays.count >= recipe.duration {
+            completedProtocols[recipe.name, default: 0] += 1
             showProtocolOverlay = true
         } else {
             showDayOverlay = true
@@ -136,6 +142,7 @@ class JournalViewModel: ObservableObject {
     private enum Keys {
         static let remedyName = "journal_remedy_name"
         static let completedDays = "journal_completed_days"
+        static let completedProtocols = "journal_completed_protocols"
         static let startDate = "journal_start_date"
         static let reminderOn = "journal_reminder_on"
     }
@@ -146,6 +153,9 @@ class JournalViewModel: ObservableObject {
         if let data = try? JSONEncoder().encode(completedDays) {
             defaults.set(data, forKey: Keys.completedDays)
         }
+        if let data = try? JSONEncoder().encode(completedProtocols) {
+            defaults.set(data, forKey: Keys.completedProtocols)
+        }
         if let date = protocolStartDate {
             defaults.set(date.timeIntervalSince1970, forKey: Keys.startDate)
         }
@@ -154,13 +164,14 @@ class JournalViewModel: ObservableObject {
 
     func loadPersistedState() {
         let defaults = UserDefaults.standard
+        if let data = defaults.data(forKey: Keys.completedProtocols),
+           let counts = try? JSONDecoder().decode([String: Int].self, from: data) {
+            completedProtocols = counts
+        }
         guard let remedyName = defaults.string(forKey: Keys.remedyName) else { return }
-
-        // Find the remedy by name from all known remedies
         let allRemedies: [Remedy] = RemedyDatabase.symptomMap.values.flatMap { $0 }
         guard let remedy = allRemedies.first(where: { $0.name == remedyName }) else { return }
         journalRecipe = remedy
-
         if let data = defaults.data(forKey: Keys.completedDays),
            let days = try? JSONDecoder().decode([Int].self, from: data) {
             completedDays = days

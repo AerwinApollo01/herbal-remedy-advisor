@@ -103,7 +103,8 @@ struct ProtocolCompleteOverlay: View {
                     // Stats
                     HStack(spacing: 12) {
                         statCell(value: "\(journalVM.completedDays.count)", label: "DAYS DONE")
-                        statCell(value: "\(journalVM.completedDays.count)", label: "STREAK")
+                        let totalCompletions = recipe.map { journalVM.timesCompleted(remedy: $0) } ?? 0
+                        statCell(value: "\(totalCompletions)", label: totalCompletions == 1 ? "COMPLETION" : "COMPLETIONS")
                         statCell(value: "100%", label: "COMPLETE")
                     }
                     .padding(.horizontal, 16)

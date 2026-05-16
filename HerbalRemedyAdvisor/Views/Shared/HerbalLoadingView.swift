@@ -6,8 +6,9 @@ struct HerbalLoadingView: View {
 
     var body: some View {
         VStack(spacing: 24) {
-            Text("🌿")
+            Image(systemName: "leaf.fill")
                 .font(.system(size: 56))
+                .foregroundColor(.sage)
                 .rotationEffect(.degrees(rotation))
                 .animation(.linear(duration: 2).repeatForever(autoreverses: false), value: rotation)
 

@@ -74,7 +74,7 @@ struct JournalScreen: View {
                                 isCompletingDay = false
                             }
                         } label: {
-                            Text("Mark Day Complete ✓")
+                            Label("Mark Day Complete", systemImage: "checkmark.circle")
                                 .font(.notoSerif(size: 15))
                                 .foregroundColor(.cream)
                                 .frame(maxWidth: .infinity)
@@ -113,6 +113,12 @@ struct JournalScreen: View {
                 Text(recipe.tradition)
                     .font(.notoSans(size: 11))
                     .foregroundColor(.sage)
+                let times = journalVM.timesCompleted(remedy: recipe)
+                if times > 0 {
+                    Label("\(times) \(times == 1 ? "completion" : "completions")", systemImage: "trophy.fill")
+                        .font(.notoSans(size: 10, weight: .semibold))
+                        .foregroundColor(.gold)
+                }
             }
             Spacer()
             Label("\(journalVM.completedDays.count)", systemImage: "flame.fill")

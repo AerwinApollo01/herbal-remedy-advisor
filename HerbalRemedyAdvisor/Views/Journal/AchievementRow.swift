@@ -51,8 +51,7 @@ struct AchievementRow: View {
 
     private func isUnlocked(_ achievement: Achievement) -> Bool {
         if achievement.condition == Int.max {
-            guard let recipe = journalVM.journalRecipe else { return false }
-            return journalVM.completedDays.count >= recipe.duration
+            return journalVM.completedProtocols.values.reduce(0, +) >= 1
         }
         return journalVM.completedDays.count >= achievement.condition
     }

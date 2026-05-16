@@ -106,7 +106,7 @@ struct JournalCalendar: View {
                             .foregroundColor(tradColor.opacity(0.8))
                     }
                     if state == .done {
-                        Text("✓")
+                        Image(systemName: "checkmark")
                             .font(.system(size: 8, weight: .bold))
                             .foregroundColor(.white)
                     }

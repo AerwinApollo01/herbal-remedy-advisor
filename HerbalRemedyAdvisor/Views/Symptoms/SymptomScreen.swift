@@ -3,6 +3,7 @@ import SwiftUI
 struct SymptomScreen: View {
     @EnvironmentObject var symptomVM: SymptomViewModel
     @EnvironmentObject var journalVM: JournalViewModel
+    @EnvironmentObject var traditionVM: TraditionViewModel
     @Binding var selectedTab: Int
 
     let columns = [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)]
@@ -66,6 +67,7 @@ struct SymptomScreen: View {
             if symptomVM.selectedSymptoms.isEmpty {
                 symptomVM.showAlert = true
             } else {
+                traditionVM.clearAll()
                 symptomVM.analyzeSymptoms()
             }
         } label: {
