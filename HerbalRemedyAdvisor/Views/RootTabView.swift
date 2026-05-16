@@ -10,7 +10,7 @@ struct RootTabView: View {
         TabView(selection: $selectedTab) {
             SymptomScreen(selectedTab: $selectedTab)
                 .tabItem {
-                    Label("Symptoms", systemImage: "")
+                    Label("Symptoms", systemImage: "waveform.path.ecg")
                 }
                 .tag(0)
 
@@ -18,7 +18,7 @@ struct RootTabView: View {
                 ResultsScreen()
             }
             .tabItem {
-                Label("Remedies", systemImage: "")
+                Label("Remedies", systemImage: "leaf.fill")
             }
             .tag(1)
 
@@ -29,13 +29,13 @@ struct RootTabView: View {
                     }
             }
             .tabItem {
-                Label("Traditions", systemImage: "")
+                Label("Traditions", systemImage: "globe.americas.fill")
             }
             .tag(2)
 
             JournalScreen()
                 .tabItem {
-                    Label("Journal", systemImage: "")
+                    Label("Journal", systemImage: "book.closed.fill")
                 }
                 .tag(3)
         }
@@ -52,9 +52,9 @@ struct RootTabView: View {
         appearance.backgroundColor = UIColor(Color.forest)
 
         let normal = UITabBarItemAppearance()
-        normal.normal.iconColor = UIColor(Color.mist.opacity(0.4))
+        normal.normal.iconColor = UIColor(Color.mist.opacity(0.7))
         normal.normal.titleTextAttributes = [
-            .foregroundColor: UIColor(Color.mist.opacity(0.4)),
+            .foregroundColor: UIColor(Color.mist.opacity(0.7)),
             .font: UIFont(name: "NotoSans-Regular", size: 9) ?? UIFont.systemFont(ofSize: 9)
         ]
         normal.selected.iconColor = UIColor(Color.mist)
