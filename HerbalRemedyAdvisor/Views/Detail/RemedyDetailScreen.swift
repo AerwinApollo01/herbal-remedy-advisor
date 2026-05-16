@@ -153,9 +153,7 @@ struct RemedyDetailScreen: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 6) {
                 if let t = TraditionDatabase.tradition(for: remedy.tid) {
-                    Image(systemName: t.sfSymbol)
-                        .font(.system(size: 12))
-                        .foregroundColor(.sage)
+                    TraditionFlagView(tradition: t, size: 14)
                 }
                 Text("DAY 1 WISDOM · \(remedy.tradition.uppercased())")
                     .font(.notoSans(size: 9, weight: .semibold))
