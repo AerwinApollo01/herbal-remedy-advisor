@@ -41,11 +41,8 @@ struct RootTabView: View {
         }
         .onAppear { configureTabBar() }
         .accentColor(.gold)
-        .onChange(of: journalVM.shouldNavigateToJournal) { requested in
-            if requested {
-                selectedTab = 3
-                journalVM.shouldNavigateToJournal = false
-            }
+        .onChange(of: journalVM.navigateToJournalTrigger) { _ in
+            selectedTab = 3
         }
     }
 

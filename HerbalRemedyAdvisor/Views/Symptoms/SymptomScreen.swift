@@ -24,7 +24,7 @@ struct SymptomScreen: View {
         }
         .onChange(of: symptomVM.isLoading) { loading in
             if !loading && !symptomVM.matchedRemedies.isEmpty {
-                selectedTab = 1 // Switch to Remedies tab after analysis completes
+                selectedTab = 1
             }
         }
     }
