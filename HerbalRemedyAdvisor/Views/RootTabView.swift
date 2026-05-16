@@ -22,11 +22,16 @@ struct RootTabView: View {
             }
             .tag(1)
 
-            TraditionFilterScreen(isStandaloneTab: true)
-                .tabItem {
-                    Label("Traditions", systemImage: "")
-                }
-                .tag(2)
+            NavigationStack {
+                TraditionFilterScreen(isStandaloneTab: true)
+                    .navigationDestination(for: Tradition.self) { tradition in
+                        TraditionDetailScreen(tradition: tradition)
+                    }
+            }
+            .tabItem {
+                Label("Traditions", systemImage: "")
+            }
+            .tag(2)
 
             JournalScreen()
                 .tabItem {

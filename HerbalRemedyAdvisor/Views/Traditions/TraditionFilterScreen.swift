@@ -17,11 +17,22 @@ struct TraditionFilterScreen: View {
             ScrollView {
                 LazyVStack(spacing: 16) {
                     ForEach(traditionVM.traditions) { tradition in
-                        TraditionCard(
-                            tradition: tradition,
-                            isSelected: traditionVM.isSelected(tradition),
-                            onTap: { traditionVM.toggle(tradition) }
-                        )
+                        if isStandaloneTab {
+                            NavigationLink(value: tradition) {
+                                TraditionCard(
+                                    tradition: tradition,
+                                    isSelected: false,
+                                    onTap: {}
+                                )
+                            }
+                            .buttonStyle(.plain)
+                        } else {
+                            TraditionCard(
+                                tradition: tradition,
+                                isSelected: traditionVM.isSelected(tradition),
+                                onTap: { traditionVM.toggle(tradition) }
+                            )
+                        }
                     }
                 }
                 .padding(.horizontal, 16)

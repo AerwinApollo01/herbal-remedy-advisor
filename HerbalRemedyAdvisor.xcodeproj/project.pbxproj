@@ -24,6 +24,8 @@
 		4E0158DA5E1421F054680D63 /* SymptomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73907935D857D6F76E3223D2 /* SymptomViewModel.swift */; };
 		563BA029BEAB646425C05EE6 /* JournalFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FB5C9D2E4C304E6B2F333 /* JournalFlowTests.swift */; };
 		56B94E160DD838DBE46977FB /* TraditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48FF9A7082703FEC9D7C6DB /* TraditionViewModel.swift */; };
+		5E0425DF9925FC98CF58953A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F58678049CAB5C8D0E1716A /* Assets.xcassets */; };
+		6834D686A0B809095609F28C /* TraditionDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C3720EA30795C5747F556 /* TraditionDetailScreen.swift */; };
 		6C6D02D27FC79081E8160057 /* PlaceholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F788253642ACF4BB30D782 /* PlaceholderTests.swift */; };
 		782DA9078A66808B4F8594FA /* Color+Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB895DFD4952611B4666A6 /* Color+Brand.swift */; };
 		78A9223E8851E937DE324434 /* NotoSans-Variable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8AC1580606EA0633F8884CB /* NotoSans-Variable.ttf */; };
@@ -41,6 +43,7 @@
 		AE8D9BB69D3DAC7BA6EC2BA4 /* QuoteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D75C2F1376B2E57A2196CBE /* QuoteCard.swift */; };
 		B34579A500FF41971E764618 /* DayDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9E68E6E9AFFC66436C29F3 /* DayDetailCard.swift */; };
 		B53609B90539D2A42637DC90 /* JournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1222CE62352BCA67C7206F /* JournalViewModel.swift */; };
+		BB673AD30EEDDD04C35E93B9 /* TraditionFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDD3BE3B5926AFF4115B67B /* TraditionFlagView.swift */; };
 		C80839AEF5035AEFF9001885 /* UIFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150643E27E9AE79B7B4DD7E /* UIFlowTests.swift */; };
 		CE288987DD3E4EFC54668CDE /* TraditionFilterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF681BE67CB8BF7E0F04EA03 /* TraditionFilterScreen.swift */; };
 		D1A88F2F093A16AF278D34AF /* JournalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07CFFBAD0A17D62B3404936 /* JournalScreen.swift */; };
@@ -64,6 +67,7 @@
 		0F3017EF7F8B60A99F9A297F /* TraditionBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionBadge.swift; sourceTree = "<group>"; };
 		181FB5C9D2E4C304E6B2F333 /* JournalFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFlowTests.swift; sourceTree = "<group>"; };
 		1BDA127112A261D562623244 /* DayCompleteOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCompleteOverlay.swift; sourceTree = "<group>"; };
+		1BDD3BE3B5926AFF4115B67B /* TraditionFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionFlagView.swift; sourceTree = "<group>"; };
 		1DC5A50EBCC0B2C8561A2568 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		22BE03B097A7873C737B47EC /* SymptomScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomScreen.swift; sourceTree = "<group>"; };
 		27F3ADDDA640F05DB2AB9F13 /* AchievementRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementRow.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 		48BC91B0A82BFFF3A164A899 /* HerbalLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerbalLoadingView.swift; sourceTree = "<group>"; };
 		4EA30CD0ABCB1734160E852E /* Tradition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tradition.swift; sourceTree = "<group>"; };
 		4F219CCD4337562C2C044CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4F58678049CAB5C8D0E1716A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55BB895DFD4952611B4666A6 /* Color+Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Brand.swift"; sourceTree = "<group>"; };
 		565B2F4F71A5777B0CC74571 /* Remedy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remedy.swift; sourceTree = "<group>"; };
 		695580BEDAF7C86E55C2678E /* Font+Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Brand.swift"; sourceTree = "<group>"; };
@@ -101,6 +106,7 @@
 		E03BB12832EA87612AB06014 /* AppHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeader.swift; sourceTree = "<group>"; };
 		E06EE352DCD4850E921494A4 /* ProtocolCompleteOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolCompleteOverlay.swift; sourceTree = "<group>"; };
 		F150643E27E9AE79B7B4DD7E /* UIFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFlowTests.swift; sourceTree = "<group>"; };
+		F17C3720EA30795C5747F556 /* TraditionDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionDetailScreen.swift; sourceTree = "<group>"; };
 		FB94C22E018F56F34CB65506 /* RemedyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyCard.swift; sourceTree = "<group>"; };
 		FF1222CE62352BCA67C7206F /* JournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +150,7 @@
 				695580BEDAF7C86E55C2678E /* Font+Brand.swift */,
 				48BC91B0A82BFFF3A164A899 /* HerbalLoadingView.swift */,
 				1DC5A50EBCC0B2C8561A2568 /* ProgressBar.swift */,
+				1BDD3BE3B5926AFF4115B67B /* TraditionFlagView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -191,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				AE22BDAAD45A8AEE113733D0 /* TraditionCard.swift */,
+				F17C3720EA30795C5747F556 /* TraditionDetailScreen.swift */,
 				CF681BE67CB8BF7E0F04EA03 /* TraditionFilterScreen.swift */,
 			);
 			path = Traditions;
@@ -230,6 +238,7 @@
 		DAB2DBC854F7F7C4D2A550E3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4F58678049CAB5C8D0E1716A /* Assets.xcassets */,
 				BDADE05FAD299AFB579A2236 /* Fonts */,
 			);
 			path = Resources;
@@ -365,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E0425DF9925FC98CF58953A /* Assets.xcassets in Resources */,
 				81F5EF4D962480F5CFE7C8DA /* NotoSans-Regular.ttf in Resources */,
 				78A9223E8851E937DE324434 /* NotoSans-Variable.ttf in Resources */,
 				E50B9ED1E355DCE0CD138A64 /* NotoSerif-Regular.ttf in Resources */,
@@ -410,7 +420,9 @@
 				992821308FA083266491DEE4 /* TraditionBadge.swift in Sources */,
 				97B5E3E8B4BD1C4C16017A7A /* TraditionCard.swift in Sources */,
 				E79095BDE5E5882A411996FA /* TraditionDatabase.swift in Sources */,
+				6834D686A0B809095609F28C /* TraditionDetailScreen.swift in Sources */,
 				CE288987DD3E4EFC54668CDE /* TraditionFilterScreen.swift in Sources */,
+				BB673AD30EEDDD04C35E93B9 /* TraditionFlagView.swift in Sources */,
 				56B94E160DD838DBE46977FB /* TraditionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

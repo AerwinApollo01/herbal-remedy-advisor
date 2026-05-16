@@ -4,17 +4,18 @@ struct AchievementRow: View {
     @EnvironmentObject var journalVM: JournalViewModel
 
     private struct Achievement {
-        let icon: String
+        let sfSymbol: String
+        let color: Color
         let name: String
         let condition: Int
     }
 
     private let achievements: [Achievement] = [
-        .init(icon: "🌱", name: "First Brew", condition: 1),
-        .init(icon: "🔥", name: "3-Day Streak", condition: 3),
-        .init(icon: "🏅", name: "Week One", condition: 7),
-        .init(icon: "🌍", name: "Globe Trotter", condition: 14),
-        .init(icon: "🧙", name: "Herb Master", condition: Int.max)
+        .init(sfSymbol: "drop.fill",              color: .sage,   name: "First Brew",   condition: 1),
+        .init(sfSymbol: "flame.fill",             color: .copper, name: "3-Day Streak", condition: 3),
+        .init(sfSymbol: "medal.fill",             color: .gold,   name: "Week One",     condition: 7),
+        .init(sfSymbol: "globe.americas.fill",    color: .forest, name: "Fortnight",    condition: 14),
+        .init(sfSymbol: "crown.fill",             color: Color(hex: "#7B35A0"), name: "Herb Master", condition: Int.max)
     ]
 
     var body: some View {
@@ -26,9 +27,10 @@ struct AchievementRow: View {
             HStack(spacing: 10) {
                 ForEach(achievements, id: \.name) { achievement in
                     let unlocked = isUnlocked(achievement)
-                    VStack(spacing: 4) {
-                        Text(achievement.icon)
-                            .font(.system(size: 18))
+                    VStack(spacing: 6) {
+                        Image(systemName: achievement.sfSymbol)
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundColor(unlocked ? achievement.color : .subtext.opacity(0.4))
                         Text(achievement.name)
                             .font(.notoSans(size: 9, weight: .semibold))
                             .foregroundColor(.subtext)
@@ -40,8 +42,7 @@ struct AchievementRow: View {
                     .background(Color.white)
                     .cornerRadius(10)
                     .shadow(color: unlocked ? .black.opacity(0.07) : .clear, radius: 6)
-                    .saturation(unlocked ? 1.0 : 0)
-                    .opacity(unlocked ? 1.0 : 0.3)
+                    .opacity(unlocked ? 1.0 : 0.4)
                     .animation(.spring(response: 0.4), value: unlocked)
                 }
             }
