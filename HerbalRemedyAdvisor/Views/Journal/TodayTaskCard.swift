@@ -5,15 +5,22 @@ struct TodayTaskCard: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header
-            HStack {
-                Text("Today's Protocol")
-                    .font(.notoSerif(size: 13))
+            // Header — shows the actual protocol name
+            VStack(alignment: .leading, spacing: 3) {
+                HStack {
+                    Text("DAY \(journalVM.currentDayNumber) PROTOCOL")
+                        .font(.notoSans(size: 9, weight: .semibold))
+                        .foregroundColor(.white.opacity(0.7))
+                        .kerning(0.5)
+                        .textCase(.uppercase)
+                    Spacer()
+                    Image(systemName: journalVM.journalRecipe?.sfSymbol ?? "leaf.fill")
+                        .font(.system(size: 12))
+                        .foregroundColor(.white.opacity(0.6))
+                }
+                Text(journalVM.journalRecipe?.name ?? "")
+                    .font(.notoSerif(size: 15))
                     .foregroundColor(.white)
-                Spacer()
-                Text("Day \(journalVM.currentDayNumber)")
-                    .font(.notoSans(size: 10))
-                    .foregroundColor(.white.opacity(0.8))
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 12)
@@ -28,44 +35,21 @@ struct TodayTaskCard: View {
                 )
             )
 
-            // Tasks
+            // Preparation steps — read-only numbered list
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(Array((journalVM.journalRecipe?.steps ?? []).enumerated()), id: \.offset) { i, step in
                     HStack(alignment: .top, spacing: 12) {
-                        Button { journalVM.toggleTask(i) } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 6)
-                                    .stroke(Color.mist, lineWidth: 1.5)
-                                    .frame(width: 20, height: 20)
-                                    .background(
-                                        i < journalVM.taskChecked.count && journalVM.taskChecked[i]
-                                            ? Color.forest : Color.clear
-                                    )
-                                    .cornerRadius(6)
-                                if i < journalVM.taskChecked.count && journalVM.taskChecked[i] {
-                                    Image(systemName: "checkmark")
-                                        .font(.system(size: 10, weight: .bold))
-                                        .foregroundColor(.white)
-                                }
-                            }
-                        }
-                        .frame(width: 44, height: 44)
-                        .accessibilityLabel(step)
-                        .accessibilityAddTraits(
-                            (i < journalVM.taskChecked.count && journalVM.taskChecked[i])
-                                ? .isSelected : []
-                        )
+                        Text("\(i + 1)")
+                            .font(.notoSans(size: 11, weight: .bold))
+                            .foregroundColor(.white)
+                            .frame(width: 22, height: 22)
+                            .background(Color(hex: journalVM.journalRecipe?.color ?? "#1A2E1A").opacity(0.85))
+                            .clipShape(Circle())
+                            .padding(.top, 13)
 
                         Text(step)
                             .font(.notoSans(size: 11))
-                            .foregroundColor(
-                                i < journalVM.taskChecked.count && journalVM.taskChecked[i]
-                                    ? .subtext.opacity(0.45) : .subtext
-                            )
-                            .strikethrough(
-                                i < journalVM.taskChecked.count && journalVM.taskChecked[i],
-                                color: .subtext.opacity(0.45)
-                            )
+                            .foregroundColor(.subtext)
                             .lineSpacing(3)
                             .padding(.vertical, 12)
                         Spacer()

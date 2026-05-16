@@ -28,9 +28,17 @@ struct ProtocolCompleteOverlay: View {
 
             ScrollView {
                 VStack(spacing: 22) {
-                    Text("✨🌿✨")
-                        .font(.system(size: 30))
-                        .kerning(4)
+                    HStack(spacing: 10) {
+                        Image(systemName: "sparkles")
+                            .font(.system(size: 22, weight: .semibold))
+                            .foregroundColor(.gold)
+                        Image(systemName: recipe?.sfSymbol ?? "leaf.fill")
+                            .font(.system(size: 22, weight: .semibold))
+                            .foregroundColor(.sage)
+                        Image(systemName: "sparkles")
+                            .font(.system(size: 22, weight: .semibold))
+                            .foregroundColor(.gold)
+                    }
 
                     // Trophy badge
                     ZStack {
@@ -41,8 +49,9 @@ struct ProtocolCompleteOverlay: View {
                             .frame(width: 88, height: 88)
                             .overlay(Circle().stroke(Color.gold, lineWidth: 6).scaleEffect(1.1))
                             .shadow(color: .gold.opacity(0.4), radius: 32)
-                        Text("🏆")
-                            .font(.system(size: 40))
+                        Image(systemName: "trophy.fill")
+                            .font(.system(size: 38, weight: .semibold))
+                            .foregroundColor(.white)
                     }
                     .scaleEffect(trophyScale)
                     .onAppear {
@@ -58,15 +67,30 @@ struct ProtocolCompleteOverlay: View {
                         }
                     }
 
+                    if let name = recipe?.name {
+                        Text(name)
+                            .font(.notoSerif(size: 22))
+                            .foregroundColor(.cream)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 24)
+                    }
+
                     Text("Protocol Complete!")
-                        .font(.notoSerif(size: 26))
-                        .foregroundColor(.cream)
+                        .font(.notoSans(size: 13, weight: .semibold))
+                        .foregroundColor(.gold)
+                        .kerning(1.0)
+                        .textCase(.uppercase)
 
                     if let t = tradition {
-                        Text("\(t.flag) \(t.name.uppercased())")
-                            .font(.notoSans(size: 11, weight: .semibold))
-                            .foregroundColor(.fern)
-                            .kerning(0.5)
+                        HStack(spacing: 6) {
+                            Image(systemName: t.sfSymbol)
+                                .font(.system(size: 11))
+                                .foregroundColor(.fern)
+                            Text(t.name.uppercased())
+                                .font(.notoSans(size: 11, weight: .semibold))
+                                .foregroundColor(.fern)
+                                .kerning(0.5)
+                        }
                     }
 
                     Text("You have honoured an ancient healing tradition and completed your cleanse with dedication. This is an act of genuine self-respect.")

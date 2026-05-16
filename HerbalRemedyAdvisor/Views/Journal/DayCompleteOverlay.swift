@@ -17,21 +17,27 @@ struct DayCompleteOverlay: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 20) {
-                Text("✅")
-                    .font(.system(size: 56))
-                    .scaleEffect(emojiScale)
-                    .onAppear {
-                        if reduceMotion {
-                            emojiScale = 1.0
-                        } else {
-                            withAnimation(.interpolatingSpring(stiffness: 200, damping: 12)) {
-                                emojiScale = 1.18
-                            }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                                withAnimation(.spring()) { emojiScale = 1.0 }
-                            }
+                ZStack {
+                    Circle()
+                        .fill(Color.fern.opacity(0.25))
+                        .frame(width: 80, height: 80)
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 56, weight: .semibold))
+                        .foregroundColor(.fern)
+                }
+                .scaleEffect(emojiScale)
+                .onAppear {
+                    if reduceMotion {
+                        emojiScale = 1.0
+                    } else {
+                        withAnimation(.interpolatingSpring(stiffness: 200, damping: 12)) {
+                            emojiScale = 1.18
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            withAnimation(.spring()) { emojiScale = 1.0 }
                         }
                     }
+                }
 
                 Text("Day \(completedCount) Complete!")
                     .font(.notoSerif(size: 24))
@@ -44,13 +50,18 @@ struct DayCompleteOverlay: View {
                     .padding(.horizontal, 30)
 
                 // Streak pill
-                Text("🔥 \(completedCount)-day streak")
-                    .font(.notoSans(size: 15, weight: .semibold))
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 6)
-                    .background(Color.gold)
-                    .cornerRadius(20)
+                HStack(spacing: 6) {
+                    Image(systemName: "flame.fill")
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundColor(.white)
+                    Text("\(completedCount)-day streak")
+                        .font(.notoSans(size: 15, weight: .semibold))
+                        .foregroundColor(.white)
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 6)
+                .background(Color.gold)
+                .cornerRadius(20)
 
                 // Quote preview
                 VStack(alignment: .leading, spacing: 8) {
@@ -70,7 +81,7 @@ struct DayCompleteOverlay: View {
                 .cornerRadius(12)
                 .padding(.horizontal, 24)
 
-                Text("Your daily reminder is set ✓")
+                Text("Your daily reminder is set")
                     .font(.notoSans(size: 11))
                     .foregroundColor(.fern)
 
