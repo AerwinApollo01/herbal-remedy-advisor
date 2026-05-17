@@ -75,7 +75,7 @@ final class LaunchScreenTests: XCTestCase {
 
         // Check that each tab shows an AppHeader (identified by its title label)
         let tabHeaders: [(tab: String, title: String)] = [
-            ("Symptoms",   "Herbal Remedy Advisor"),
+            ("Symptoms",   "Nise"),
             ("Remedies",   "Your Remedies"),
             ("Traditions", "Healing Traditions"),
             ("Journal",    "Remedy Calendar"),

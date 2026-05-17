@@ -4,6 +4,7 @@ struct SettingsScreen: View {
     @EnvironmentObject var authVM: AuthViewModel
     @State private var showDisclaimer = false
     @State private var showSignOutConfirm = false
+    @State private var showDeleteConfirm = false
 
     private var appVersion: String {
         let v = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
@@ -70,6 +71,33 @@ struct SettingsScreen: View {
                                     }
                                     .padding(.top, 16)
                                 }
+
+                                Divider()
+                                    .background(Color.mist.opacity(0.15))
+                                    .padding(.top, 16)
+
+                                Button {
+                                    showDeleteConfirm = true
+                                } label: {
+                                    HStack {
+                                        Image(systemName: "trash")
+                                            .font(.system(size: 15))
+                                            .foregroundColor(.red.opacity(0.75))
+                                        Text("Delete Account")
+                                            .font(.notoSans(size: 15))
+                                            .foregroundColor(.red.opacity(0.75))
+                                        Spacer()
+                                    }
+                                    .padding(.top, 16)
+                                }
+
+                                if let err = authVM.deleteError {
+                                    Text(err)
+                                        .font(.notoSans(size: 12))
+                                        .foregroundColor(.gold)
+                                        .padding(.top, 8)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                }
                             }
                         }
                         .confirmationDialog("Sign out of Nise?",
@@ -77,6 +105,14 @@ struct SettingsScreen: View {
                                             titleVisibility: .visible) {
                             Button("Sign Out", role: .destructive) { authVM.signOut() }
                             Button("Cancel", role: .cancel) {}
+                        }
+                        .confirmationDialog("Delete your account?",
+                                            isPresented: $showDeleteConfirm,
+                                            titleVisibility: .visible) {
+                            Button("Delete Account", role: .destructive) { authVM.deleteAccount() }
+                            Button("Cancel", role: .cancel) {}
+                        } message: {
+                            Text("This permanently deletes your account and all data. This cannot be undone.")
                         }
 
                         // MARK: Legal

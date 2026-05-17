@@ -31,6 +31,41 @@ struct LoginScreen: View {
         emailValid && passwordValid && confirmValid && !authVM.isLoading
     }
 
+    // MARK: - Password strength (sign-up only)
+
+    private enum PasswordStrength {
+        case none, weak, fair, strong
+
+        var label: String {
+            switch self {
+            case .none:   return ""
+            case .weak:   return "Weak"
+            case .fair:   return "Fair"
+            case .strong: return "Strong"
+            }
+        }
+        var color: Color {
+            switch self {
+            case .none:   return .clear
+            case .weak:   return Color(red: 0.85, green: 0.3, blue: 0.3)
+            case .fair:   return Color(red: 0.9,  green: 0.6, blue: 0.1)
+            case .strong: return Color(red: 0.25, green: 0.6, blue: 0.3)
+            }
+        }
+        var barFraction: CGFloat {
+            switch self { case .none: return 0; case .weak: return 0.33; case .fair: return 0.66; case .strong: return 1.0 }
+        }
+    }
+
+    private var passwordStrength: PasswordStrength {
+        guard isSignUp, !password.isEmpty else { return .none }
+        let hasDigit   = password.rangeOfCharacter(from: .decimalDigits) != nil
+        let hasSpecial = password.unicodeScalars.contains { !CharacterSet.alphanumerics.contains($0) }
+        if password.count < 8 { return .weak }
+        if password.count >= 12 || (hasDigit && hasSpecial) { return .strong }
+        return .fair
+    }
+
     // MARK: - Body
 
     var body: some View {
@@ -82,6 +117,27 @@ struct LoginScreen: View {
                         .padding(.bottom, 16)
                     }
 
+                    if authVM.verificationEmailSent {
+                        notice(icon: "envelope.badge.fill",
+                               text: "Verification email sent — check your inbox before signing in.",
+                               color: .fern)
+                        .padding(.bottom, 16)
+                    }
+
+                    if !authVM.isEmailVerified && !isSignUp && authVM.state != .loading {
+                        HStack(spacing: 8) {
+                            notice(icon: "exclamationmark.shield",
+                                   text: "Your email isn't verified yet.",
+                                   color: .gold)
+                            Button("Resend") { authVM.resendVerification() }
+                                .font(.notoSans(size: 13, weight: .semibold))
+                                .foregroundColor(.gold)
+                                .underline()
+                                .padding(.trailing, 40)
+                        }
+                        .padding(.bottom, 16)
+                    }
+
                     // Form
                     VStack(spacing: 12) {
                         inputField(placeholder: "Email address",
@@ -97,6 +153,11 @@ struct LoginScreen: View {
                                    content: .password,
                                    secure: true,
                                    field: .password)
+
+                        // Password strength (sign-up only)
+                        if isSignUp && !password.isEmpty {
+                            strengthBar
+                        }
 
                         if isSignUp {
                             inputField(placeholder: "Confirm password",
@@ -183,6 +244,7 @@ struct LoginScreen: View {
                             isSignUp.toggle()
                             authVM.signInError = nil
                             authVM.passwordResetSent = false
+                            authVM.verificationEmailSent = false
                             confirmPassword = ""
                         }
                     } label: {
@@ -200,6 +262,31 @@ struct LoginScreen: View {
             }
         }
         .onTapGesture { focus = nil }
+    }
+
+    // MARK: - Password strength bar
+
+    private var strengthBar: some View {
+        let strength = passwordStrength
+        return VStack(alignment: .leading, spacing: 4) {
+            GeometryReader { geo in
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 2)
+                        .fill(Color.cream.opacity(0.2))
+                        .frame(height: 4)
+                    RoundedRectangle(cornerRadius: 2)
+                        .fill(strength.color)
+                        .frame(width: geo.size.width * strength.barFraction, height: 4)
+                        .animation(.easeInOut(duration: 0.25), value: strength.barFraction)
+                }
+            }
+            .frame(height: 4)
+
+            Text(strength.label)
+                .font(.notoSans(size: 11))
+                .foregroundColor(strength.color)
+        }
+        .padding(.horizontal, 40)
     }
 
     // MARK: - Helpers

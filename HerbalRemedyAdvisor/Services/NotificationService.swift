@@ -6,6 +6,19 @@ final class NotificationService {
     private let requestId = "nise.daily_reminder"
     private init() {}
 
+    // Rotates through varied copy so the notification stays fresh beyond Day 4.
+    private let notificationBodies: [String] = [
+        "Time for today's herbal protocol. A small step toward balance.",
+        "Your daily ritual is waiting. Even five minutes counts.",
+        "Ancient wisdom, one day at a time. Ready when you are.",
+        "Consistency is the protocol. Show up for today's practice.",
+    ]
+
+    private var nextBody: String {
+        let day = Calendar.current.component(.weekday, from: Date()) - 1 // 0–6
+        return notificationBodies[day % notificationBodies.count]
+    }
+
     // Requests permission (if not yet determined) then schedules a repeating
     // daily notification. Returns false if the user has denied permission.
     func requestAndSchedule(hour: Int, minute: Int) async -> Bool {
@@ -26,7 +39,7 @@ final class NotificationService {
 
         let content = UNMutableNotificationContent()
         content.title = "Your Daily Practice"
-        content.body = "Time for today's herbal protocol. A small step toward balance."
+        content.body = nextBody
         content.sound = .default
 
         var comps = DateComponents()

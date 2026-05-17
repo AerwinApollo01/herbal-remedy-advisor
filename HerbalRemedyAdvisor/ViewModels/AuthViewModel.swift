@@ -24,6 +24,9 @@ class AuthViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var signInError: String?
     @Published var passwordResetSent: Bool = false
+    @Published var verificationEmailSent: Bool = false
+    @Published var isEmailVerified: Bool = true
+    @Published var deleteError: String?
 
     private enum UDKeys {
         static let rememberMe  = "auth_remember_me"
@@ -48,7 +51,6 @@ class AuthViewModel: ObservableObject {
             return
         }
 
-        // Firebase isn't configured until GoogleService-Info.plist is added.
         guard FirebaseApp.app() != nil else {
             await MainActor.run { state = .unauthenticated(reason: .firstTime) }
             return
@@ -59,7 +61,6 @@ class AuthViewModel: ObservableObject {
             return
         }
 
-        // "Remember me" off: always re-auth on cold launch.
         if !rememberMe {
             EmailAuthService.shared.signOut()
             await MainActor.run { state = .unauthenticated(reason: .firstTime) }
@@ -71,9 +72,16 @@ class AuthViewModel: ObservableObject {
             let name = user.displayName ?? UserDefaults.standard.string(forKey: UDKeys.displayName)
             await MainActor.run { state = .authenticated(userID: user.uid, displayName: name) }
         } catch {
-            // Token expired or account deleted/disabled.
-            EmailAuthService.shared.signOut()
-            await MainActor.run { state = .unauthenticated(reason: .revoked) }
+            let nsError = error as NSError
+            if nsError.code == AuthErrorCode.networkError.rawValue {
+                // Offline — trust the cached Firebase token and let them in.
+                let name = user.displayName ?? UserDefaults.standard.string(forKey: UDKeys.displayName)
+                await MainActor.run { state = .authenticated(userID: user.uid, displayName: name) }
+            } else {
+                // Token expired or account deleted/disabled.
+                EmailAuthService.shared.signOut()
+                await MainActor.run { state = .unauthenticated(reason: .revoked) }
+            }
         }
     }
 
@@ -87,6 +95,10 @@ class AuthViewModel: ObservableObject {
             do {
                 let user = try await EmailAuthService.shared.signIn(email: email, password: password)
                 UserDefaults.standard.set(rememberMe, forKey: UDKeys.rememberMe)
+                isEmailVerified = user.isEmailVerified
+                if !user.isEmailVerified {
+                    verificationEmailSent = false // prompt them to verify
+                }
                 state = .authenticated(userID: user.uid, displayName: user.displayName)
             } catch {
                 signInError = error.localizedDescription
@@ -104,10 +116,21 @@ class AuthViewModel: ObservableObject {
             do {
                 let user = try await EmailAuthService.shared.signUp(email: email, password: password)
                 UserDefaults.standard.set(rememberMe, forKey: UDKeys.rememberMe)
+                verificationEmailSent = true
+                isEmailVerified = false
                 state = .firstLogin(userID: user.uid, displayName: nil)
             } catch {
                 signInError = error.localizedDescription
             }
+        }
+    }
+
+    // MARK: - Email Verification
+
+    func resendVerification() {
+        Task {
+            try? await EmailAuthService.shared.sendEmailVerification()
+            await MainActor.run { verificationEmailSent = true }
         }
     }
 
@@ -131,6 +154,23 @@ class AuthViewModel: ObservableObject {
         }
     }
 
+    // MARK: - Delete Account
+
+    func deleteAccount() {
+        guard !isLoading else { return }
+        isLoading = true
+        deleteError = nil
+        Task { @MainActor in
+            defer { isLoading = false }
+            do {
+                try await EmailAuthService.shared.deleteAccount()
+                signOut()
+            } catch {
+                deleteError = error.localizedDescription
+            }
+        }
+    }
+
     // MARK: - Welcome completion
 
     func completeWelcome(userID: String, displayName: String?) {
@@ -144,6 +184,7 @@ class AuthViewModel: ObservableObject {
         UserDefaults.standard.removeObject(forKey: UDKeys.displayName)
         signInError = nil
         passwordResetSent = false
+        verificationEmailSent = false
         state = .unauthenticated(reason: .firstTime)
     }
 
@@ -158,7 +199,6 @@ class AuthViewModel: ObservableObject {
     // MARK: - Test support
 
     static func clearAuthState() {
-        // Route through the guarded helper so this is safe before Firebase is configured.
         EmailAuthService.shared.signOut()
         UserDefaults.standard.removeObject(forKey: "auth_display_name")
         UserDefaults.standard.removeObject(forKey: "auth_remember_me")

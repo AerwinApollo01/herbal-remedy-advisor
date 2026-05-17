@@ -32,10 +32,17 @@ final class EmailAuthService {
         guard isConfigured else { throw notConfiguredError() }
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            // Send verification email — non-blocking, failure is acceptable
+            try? await result.user.sendEmailVerification()
             return result.user
         } catch {
             throw friendly(error)
         }
+    }
+
+    func sendEmailVerification() async throws {
+        guard isConfigured, let user = Auth.auth().currentUser else { return }
+        try await user.sendEmailVerification()
     }
 
     func sendPasswordReset(email: String) async throws {
@@ -47,10 +54,17 @@ final class EmailAuthService {
         }
     }
 
-    private func notConfiguredError() -> Error {
-        NSError(domain: "EmailAuthService", code: -1,
-                userInfo: [NSLocalizedDescriptionKey:
-                    "Firebase is not set up yet. Add GoogleService-Info.plist to the project."])
+    func deleteAccount() async throws {
+        guard isConfigured else { throw notConfiguredError() }
+        guard let user = Auth.auth().currentUser else {
+            throw NSError(domain: "EmailAuthService", code: -1,
+                          userInfo: [NSLocalizedDescriptionKey: "No signed-in account found."])
+        }
+        do {
+            try await user.delete()
+        } catch {
+            throw friendly(error)
+        }
     }
 
     func signOut() {
@@ -81,17 +95,25 @@ final class EmailAuthService {
         case AuthErrorCode.weakPassword.rawValue:
             message = "Password must be at least 6 characters."
         case AuthErrorCode.networkError.rawValue:
-            message = "Network error. Check your connection and try again."
+            message = "Can't connect to the network. Check your connection and try again."
         case AuthErrorCode.tooManyRequests.rawValue:
             message = "Too many attempts. Please wait a moment and try again."
         case AuthErrorCode.userDisabled.rawValue:
             message = "This account has been disabled. Please contact support."
         case AuthErrorCode.operationNotAllowed.rawValue:
             message = "Email/password sign-in is not enabled. Contact support."
+        case AuthErrorCode.requiresRecentLogin.rawValue:
+            message = "For security, please sign out and sign back in before deleting your account."
         default:
             message = "Something went wrong. Please try again."
         }
         return NSError(domain: "EmailAuthService", code: code,
                        userInfo: [NSLocalizedDescriptionKey: message])
+    }
+
+    private func notConfiguredError() -> Error {
+        NSError(domain: "EmailAuthService", code: -1,
+                userInfo: [NSLocalizedDescriptionKey:
+                    "Firebase is not set up yet. Add GoogleService-Info.plist to the project."])
     }
 }
