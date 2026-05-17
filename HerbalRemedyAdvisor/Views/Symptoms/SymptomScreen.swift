@@ -34,7 +34,7 @@ struct SymptomScreen: View {
             AppHeader(
                 icon: "leaf.fill",
                 label: "Natural Cleanse",
-                title: "Herbal Remedy Advisor",
+                title: "Nise",
                 subtitle: "Eastern & Traditional Medicine"
             )
 

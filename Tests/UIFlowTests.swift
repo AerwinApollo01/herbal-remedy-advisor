@@ -6,6 +6,7 @@ final class UIFlowTests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchArguments = ["-SkipAuth", "-ResetJournalState"]
         app.launch()
         sleep(1)
     }

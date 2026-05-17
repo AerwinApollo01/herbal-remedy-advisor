@@ -12,23 +12,31 @@
 		0A51D41FC172032F6CC55A6D /* ProtocolCompleteOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE352DCD4850E921494A4 /* ProtocolCompleteOverlay.swift */; };
 		0D094EBD231E8B612E267720 /* RemedyDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94BEBBB3C43BB95CC69EA44 /* RemedyDetailScreen.swift */; };
 		11B2D1F3DAFDD817D128491B /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A7F34C8EF813082DC081B /* RootTabView.swift */; };
+		212167750576FEF4DD7C1BBA /* EmailAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73000590D40DAFD2DDDACC44 /* EmailAuthService.swift */; };
 		21B3BA0346D15BAE77B8DC18 /* RemedyDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C484133847AA30065F5B4294 /* RemedyDatabase.swift */; };
 		26CDEEDE4A7A0C521BD1A8BA /* ResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77A2D93F498E660A85A0300 /* ResultsScreen.swift */; };
 		278F39660B41D597424124F0 /* HerbalLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC91B0A82BFFF3A164A899 /* HerbalLoadingView.swift */; };
 		33A189A185FFC665C928E0CD /* SymptomChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69AE5CE0CED24D616E86E74 /* SymptomChip.swift */; };
 		33DA7B567035D49C929EDCB7 /* TodayTaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65C437AB83C113EC60ABF89 /* TodayTaskCard.swift */; };
 		3936507A12B0E7BD04A5B87B /* Font+Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695580BEDAF7C86E55C2678E /* Font+Brand.swift */; };
+		4149F26C07050D55AA2A8C2E /* InfrastructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C700B99DD637F879D4DBF9A /* InfrastructureTests.swift */; };
 		42934B044D2F08E1CA66850D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5A50EBCC0B2C8561A2568 /* ProgressBar.swift */; };
 		42ED08268630B06507D5A52B /* JournalCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701F29B0E68AC2E2BA006E0C /* JournalCalendar.swift */; };
 		4842DA2CF12CD7CBD047F8EA /* JournalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E027A7570CA9FAE1F98D2 /* JournalState.swift */; };
+		4CF949785CB6B6E6576AE95D /* SafetyDisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E6D22E4E7A3F51D58B00C /* SafetyDisclaimerView.swift */; };
 		4E0158DA5E1421F054680D63 /* SymptomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73907935D857D6F76E3223D2 /* SymptomViewModel.swift */; };
+		54B128D2805A8F4E919E5BA9 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A1C61C5668AE027BA3ED6 /* WelcomeScreen.swift */; };
 		563BA029BEAB646425C05EE6 /* JournalFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FB5C9D2E4C304E6B2F333 /* JournalFlowTests.swift */; };
 		56B94E160DD838DBE46977FB /* TraditionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48FF9A7082703FEC9D7C6DB /* TraditionViewModel.swift */; };
+		58544C5648A1636E1AEFC054 /* LaunchScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35FCCAFDF8099690BE1CE98 /* LaunchScreenTests.swift */; };
+		5B217194EF9A0B5FF70AE8F7 /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D0AF5C298055D736FB4B6D /* AuthViewModelTests.swift */; };
 		5CDFFBE963919F6C96B44FFA /* RemedyDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5D1A234E4158FBF9D12BE5 /* RemedyDatabaseTests.swift */; };
 		5E0425DF9925FC98CF58953A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F58678049CAB5C8D0E1716A /* Assets.xcassets */; };
 		6834D686A0B809095609F28C /* TraditionDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C3720EA30795C5747F556 /* TraditionDetailScreen.swift */; };
+		6A8EFE2741BA69E194DE03A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F4EFEE689C9DADC29039383 /* GoogleService-Info.plist */; };
 		6C6D02D27FC79081E8160057 /* PlaceholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F788253642ACF4BB30D782 /* PlaceholderTests.swift */; };
 		775F6B24E12B49D85CB8FA24 /* JournalViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E778748E14F349B9346845 /* JournalViewModelTests.swift */; };
+		7768E3EF18AE1AFA9A408383 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8BB579178D2DED23DAFE3A9E /* PrivacyInfo.xcprivacy */; };
 		782DA9078A66808B4F8594FA /* Color+Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB895DFD4952611B4666A6 /* Color+Brand.swift */; };
 		78A9223E8851E937DE324434 /* NotoSans-Variable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8AC1580606EA0633F8884CB /* NotoSans-Variable.ttf */; };
 		7CED3B5031F2FB036516CFD0 /* QuoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16934FACD44D944D0F17A5 /* QuoteDatabase.swift */; };
@@ -36,22 +44,35 @@
 		81F5EF4D962480F5CFE7C8DA /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0943C88D1462D50E892AED7C /* NotoSans-Regular.ttf */; };
 		829C9FE4FA3F001AF56A5D9E /* HerbalRemedyAdvisorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA14B8792CF393AA4B8A0A /* HerbalRemedyAdvisorApp.swift */; };
 		84F626A3449D3B791C174E40 /* NotoSerif-Variable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB3737BB7D1DB03C63DBAB76 /* NotoSerif-Variable.ttf */; };
+		9006C3CD61CB17CE27929B61 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A59A6D5AE61EA349A949D /* LoginScreen.swift */; };
 		91135FF7EB95C93B1FCD6CA5 /* Remedy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565B2F4F71A5777B0CC74571 /* Remedy.swift */; };
 		95430DD4361D5B1024775F43 /* Tradition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA30CD0ABCB1734160E852E /* Tradition.swift */; };
 		97B5E3E8B4BD1C4C16017A7A /* TraditionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE22BDAAD45A8AEE113733D0 /* TraditionCard.swift */; };
 		992821308FA083266491DEE4 /* TraditionBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3017EF7F8B60A99F9A297F /* TraditionBadge.swift */; };
+		9CC9CD50E86093C31CDE9A76 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 2621D01C4FC435DD96A6BE1C /* FirebaseCore */; };
 		9EEE77F4954F6A08D43C599D /* AppHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03BB12832EA87612AB06014 /* AppHeader.swift */; };
 		9FC98F295132CBFE5EC936EC /* AchievementRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F3ADDDA640F05DB2AB9F13 /* AchievementRow.swift */; };
+		A48DBFD564E50162F8051557 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5C0C9199326A836FDC8F7A /* AuthViewModel.swift */; };
+		A6F969199044795C873B9A80 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44421042173919116CD338E6 /* OnboardingScreen.swift */; };
+		ABA788F624B10ABCC9A114FF /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83967801C87300129F7AA729 /* SettingsScreen.swift */; };
 		AE8D9BB69D3DAC7BA6EC2BA4 /* QuoteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D75C2F1376B2E57A2196CBE /* QuoteCard.swift */; };
 		B34579A500FF41971E764618 /* DayDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9E68E6E9AFFC66436C29F3 /* DayDetailCard.swift */; };
 		B53609B90539D2A42637DC90 /* JournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1222CE62352BCA67C7206F /* JournalViewModel.swift */; };
 		BB673AD30EEDDD04C35E93B9 /* TraditionFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDD3BE3B5926AFF4115B67B /* TraditionFlagView.swift */; };
+		C01B86EDA8D8903907853EEB /* KeychainHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44CF2D540831425E77B5D5 /* KeychainHelperTests.swift */; };
+		C1A18CE362F7D0EC6679AC42 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4635D83D041E415626F44C /* KeychainHelper.swift */; };
+		C1B61E9909ADBAC168EBD81A /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4D899855787B4DE5C5CC49 /* FirestoreService.swift */; };
 		C80839AEF5035AEFF9001885 /* UIFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150643E27E9AE79B7B4DD7E /* UIFlowTests.swift */; };
 		C9E66EAFD5048D364D62E8E7 /* TraditionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191EF8E2432D18B9A95AA08D /* TraditionViewModelTests.swift */; };
+		CDB39762D3EEC3173B42ADC6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0657606D8126EF45262216C4 /* FirebaseAuth */; };
 		CE288987DD3E4EFC54668CDE /* TraditionFilterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF681BE67CB8BF7E0F04EA03 /* TraditionFilterScreen.swift */; };
+		D02F585380236A382B5C5E3A /* AuthFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B5CBDFEA147E4575E2A8C /* AuthFlowTests.swift */; };
 		D1A88F2F093A16AF278D34AF /* JournalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07CFFBAD0A17D62B3404936 /* JournalScreen.swift */; };
 		E50B9ED1E355DCE0CD138A64 /* NotoSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85E6DB35232709FE84DA9900 /* NotoSerif-Regular.ttf */; };
 		E79095BDE5E5882A411996FA /* TraditionDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D0C6307AED946ABFFCEFA /* TraditionDatabase.swift */; };
+		EB1A546FE5E7AE2A113AB170 /* ScreenshotCaptureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CACAF1D5ED5BB1D8A61D985 /* ScreenshotCaptureTests.swift */; };
+		F2E6C59F6EA4050ED5DF25CC /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8FDF1D43E642EBC8D19134 /* NotificationService.swift */; };
+		F4BA5D315E48ED31F17217B1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B1FB0D1E5FF7E67E09368421 /* FirebaseFirestore */; };
 		F6E824AD8F674B73F8F41997 /* SymptomScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BE03B097A7873C737B47EC /* SymptomScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,13 +101,18 @@
 		1BDA127112A261D562623244 /* DayCompleteOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCompleteOverlay.swift; sourceTree = "<group>"; };
 		1BDD3BE3B5926AFF4115B67B /* TraditionFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionFlagView.swift; sourceTree = "<group>"; };
 		1DC5A50EBCC0B2C8561A2568 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		1F4D899855787B4DE5C5CC49 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		22BE03B097A7873C737B47EC /* SymptomScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomScreen.swift; sourceTree = "<group>"; };
 		27F3ADDDA640F05DB2AB9F13 /* AchievementRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementRow.swift; sourceTree = "<group>"; };
 		2C2A7F34C8EF813082DC081B /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		2C7E6D22E4E7A3F51D58B00C /* SafetyDisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyDisclaimerView.swift; sourceTree = "<group>"; };
 		30F788253642ACF4BB30D782 /* PlaceholderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTests.swift; sourceTree = "<group>"; };
 		380E98CA6E1D9725F6602B6E /* HerbalRemedyAdvisorTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HerbalRemedyAdvisorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E778748E14F349B9346845 /* JournalViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModelTests.swift; sourceTree = "<group>"; };
+		3970E441C57460457A5905DE /* HerbalRemedyAdvisor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HerbalRemedyAdvisor.entitlements; sourceTree = "<group>"; };
 		3B9E68E6E9AFFC66436C29F3 /* DayDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailCard.swift; sourceTree = "<group>"; };
+		3C700B99DD637F879D4DBF9A /* InfrastructureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfrastructureTests.swift; sourceTree = "<group>"; };
+		44421042173919116CD338E6 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		48BC91B0A82BFFF3A164A899 /* HerbalLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerbalLoadingView.swift; sourceTree = "<group>"; };
 		4EA30CD0ABCB1734160E852E /* Tradition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tradition.swift; sourceTree = "<group>"; };
 		4F219CCD4337562C2C044CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -95,17 +121,26 @@
 		565B2F4F71A5777B0CC74571 /* Remedy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remedy.swift; sourceTree = "<group>"; };
 		695580BEDAF7C86E55C2678E /* Font+Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Brand.swift"; sourceTree = "<group>"; };
 		6BCA14B8792CF393AA4B8A0A /* HerbalRemedyAdvisorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerbalRemedyAdvisorApp.swift; sourceTree = "<group>"; };
+		6CACAF1D5ED5BB1D8A61D985 /* ScreenshotCaptureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCaptureTests.swift; sourceTree = "<group>"; };
 		6D75C2F1376B2E57A2196CBE /* QuoteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCard.swift; sourceTree = "<group>"; };
 		701F29B0E68AC2E2BA006E0C /* JournalCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCalendar.swift; sourceTree = "<group>"; };
+		707A59A6D5AE61EA349A949D /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		73000590D40DAFD2DDDACC44 /* EmailAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthService.swift; sourceTree = "<group>"; };
 		7347945B2E24E0920AD357C5 /* HerbalRemedyAdvisorUnitTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HerbalRemedyAdvisorUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73907935D857D6F76E3223D2 /* SymptomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomViewModel.swift; sourceTree = "<group>"; };
+		7C44CF2D540831425E77B5D5 /* KeychainHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelperTests.swift; sourceTree = "<group>"; };
+		83967801C87300129F7AA729 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		85E6DB35232709FE84DA9900 /* NotoSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerif-Regular.ttf"; sourceTree = "<group>"; };
+		8BB579178D2DED23DAFE3A9E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		9B0D0C6307AED946ABFFCEFA /* TraditionDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionDatabase.swift; sourceTree = "<group>"; };
+		9B8B5CBDFEA147E4575E2A8C /* AuthFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowTests.swift; sourceTree = "<group>"; };
 		9C87564A7201C2D5BE9D748D /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		9F4EFEE689C9DADC29039383 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A48FF9A7082703FEC9D7C6DB /* TraditionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionViewModel.swift; sourceTree = "<group>"; };
 		A65C437AB83C113EC60ABF89 /* TodayTaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTaskCard.swift; sourceTree = "<group>"; };
 		A77A2D93F498E660A85A0300 /* ResultsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsScreen.swift; sourceTree = "<group>"; };
 		AE22BDAAD45A8AEE113733D0 /* TraditionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionCard.swift; sourceTree = "<group>"; };
+		B4D0AF5C298055D736FB4B6D /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
 		B50E027A7570CA9FAE1F98D2 /* JournalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalState.swift; sourceTree = "<group>"; };
 		BD5D1A234E4158FBF9D12BE5 /* RemedyDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyDatabaseTests.swift; sourceTree = "<group>"; };
 		BE16934FACD44D944D0F17A5 /* QuoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDatabase.swift; sourceTree = "<group>"; };
@@ -115,25 +150,47 @@
 		CB3737BB7D1DB03C63DBAB76 /* NotoSerif-Variable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerif-Variable.ttf"; sourceTree = "<group>"; };
 		CF681BE67CB8BF7E0F04EA03 /* TraditionFilterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionFilterScreen.swift; sourceTree = "<group>"; };
 		D07CFFBAD0A17D62B3404936 /* JournalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalScreen.swift; sourceTree = "<group>"; };
+		D35FCCAFDF8099690BE1CE98 /* LaunchScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenTests.swift; sourceTree = "<group>"; };
 		D69AE5CE0CED24D616E86E74 /* SymptomChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomChip.swift; sourceTree = "<group>"; };
 		DA8ADBAE49491ACEEB87AA3D /* HerbalRemedyAdvisor.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HerbalRemedyAdvisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE1A1C61C5668AE027BA3ED6 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		E03BB12832EA87612AB06014 /* AppHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeader.swift; sourceTree = "<group>"; };
 		E06EE352DCD4850E921494A4 /* ProtocolCompleteOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolCompleteOverlay.swift; sourceTree = "<group>"; };
 		F150643E27E9AE79B7B4DD7E /* UIFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFlowTests.swift; sourceTree = "<group>"; };
 		F17C3720EA30795C5747F556 /* TraditionDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionDetailScreen.swift; sourceTree = "<group>"; };
+		FB5C0C9199326A836FDC8F7A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		FB94C22E018F56F34CB65506 /* RemedyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyCard.swift; sourceTree = "<group>"; };
+		FE4635D83D041E415626F44C /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		FF1222CE62352BCA67C7206F /* JournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModel.swift; sourceTree = "<group>"; };
+		FF8FDF1D43E642EBC8D19134 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5DE4F65E687539C0C6ADEC55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDB39762D3EEC3173B42ADC6 /* FirebaseAuth in Frameworks */,
+				9CC9CD50E86093C31CDE9A76 /* FirebaseCore in Frameworks */,
+				F4BA5D315E48ED31F17217B1 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		047A3FA513B68ADEF9223392 /* HerbalRemedyAdvisor */ = {
 			isa = PBXGroup;
 			children = (
+				9F4EFEE689C9DADC29039383 /* GoogleService-Info.plist */,
+				3970E441C57460457A5905DE /* HerbalRemedyAdvisor.entitlements */,
 				4F219CCD4337562C2C044CBA /* Info.plist */,
+				8BB579178D2DED23DAFE3A9E /* PrivacyInfo.xcprivacy */,
 				1EA4573C6E50B5503A7C8038 /* App */,
 				71A8E396572177C57E7B0DAE /* Data */,
 				BA27E59BFCE7B83D4D76962C /* Models */,
 				DAB2DBC854F7F7C4D2A550E3 /* Resources */,
+				426CAABA3EDBB70DF3484C74 /* Services */,
 				F9C06B00BF5FD619AC271BAB /* ViewModels */,
 				E19586A6487509D8C20FED3C /* Views */,
 			);
@@ -172,7 +229,10 @@
 		2BB1289DD35D01661E68120D /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				B4D0AF5C298055D736FB4B6D /* AuthViewModelTests.swift */,
+				3C700B99DD637F879D4DBF9A /* InfrastructureTests.swift */,
 				38E778748E14F349B9346845 /* JournalViewModelTests.swift */,
+				7C44CF2D540831425E77B5D5 /* KeychainHelperTests.swift */,
 				BD5D1A234E4158FBF9D12BE5 /* RemedyDatabaseTests.swift */,
 				191EF8E2432D18B9A95AA08D /* TraditionViewModelTests.swift */,
 			);
@@ -188,11 +248,35 @@
 			path = Symptoms;
 			sourceTree = "<group>";
 		};
+		41DF50E1A1E1A696F8F9715F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				707A59A6D5AE61EA349A949D /* LoginScreen.swift */,
+				44421042173919116CD338E6 /* OnboardingScreen.swift */,
+				DE1A1C61C5668AE027BA3ED6 /* WelcomeScreen.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		426CAABA3EDBB70DF3484C74 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				73000590D40DAFD2DDDACC44 /* EmailAuthService.swift */,
+				1F4D899855787B4DE5C5CC49 /* FirestoreService.swift */,
+				FE4635D83D041E415626F44C /* KeychainHelper.swift */,
+				FF8FDF1D43E642EBC8D19134 /* NotificationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		46E58B1375EE91D33E0802CF /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				9B8B5CBDFEA147E4575E2A8C /* AuthFlowTests.swift */,
 				181FB5C9D2E4C304E6B2F333 /* JournalFlowTests.swift */,
+				D35FCCAFDF8099690BE1CE98 /* LaunchScreenTests.swift */,
 				30F788253642ACF4BB30D782 /* PlaceholderTests.swift */,
+				6CACAF1D5ED5BB1D8A61D985 /* ScreenshotCaptureTests.swift */,
 				F150643E27E9AE79B7B4DD7E /* UIFlowTests.swift */,
 			);
 			path = Tests;
@@ -226,6 +310,15 @@
 				CF681BE67CB8BF7E0F04EA03 /* TraditionFilterScreen.swift */,
 			);
 			path = Traditions;
+			sourceTree = "<group>";
+		};
+		B4D2269D61E0AE450F210085 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2C7E6D22E4E7A3F51D58B00C /* SafetyDisclaimerView.swift */,
+				83967801C87300129F7AA729 /* SettingsScreen.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		BA27E59BFCE7B83D4D76962C /* Models */ = {
@@ -283,9 +376,11 @@
 			isa = PBXGroup;
 			children = (
 				2C2A7F34C8EF813082DC081B /* RootTabView.swift */,
+				41DF50E1A1E1A696F8F9715F /* Auth */,
 				211102631E6C7AF756FF1493 /* Detail */,
 				FCDB202630ABA9E9623A99D1 /* Journal */,
 				875A5A90D26CAA2D56C4F31D /* Results */,
+				B4D2269D61E0AE450F210085 /* Settings */,
 				26A5BBE676DF851752795C4D /* Shared */,
 				3D78DF298A6FF74BDC1600A9 /* Symptoms */,
 				A9463501D6DD7E3197E2712A /* Traditions */,
@@ -296,6 +391,7 @@
 		F9C06B00BF5FD619AC271BAB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FB5C0C9199326A836FDC8F7A /* AuthViewModel.swift */,
 				FF1222CE62352BCA67C7206F /* JournalViewModel.swift */,
 				73907935D857D6F76E3223D2 /* SymptomViewModel.swift */,
 				A48FF9A7082703FEC9D7C6DB /* TraditionViewModel.swift */,
@@ -327,6 +423,7 @@
 			buildPhases = (
 				4DE39A04BA4C6864E95FB906 /* Sources */,
 				3C6728250600E978631C1AC2 /* Resources */,
+				5DE4F65E687539C0C6ADEC55 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -334,6 +431,9 @@
 			);
 			name = HerbalRemedyAdvisor;
 			packageProductDependencies = (
+				0657606D8126EF45262216C4 /* FirebaseAuth */,
+				2621D01C4FC435DD96A6BE1C /* FirebaseCore */,
+				B1FB0D1E5FF7E67E09368421 /* FirebaseFirestore */,
 			);
 			productName = HerbalRemedyAdvisor;
 			productReference = DA8ADBAE49491ACEEB87AA3D /* HerbalRemedyAdvisor.app */;
@@ -406,6 +506,9 @@
 			);
 			mainGroup = C05A76847CC32F875C8F8A16;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8649B18460D7D18DAD7D7574 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DFDF9AD8065C44CA2444CA55 /* Products */;
 			projectDirPath = "";
@@ -424,10 +527,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E0425DF9925FC98CF58953A /* Assets.xcassets in Resources */,
+				6A8EFE2741BA69E194DE03A2 /* GoogleService-Info.plist in Resources */,
 				81F5EF4D962480F5CFE7C8DA /* NotoSans-Regular.ttf in Resources */,
 				78A9223E8851E937DE324434 /* NotoSans-Variable.ttf in Resources */,
 				E50B9ED1E355DCE0CD138A64 /* NotoSerif-Regular.ttf in Resources */,
 				84F626A3449D3B791C174E40 /* NotoSerif-Variable.ttf in Resources */,
+				7768E3EF18AE1AFA9A408383 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,9 +545,12 @@
 			files = (
 				9FC98F295132CBFE5EC936EC /* AchievementRow.swift in Sources */,
 				9EEE77F4954F6A08D43C599D /* AppHeader.swift in Sources */,
+				A48DBFD564E50162F8051557 /* AuthViewModel.swift in Sources */,
 				782DA9078A66808B4F8594FA /* Color+Brand.swift in Sources */,
 				02BF3DAED35F7CA7E3801492 /* DayCompleteOverlay.swift in Sources */,
 				B34579A500FF41971E764618 /* DayDetailCard.swift in Sources */,
+				212167750576FEF4DD7C1BBA /* EmailAuthService.swift in Sources */,
+				C1B61E9909ADBAC168EBD81A /* FirestoreService.swift in Sources */,
 				3936507A12B0E7BD04A5B87B /* Font+Brand.swift in Sources */,
 				278F39660B41D597424124F0 /* HerbalLoadingView.swift in Sources */,
 				829C9FE4FA3F001AF56A5D9E /* HerbalRemedyAdvisorApp.swift in Sources */,
@@ -450,6 +558,10 @@
 				D1A88F2F093A16AF278D34AF /* JournalScreen.swift in Sources */,
 				4842DA2CF12CD7CBD047F8EA /* JournalState.swift in Sources */,
 				B53609B90539D2A42637DC90 /* JournalViewModel.swift in Sources */,
+				C1A18CE362F7D0EC6679AC42 /* KeychainHelper.swift in Sources */,
+				9006C3CD61CB17CE27929B61 /* LoginScreen.swift in Sources */,
+				F2E6C59F6EA4050ED5DF25CC /* NotificationService.swift in Sources */,
+				A6F969199044795C873B9A80 /* OnboardingScreen.swift in Sources */,
 				42934B044D2F08E1CA66850D /* ProgressBar.swift in Sources */,
 				0A51D41FC172032F6CC55A6D /* ProtocolCompleteOverlay.swift in Sources */,
 				000E348EA16E9C71CCAE881D /* Quote.swift in Sources */,
@@ -461,6 +573,8 @@
 				0D094EBD231E8B612E267720 /* RemedyDetailScreen.swift in Sources */,
 				26CDEEDE4A7A0C521BD1A8BA /* ResultsScreen.swift in Sources */,
 				11B2D1F3DAFDD817D128491B /* RootTabView.swift in Sources */,
+				4CF949785CB6B6E6576AE95D /* SafetyDisclaimerView.swift in Sources */,
+				ABA788F624B10ABCC9A114FF /* SettingsScreen.swift in Sources */,
 				33A189A185FFC665C928E0CD /* SymptomChip.swift in Sources */,
 				F6E824AD8F674B73F8F41997 /* SymptomScreen.swift in Sources */,
 				4E0158DA5E1421F054680D63 /* SymptomViewModel.swift in Sources */,
@@ -473,6 +587,7 @@
 				CE288987DD3E4EFC54668CDE /* TraditionFilterScreen.swift in Sources */,
 				BB673AD30EEDDD04C35E93B9 /* TraditionFlagView.swift in Sources */,
 				56B94E160DD838DBE46977FB /* TraditionViewModel.swift in Sources */,
+				54B128D2805A8F4E919E5BA9 /* WelcomeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,8 +595,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D02F585380236A382B5C5E3A /* AuthFlowTests.swift in Sources */,
 				563BA029BEAB646425C05EE6 /* JournalFlowTests.swift in Sources */,
+				58544C5648A1636E1AEFC054 /* LaunchScreenTests.swift in Sources */,
 				6C6D02D27FC79081E8160057 /* PlaceholderTests.swift in Sources */,
+				EB1A546FE5E7AE2A113AB170 /* ScreenshotCaptureTests.swift in Sources */,
 				C80839AEF5035AEFF9001885 /* UIFlowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +608,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B217194EF9A0B5FF70AE8F7 /* AuthViewModelTests.swift in Sources */,
+				4149F26C07050D55AA2A8C2E /* InfrastructureTests.swift in Sources */,
 				775F6B24E12B49D85CB8FA24 /* JournalViewModelTests.swift in Sources */,
+				C01B86EDA8D8903907853EEB /* KeychainHelperTests.swift in Sources */,
 				5CDFFBE963919F6C96B44FFA /* RemedyDatabaseTests.swift in Sources */,
 				C9E66EAFD5048D364D62E8E7 /* TraditionViewModelTests.swift in Sources */,
 			);
@@ -592,6 +713,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HerbalRemedyAdvisor/HerbalRemedyAdvisor.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HerbalRemedyAdvisor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -645,6 +767,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HerbalRemedyAdvisor/HerbalRemedyAdvisor.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HerbalRemedyAdvisor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -783,6 +906,35 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8649B18460D7D18DAD7D7574 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0657606D8126EF45262216C4 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8649B18460D7D18DAD7D7574 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2621D01C4FC435DD96A6BE1C /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8649B18460D7D18DAD7D7574 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		B1FB0D1E5FF7E67E09368421 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8649B18460D7D18DAD7D7574 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7FDBA55F32F7014CCAE2FB21 /* Project object */;
 }

@@ -41,3 +41,6 @@ Icon?
 # Font variable copies (only keep the -Regular named files)
 HerbalRemedyAdvisor/Resources/Fonts/NotoSerif-Variable.ttf
 HerbalRemedyAdvisor/Resources/Fonts/NotoSans-Variable.ttf
+
+# Firebase credentials — never commit to a public repo
+HerbalRemedyAdvisor/GoogleService-Info.plist

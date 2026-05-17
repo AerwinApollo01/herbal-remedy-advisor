@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AchievementRow: View {
     @EnvironmentObject var journalVM: JournalViewModel
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
 
     private struct Achievement {
         let sfSymbol: String
@@ -43,10 +44,13 @@ struct AchievementRow: View {
                     .cornerRadius(10)
                     .shadow(color: unlocked ? .black.opacity(0.07) : .clear, radius: 6)
                     .opacity(unlocked ? 1.0 : 0.4)
-                    .animation(.spring(response: 0.4), value: unlocked)
+                    .animation(reduceMotion ? nil : .spring(response: 0.4), value: unlocked)
+                    .accessibilityLabel("\(achievement.name) achievement, \(unlocked ? "unlocked" : "locked")")
+                    .accessibilityAddTraits(unlocked ? [] : .isStaticText)
                 }
             }
         }
+        .accessibilityElement(children: .contain)
     }
 
     private func isUnlocked(_ achievement: Achievement) -> Bool {

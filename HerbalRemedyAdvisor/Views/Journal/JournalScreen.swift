@@ -2,7 +2,9 @@ import SwiftUI
 
 struct JournalScreen: View {
     @EnvironmentObject var journalVM: JournalViewModel
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
     @State private var isCompletingDay = false
+    @State private var reminderTime: Date = JournalScreen.defaultReminderDate(hour: 7, minute: 30)
 
     private var recipe: Remedy? { journalVM.journalRecipe }
     private var tradition: Tradition? {
@@ -16,24 +18,37 @@ struct JournalScreen: View {
         ZStack {
             if let recipe {
                 mainJournal(recipe: recipe)
-                    .transition(.opacity)
+                    .transition(reduceMotion ? .identity : .opacity)
             } else {
                 emptyState
-                    .transition(.opacity)
+                    .transition(reduceMotion ? .identity : .opacity)
             }
 
             if journalVM.showDayOverlay {
                 DayCompleteOverlay()
-                    .transition(.opacity)
+                    .transition(reduceMotion ? .identity : .opacity)
             }
 
             if journalVM.showProtocolOverlay {
                 ProtocolCompleteOverlay()
-                    .transition(.opacity)
+                    .transition(reduceMotion ? .identity : .opacity)
             }
         }
-        .animation(.easeInOut(duration: 0.3), value: journalVM.showDayOverlay)
-        .animation(.easeInOut(duration: 0.3), value: journalVM.showProtocolOverlay)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.3), value: journalVM.showDayOverlay)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.3), value: journalVM.showProtocolOverlay)
+        .onAppear { syncReminderTime() }
+        .onChange(of: journalVM.reminderHour)   { _ in syncReminderTime() }
+        .onChange(of: journalVM.reminderMinute) { _ in syncReminderTime() }
+        .alert("Notifications Blocked", isPresented: $journalVM.showNotificationDeniedAlert) {
+            Button("Open Settings") {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
+                }
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("To receive daily reminders, enable notifications for Nise in Settings.")
+        }
     }
 
     private func mainJournal(recipe: Remedy) -> some View {
@@ -59,7 +74,8 @@ struct JournalScreen: View {
                     // Day detail card (revealed on tap)
                     if let selected = journalVM.selectedCalDay {
                         DayDetailCard(selected: selected)
-                            .animation(.easeInOut(duration: 0.25), value: journalVM.selectedCalDay?.dayOfMonth)
+                            .animation(reduceMotion ? nil : .easeInOut(duration: 0.25),
+                                       value: journalVM.selectedCalDay?.dayOfMonth)
                     }
 
                     TodayTaskCard()
@@ -83,6 +99,7 @@ struct JournalScreen: View {
                                 .cornerRadius(16)
                                 .shadow(color: .forest.opacity(0.3), radius: 6, y: 3)
                         }
+                        .accessibilityLabel("Mark today complete")
                         .accessibilityHint("Marks today's protocol as completed")
                     }
 
@@ -101,7 +118,6 @@ struct JournalScreen: View {
             .background(Color.cream)
         }
         .background(Color.cream)
-
     }
 
     private func heroSection(recipe: Remedy) -> some View {
@@ -128,6 +144,7 @@ struct JournalScreen: View {
                 .padding(.vertical, 6)
                 .background(Color.gold)
                 .cornerRadius(20)
+                .accessibilityLabel("\(journalVM.completedDays.count) days completed")
         }
         .padding(16)
         .background(Color.white)
@@ -147,6 +164,8 @@ struct JournalScreen: View {
         .background(Color.white)
         .cornerRadius(16)
         .shadow(color: .black.opacity(0.07), radius: 12, y: 3)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(journalVM.completedDays.count) days done, \(journalVM.daysLeft) days left, \(Int(journalVM.progressPercent * 100)) percent complete")
     }
 
     private func statCell(value: String, label: String) -> some View {
@@ -163,23 +182,52 @@ struct JournalScreen: View {
     }
 
     private var reminderRow: some View {
-        HStack {
-            Label("Daily Reminder", systemImage: "alarm")
-                .font(.notoSans(size: 12))
-                .foregroundColor(.subtext)
-            Text("7:30 AM")
-                .font(.notoSans(size: 12, weight: .semibold))
-                .foregroundColor(.forest)
-            Spacer()
-            Toggle("", isOn: $journalVM.reminderOn)
+        VStack(spacing: 0) {
+            HStack {
+                Label("Daily Reminder", systemImage: "alarm")
+                    .font(.notoSans(size: 12))
+                    .foregroundColor(.subtext)
+                Spacer()
+                Toggle("", isOn: Binding(
+                    get: { journalVM.reminderOn },
+                    set: { enabled in
+                        Task { await journalVM.setReminder(enabled: enabled) }
+                    }
+                ))
+                .labelsHidden()
                 .tint(.forest)
-                .onChange(of: journalVM.reminderOn) { _ in journalVM.persistState() }
+                .accessibilityLabel("Daily reminder")
+            }
+
+            if journalVM.reminderOn {
+                Divider()
+                    .background(Color.mist.opacity(0.2))
+                    .padding(.vertical, 10)
+
+                HStack {
+                    Text("Remind me at")
+                        .font(.notoSans(size: 12))
+                        .foregroundColor(.subtext)
+                    Spacer()
+                    DatePicker("", selection: $reminderTime, displayedComponents: .hourAndMinute)
+                        .labelsHidden()
+                        .tint(.forest)
+                        .onChange(of: reminderTime) { newTime in
+                            let comps = Calendar.current.dateComponents([.hour, .minute], from: newTime)
+                            journalVM.updateReminderTime(
+                                hour: comps.hour ?? 7,
+                                minute: comps.minute ?? 30
+                            )
+                        }
+                }
+            }
         }
         .padding(.horizontal, 16)
-        .padding(.vertical, 12)
+        .padding(.vertical, 14)
         .background(Color.white)
         .cornerRadius(14)
         .shadow(color: .black.opacity(0.05), radius: 8, y: 2)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: journalVM.reminderOn)
     }
 
     private var emptyState: some View {
@@ -209,6 +257,21 @@ struct JournalScreen: View {
             .background(Color.cream)
         }
         .background(Color.cream)
+    }
 
+    // MARK: - Helpers
+
+    private func syncReminderTime() {
+        reminderTime = JournalScreen.defaultReminderDate(
+            hour: journalVM.reminderHour,
+            minute: journalVM.reminderMinute
+        )
+    }
+
+    private static func defaultReminderDate(hour: Int, minute: Int) -> Date {
+        var comps = DateComponents()
+        comps.hour = hour
+        comps.minute = minute
+        return Calendar.current.date(from: comps) ?? Date()
     }
 }

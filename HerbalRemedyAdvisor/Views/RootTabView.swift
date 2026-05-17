@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct RootTabView: View {
+    @EnvironmentObject var authVM: AuthViewModel
     @EnvironmentObject var symptomVM: SymptomViewModel
     @EnvironmentObject var journalVM: JournalViewModel
     @EnvironmentObject var traditionVM: TraditionViewModel
@@ -15,7 +16,7 @@ struct RootTabView: View {
                 .tag(0)
 
             NavigationStack {
-                ResultsScreen()
+                ResultsScreen(selectedTab: $selectedTab)
             }
             .tabItem {
                 Label("Remedies", systemImage: "leaf.fill")
@@ -38,6 +39,12 @@ struct RootTabView: View {
                     Label("Journal", systemImage: "book.closed.fill")
                 }
                 .tag(3)
+
+            SettingsScreen()
+                .tabItem {
+                    Label("About", systemImage: "leaf.circle.fill")
+                }
+                .tag(4)
         }
         .onAppear { configureTabBar() }
         .accentColor(.gold)
