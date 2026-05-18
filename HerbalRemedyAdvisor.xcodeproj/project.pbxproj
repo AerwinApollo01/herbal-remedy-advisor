@@ -35,6 +35,7 @@
 		6834D686A0B809095609F28C /* TraditionDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C3720EA30795C5747F556 /* TraditionDetailScreen.swift */; };
 		6A8EFE2741BA69E194DE03A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F4EFEE689C9DADC29039383 /* GoogleService-Info.plist */; };
 		6C6D02D27FC79081E8160057 /* PlaceholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F788253642ACF4BB30D782 /* PlaceholderTests.swift */; };
+		6F3285B8C01054D3BA5F324E /* PasswordStrengthLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201ECA3BECC28DAABD1C900B /* PasswordStrengthLogicTests.swift */; };
 		775F6B24E12B49D85CB8FA24 /* JournalViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E778748E14F349B9346845 /* JournalViewModelTests.swift */; };
 		7768E3EF18AE1AFA9A408383 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8BB579178D2DED23DAFE3A9E /* PrivacyInfo.xcprivacy */; };
 		782DA9078A66808B4F8594FA /* Color+Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB895DFD4952611B4666A6 /* Color+Brand.swift */; };
@@ -44,6 +45,7 @@
 		81F5EF4D962480F5CFE7C8DA /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0943C88D1462D50E892AED7C /* NotoSans-Regular.ttf */; };
 		829C9FE4FA3F001AF56A5D9E /* HerbalRemedyAdvisorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA14B8792CF393AA4B8A0A /* HerbalRemedyAdvisorApp.swift */; };
 		84F626A3449D3B791C174E40 /* NotoSerif-Variable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB3737BB7D1DB03C63DBAB76 /* NotoSerif-Variable.ttf */; };
+		8DA5E936E5ADF8A360FDB99F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0AA38941E02164C0095026BB /* FirebaseCrashlytics */; };
 		9006C3CD61CB17CE27929B61 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A59A6D5AE61EA349A949D /* LoginScreen.swift */; };
 		91135FF7EB95C93B1FCD6CA5 /* Remedy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565B2F4F71A5777B0CC74571 /* Remedy.swift */; };
 		95430DD4361D5B1024775F43 /* Tradition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA30CD0ABCB1734160E852E /* Tradition.swift */; };
@@ -62,6 +64,7 @@
 		C01B86EDA8D8903907853EEB /* KeychainHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C44CF2D540831425E77B5D5 /* KeychainHelperTests.swift */; };
 		C1A18CE362F7D0EC6679AC42 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4635D83D041E415626F44C /* KeychainHelper.swift */; };
 		C1B61E9909ADBAC168EBD81A /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4D899855787B4DE5C5CC49 /* FirestoreService.swift */; };
+		C1F50D69FAECDCB5FD15EA87 /* IngredientDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27681B38328DB75D0F36086B /* IngredientDetailSheet.swift */; };
 		C80839AEF5035AEFF9001885 /* UIFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150643E27E9AE79B7B4DD7E /* UIFlowTests.swift */; };
 		C9E66EAFD5048D364D62E8E7 /* TraditionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191EF8E2432D18B9A95AA08D /* TraditionViewModelTests.swift */; };
 		CDB39762D3EEC3173B42ADC6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0657606D8126EF45262216C4 /* FirebaseAuth */; };
@@ -70,6 +73,8 @@
 		D1A88F2F093A16AF278D34AF /* JournalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07CFFBAD0A17D62B3404936 /* JournalScreen.swift */; };
 		E50B9ED1E355DCE0CD138A64 /* NotoSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85E6DB35232709FE84DA9900 /* NotoSerif-Regular.ttf */; };
 		E79095BDE5E5882A411996FA /* TraditionDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D0C6307AED946ABFFCEFA /* TraditionDatabase.swift */; };
+		E90D94B20916E5236274B256 /* OurStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34398208B11C3BDF240E35A8 /* OurStoryView.swift */; };
+		EAEEC5270AAF0247C1C80225 /* SkeletonRemedyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8FA2B324933C6394AAA158 /* SkeletonRemedyCard.swift */; };
 		EB1A546FE5E7AE2A113AB170 /* ScreenshotCaptureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CACAF1D5ED5BB1D8A61D985 /* ScreenshotCaptureTests.swift */; };
 		F2E6C59F6EA4050ED5DF25CC /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8FDF1D43E642EBC8D19134 /* NotificationService.swift */; };
 		F4BA5D315E48ED31F17217B1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B1FB0D1E5FF7E67E09368421 /* FirebaseFirestore */; };
@@ -102,11 +107,15 @@
 		1BDD3BE3B5926AFF4115B67B /* TraditionFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionFlagView.swift; sourceTree = "<group>"; };
 		1DC5A50EBCC0B2C8561A2568 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		1F4D899855787B4DE5C5CC49 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		201ECA3BECC28DAABD1C900B /* PasswordStrengthLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStrengthLogicTests.swift; sourceTree = "<group>"; };
 		22BE03B097A7873C737B47EC /* SymptomScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomScreen.swift; sourceTree = "<group>"; };
+		27681B38328DB75D0F36086B /* IngredientDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetailSheet.swift; sourceTree = "<group>"; };
 		27F3ADDDA640F05DB2AB9F13 /* AchievementRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementRow.swift; sourceTree = "<group>"; };
 		2C2A7F34C8EF813082DC081B /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
 		2C7E6D22E4E7A3F51D58B00C /* SafetyDisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyDisclaimerView.swift; sourceTree = "<group>"; };
+		2F8FA2B324933C6394AAA158 /* SkeletonRemedyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonRemedyCard.swift; sourceTree = "<group>"; };
 		30F788253642ACF4BB30D782 /* PlaceholderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTests.swift; sourceTree = "<group>"; };
+		34398208B11C3BDF240E35A8 /* OurStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurStoryView.swift; sourceTree = "<group>"; };
 		380E98CA6E1D9725F6602B6E /* HerbalRemedyAdvisorTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HerbalRemedyAdvisorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E778748E14F349B9346845 /* JournalViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModelTests.swift; sourceTree = "<group>"; };
 		3970E441C57460457A5905DE /* HerbalRemedyAdvisor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HerbalRemedyAdvisor.entitlements; sourceTree = "<group>"; };
@@ -173,6 +182,7 @@
 				CDB39762D3EEC3173B42ADC6 /* FirebaseAuth in Frameworks */,
 				9CC9CD50E86093C31CDE9A76 /* FirebaseCore in Frameworks */,
 				F4BA5D315E48ED31F17217B1 /* FirebaseFirestore in Frameworks */,
+				8DA5E936E5ADF8A360FDB99F /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +218,7 @@
 		211102631E6C7AF756FF1493 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				27681B38328DB75D0F36086B /* IngredientDetailSheet.swift */,
 				C94BEBBB3C43BB95CC69EA44 /* RemedyDetailScreen.swift */,
 			);
 			path = Detail;
@@ -221,6 +232,7 @@
 				695580BEDAF7C86E55C2678E /* Font+Brand.swift */,
 				48BC91B0A82BFFF3A164A899 /* HerbalLoadingView.swift */,
 				1DC5A50EBCC0B2C8561A2568 /* ProgressBar.swift */,
+				2F8FA2B324933C6394AAA158 /* SkeletonRemedyCard.swift */,
 				1BDD3BE3B5926AFF4115B67B /* TraditionFlagView.swift */,
 			);
 			path = Shared;
@@ -233,6 +245,7 @@
 				3C700B99DD637F879D4DBF9A /* InfrastructureTests.swift */,
 				38E778748E14F349B9346845 /* JournalViewModelTests.swift */,
 				7C44CF2D540831425E77B5D5 /* KeychainHelperTests.swift */,
+				201ECA3BECC28DAABD1C900B /* PasswordStrengthLogicTests.swift */,
 				BD5D1A234E4158FBF9D12BE5 /* RemedyDatabaseTests.swift */,
 				191EF8E2432D18B9A95AA08D /* TraditionViewModelTests.swift */,
 			);
@@ -315,6 +328,7 @@
 		B4D2269D61E0AE450F210085 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				34398208B11C3BDF240E35A8 /* OurStoryView.swift */,
 				2C7E6D22E4E7A3F51D58B00C /* SafetyDisclaimerView.swift */,
 				83967801C87300129F7AA729 /* SettingsScreen.swift */,
 			);
@@ -434,6 +448,7 @@
 				0657606D8126EF45262216C4 /* FirebaseAuth */,
 				2621D01C4FC435DD96A6BE1C /* FirebaseCore */,
 				B1FB0D1E5FF7E67E09368421 /* FirebaseFirestore */,
+				0AA38941E02164C0095026BB /* FirebaseCrashlytics */,
 			);
 			productName = HerbalRemedyAdvisor;
 			productReference = DA8ADBAE49491ACEEB87AA3D /* HerbalRemedyAdvisor.app */;
@@ -554,6 +569,7 @@
 				3936507A12B0E7BD04A5B87B /* Font+Brand.swift in Sources */,
 				278F39660B41D597424124F0 /* HerbalLoadingView.swift in Sources */,
 				829C9FE4FA3F001AF56A5D9E /* HerbalRemedyAdvisorApp.swift in Sources */,
+				C1F50D69FAECDCB5FD15EA87 /* IngredientDetailSheet.swift in Sources */,
 				42ED08268630B06507D5A52B /* JournalCalendar.swift in Sources */,
 				D1A88F2F093A16AF278D34AF /* JournalScreen.swift in Sources */,
 				4842DA2CF12CD7CBD047F8EA /* JournalState.swift in Sources */,
@@ -562,6 +578,7 @@
 				9006C3CD61CB17CE27929B61 /* LoginScreen.swift in Sources */,
 				F2E6C59F6EA4050ED5DF25CC /* NotificationService.swift in Sources */,
 				A6F969199044795C873B9A80 /* OnboardingScreen.swift in Sources */,
+				E90D94B20916E5236274B256 /* OurStoryView.swift in Sources */,
 				42934B044D2F08E1CA66850D /* ProgressBar.swift in Sources */,
 				0A51D41FC172032F6CC55A6D /* ProtocolCompleteOverlay.swift in Sources */,
 				000E348EA16E9C71CCAE881D /* Quote.swift in Sources */,
@@ -575,6 +592,7 @@
 				11B2D1F3DAFDD817D128491B /* RootTabView.swift in Sources */,
 				4CF949785CB6B6E6576AE95D /* SafetyDisclaimerView.swift in Sources */,
 				ABA788F624B10ABCC9A114FF /* SettingsScreen.swift in Sources */,
+				EAEEC5270AAF0247C1C80225 /* SkeletonRemedyCard.swift in Sources */,
 				33A189A185FFC665C928E0CD /* SymptomChip.swift in Sources */,
 				F6E824AD8F674B73F8F41997 /* SymptomScreen.swift in Sources */,
 				4E0158DA5E1421F054680D63 /* SymptomViewModel.swift in Sources */,
@@ -612,6 +630,7 @@
 				4149F26C07050D55AA2A8C2E /* InfrastructureTests.swift in Sources */,
 				775F6B24E12B49D85CB8FA24 /* JournalViewModelTests.swift in Sources */,
 				C01B86EDA8D8903907853EEB /* KeychainHelperTests.swift in Sources */,
+				6F3285B8C01054D3BA5F324E /* PasswordStrengthLogicTests.swift in Sources */,
 				5CDFFBE963919F6C96B44FFA /* RemedyDatabaseTests.swift in Sources */,
 				C9E66EAFD5048D364D62E8E7 /* TraditionViewModelTests.swift in Sources */,
 			);
@@ -923,6 +942,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8649B18460D7D18DAD7D7574 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		0AA38941E02164C0095026BB /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8649B18460D7D18DAD7D7574 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 		2621D01C4FC435DD96A6BE1C /* FirebaseCore */ = {
 			isa = XCSwiftPackageProductDependency;

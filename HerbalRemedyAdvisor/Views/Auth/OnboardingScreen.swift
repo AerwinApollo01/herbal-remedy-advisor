@@ -20,10 +20,7 @@ struct OnboardingScreen: View {
 
     @State private var selectedAge:  String? = nil
     @State private var selectedGoal: String? = nil
-    @State private var isSaving = false
-    @State private var saveError: String? = nil
-
-    private var canProceed: Bool { selectedAge != nil && selectedGoal != nil && !isSaving }
+    private var canProceed: Bool { selectedAge != nil && selectedGoal != nil }
 
     private var greeting: String {
         if let name = displayName, !name.isEmpty {
@@ -92,29 +89,13 @@ struct OnboardingScreen: View {
                     .padding(.horizontal, 28)
                     .padding(.bottom, 36)
 
-                    // Error
-                    if let err = saveError {
-                        HStack(spacing: 8) {
-                            Image(systemName: "exclamationmark.circle.fill")
-                            Text(err)
-                        }
-                        .font(.notoSans(size: 13))
-                        .foregroundColor(.gold)
-                        .padding(.horizontal, 28)
-                        .padding(.bottom, 16)
-                    }
-
                     // CTA
                     Button { submit() } label: {
                         HStack(spacing: 10) {
-                            if isSaving {
-                                ProgressView().tint(.forest)
-                            } else {
-                                Text("Get Started")
-                                    .font(.notoSerif(size: 16))
-                                Image(systemName: "arrow.right")
-                                    .font(.system(size: 13, weight: .semibold))
-                            }
+                            Text("Get Started")
+                                .font(.notoSerif(size: 16))
+                            Image(systemName: "arrow.right")
+                                .font(.system(size: 13, weight: .semibold))
                         }
                         .foregroundColor(.forest)
                         .frame(maxWidth: .infinity)
@@ -182,23 +163,11 @@ struct OnboardingScreen: View {
 
     private func submit() {
         guard let age = selectedAge, let goal = selectedGoal else { return }
-        isSaving = true
-        saveError = nil
 
-        Task { @MainActor in
-            do {
-                try await FirestoreService.shared.saveUserProfile(
-                    uid: userID,
-                    ageBracket: age,
-                    wellnessGoal: goal
-                )
-            } catch {
-                // Profile save is non-blocking — surface the error but still proceed.
-                saveError = "Profile couldn't be saved — you can update it later."
-            }
-            isSaving = false
-            authVM.completeWelcome(userID: userID, displayName: displayName)
-        }
+        // Save is best-effort — proceed immediately so the user is never gated on network.
+        Task { try? await FirestoreService.shared.saveUserProfile(uid: userID, ageBracket: age, wellnessGoal: goal) }
+
+        authVM.completeWelcome(userID: userID, displayName: displayName)
     }
 }
 

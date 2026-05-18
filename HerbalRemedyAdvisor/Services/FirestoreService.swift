@@ -1,4 +1,5 @@
 import FirebaseCore
+import FirebaseCrashlytics
 import FirebaseFirestore
 import Foundation
 
@@ -16,10 +17,21 @@ final class FirestoreService {
 
     func saveUserProfile(uid: String, ageBracket: String, wellnessGoal: String) async throws {
         guard let db else { return }
-        try await db.collection("users").document(uid).setData([
-            "ageBracket":   ageBracket,
-            "wellnessGoal": wellnessGoal,
-            "createdAt":    FieldValue.serverTimestamp(),
-        ])
+        do {
+            try await db.collection("users").document(uid).setData([
+                "ageBracket":   ageBracket,
+                "wellnessGoal": wellnessGoal,
+                "createdAt":    FieldValue.serverTimestamp(),
+            ])
+        } catch {
+            Crashlytics.crashlytics().record(error: error)
+            throw error
+        }
+    }
+
+    func fetchWellnessGoal(uid: String) async -> String? {
+        guard let db else { return nil }
+        let doc = try? await db.collection("users").document(uid).getDocument()
+        return doc?.data()?["wellnessGoal"] as? String
     }
 }

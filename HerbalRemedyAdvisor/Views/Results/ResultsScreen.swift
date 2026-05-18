@@ -33,7 +33,9 @@ struct ResultsScreen: View {
                 subtitle: "Based on your symptoms"
             )
 
-            if symptomVM.matchedRemedies.isEmpty {
+            if symptomVM.isLoading {
+                skeletonList
+            } else if symptomVM.matchedRemedies.isEmpty {
                 noAnalysisEmptyState
             } else {
                 remedyList
@@ -63,6 +65,33 @@ struct ResultsScreen: View {
                 Text("You're on Day \(journalVM.currentDayNumber) of \"\(current.name)\". Starting a new protocol will reset your progress.")
             }
         }
+    }
+
+    // MARK: - Skeleton loading state
+
+    private var skeletonList: some View {
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 16) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Consulting ancient traditions...")
+                        .font(.notoSerif(size: 15))
+                        .foregroundColor(.forest)
+                    Text("Matching remedies to your symptoms")
+                        .font(.notoSans(size: 12))
+                        .foregroundColor(.subtext)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 20)
+                .padding(.top, 16)
+
+                ForEach(0..<3, id: \.self) { _ in
+                    SkeletonRemedyCard()
+                        .padding(.horizontal, 20)
+                }
+            }
+            .padding(.bottom, 40)
+        }
+        .background(Color.cream)
     }
 
     // MARK: - Empty state (no analysis run yet)

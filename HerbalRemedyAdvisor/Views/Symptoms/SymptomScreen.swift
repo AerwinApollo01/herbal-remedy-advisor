@@ -9,31 +9,17 @@ struct SymptomScreen: View {
     let columns = [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)]
 
     var body: some View {
-        ZStack {
-            if symptomVM.isLoading {
-                HerbalLoadingView()
-                    .transition(.opacity)
-            } else {
-                mainContent
-                    .transition(.opacity)
+        mainContent
+            .alert("Select at least one symptom", isPresented: $symptomVM.showAlert) {
+                Button("OK", role: .cancel) {}
             }
-        }
-        .animation(.easeInOut(duration: 0.3), value: symptomVM.isLoading)
-        .alert("Select at least one symptom", isPresented: $symptomVM.showAlert) {
-            Button("OK", role: .cancel) {}
-        }
-        .onChange(of: symptomVM.isLoading) { loading in
-            if !loading && !symptomVM.matchedRemedies.isEmpty {
-                selectedTab = 1
-            }
-        }
     }
 
     private var mainContent: some View {
         VStack(spacing: 0) {
             AppHeader(
                 icon: "leaf.fill",
-                label: "Natural Cleanse",
+                label: "Traditional Medicine",
                 title: "Nise",
                 subtitle: "Eastern & Traditional Medicine"
             )
@@ -69,6 +55,7 @@ struct SymptomScreen: View {
             } else {
                 traditionVM.clearAll()
                 symptomVM.analyzeSymptoms()
+                selectedTab = 1
             }
         } label: {
             Text("Find Natural Remedies")

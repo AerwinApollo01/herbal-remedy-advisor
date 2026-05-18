@@ -1,5 +1,6 @@
 import FirebaseAuth
 import FirebaseCore
+import FirebaseCrashlytics
 import Foundation
 
 // MARK: - AuthState
@@ -101,6 +102,7 @@ class AuthViewModel: ObservableObject {
                 }
                 state = .authenticated(userID: user.uid, displayName: user.displayName)
             } catch {
+                Crashlytics.crashlytics().record(error: error)
                 signInError = error.localizedDescription
             }
         }
@@ -120,6 +122,7 @@ class AuthViewModel: ObservableObject {
                 isEmailVerified = false
                 state = .firstLogin(userID: user.uid, displayName: nil)
             } catch {
+                Crashlytics.crashlytics().record(error: error)
                 signInError = error.localizedDescription
             }
         }
@@ -166,6 +169,7 @@ class AuthViewModel: ObservableObject {
                 try await EmailAuthService.shared.deleteAccount()
                 signOut()
             } catch {
+                Crashlytics.crashlytics().record(error: error)
                 deleteError = error.localizedDescription
             }
         }

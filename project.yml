@@ -34,6 +34,8 @@ targets:
         product: FirebaseCore
       - package: FirebaseSDK
         product: FirebaseFirestore
+      - package: FirebaseSDK
+        product: FirebaseCrashlytics
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.herbalremedyadvisor.app

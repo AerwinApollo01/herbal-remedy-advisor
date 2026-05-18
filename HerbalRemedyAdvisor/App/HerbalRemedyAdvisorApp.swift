@@ -1,4 +1,5 @@
 import FirebaseCore
+import FirebaseCrashlytics
 import SwiftUI
 
 @main
@@ -13,6 +14,7 @@ struct HerbalRemedyAdvisorApp: App {
         // The app runs in unauthenticated-only mode until it is added.
         if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
             FirebaseApp.configure()
+            Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
         }
         if CommandLine.arguments.contains("-ResetJournalState") {
             JournalViewModel.clearPersistedState(userID: "ui_test_user")
@@ -51,6 +53,10 @@ struct HerbalRemedyAdvisorApp: App {
             .onChange(of: authVM.state) { newState in
                 if case .authenticated(let userID, _) = newState {
                     journalVM.configure(userID: userID)
+                    Task {
+                        let goal = await FirestoreService.shared.fetchWellnessGoal(uid: userID)
+                        await MainActor.run { symptomVM.wellnessGoal = goal }
+                    }
                 }
             }
         }

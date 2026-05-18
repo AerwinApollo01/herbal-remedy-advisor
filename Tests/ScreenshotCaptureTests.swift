@@ -151,6 +151,15 @@ final class ScreenshotCaptureTests: XCTestCase {
         save("14_settings_about")
     }
 
+    func test13b_OurStory() throws {
+        launchAuthenticated()
+        tapTabBar("About")
+        sleep(1)
+        let ourStory = app.buttons.matching(NSPredicate(format: "label CONTAINS 'Our Story'")).firstMatch
+        if ourStory.waitForExistence(timeout: 3) { ourStory.tap(); sleep(1) }
+        save("14b_our_story_sheet")
+    }
+
     func test14_SafetyDisclaimer() throws {
         launchAuthenticated()
         tapTabBar("About")

@@ -4,6 +4,7 @@ struct RemedyDetailScreen: View {
     let remedy: Remedy
     @EnvironmentObject var journalVM: JournalViewModel
     @Environment(\.dismiss) var dismiss
+    @State private var selectedIngredient: IngredientDetail?
 
     var day1Quote: Quote {
         QuoteDatabase.quote(for: remedy.tid, dayNumber: 1)
@@ -39,18 +40,32 @@ struct RemedyDetailScreen: View {
                 VStack(alignment: .leading, spacing: 24) {
                     // Ingredients
                     sectionBlock(title: "Ingredients") {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 8) {
-                                ForEach(remedy.ingredients, id: \.self) { ing in
-                                    Text(ing)
-                                        .font(.notoSans(size: 10))
-                                        .foregroundColor(.forest)
-                                        .padding(.horizontal, 10)
-                                        .padding(.vertical, 6)
-                                        .background(Color.mist)
-                                        .cornerRadius(12)
+                        VStack(alignment: .leading, spacing: 6) {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 8) {
+                                    ForEach(remedy.ingredientDetails) { detail in
+                                        Button {
+                                            selectedIngredient = detail
+                                        } label: {
+                                            HStack(spacing: 4) {
+                                                Text(detail.name)
+                                                    .font(.notoSans(size: 10))
+                                                    .foregroundColor(.forest)
+                                                Image(systemName: "info.circle")
+                                                    .font(.system(size: 9))
+                                                    .foregroundColor(.forest.opacity(0.5))
+                                            }
+                                            .padding(.horizontal, 10)
+                                            .padding(.vertical, 6)
+                                            .background(Color.mist)
+                                            .cornerRadius(12)
+                                        }
+                                    }
                                 }
                             }
+                            Text("Tap any ingredient to learn more")
+                                .font(.notoSans(size: 10))
+                                .foregroundColor(.subtext.opacity(0.6))
                         }
                     }
 
@@ -107,13 +122,18 @@ struct RemedyDetailScreen: View {
                     }
                     .accessibilityHint("Starts your cleanse journal for this remedy")
 
-                    // Disclaimer
+                    // Per-remedy disclaimer
                     VStack(alignment: .leading, spacing: 6) {
-                        Text("Health Disclaimer")
-                            .font(.notoSans(size: 10, weight: .semibold))
-                            .foregroundColor(.copper)
-                        Text("These remedies are based on traditional practices from various healing cultures. They are not intended to diagnose, treat, cure, or prevent any medical condition. Always consult a qualified, licensed healthcare provider before beginning any herbal cleanse or protocol — especially if pregnant, nursing, taking medication, or managing a health condition.")
-                            .font(.notoSans(size: 10))
+                        HStack(spacing: 5) {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .font(.system(size: 10))
+                                .foregroundColor(.copper)
+                            Text("Before You Start")
+                                .font(.notoSans(size: 10, weight: .semibold))
+                                .foregroundColor(.copper)
+                        }
+                        Text(remedy.disclaimer)
+                            .font(.notoSans(size: 11))
                             .foregroundColor(.copper)
                             .lineSpacing(3)
                     }
@@ -122,18 +142,56 @@ struct RemedyDetailScreen: View {
                     .overlay(
                         Rectangle()
                             .frame(width: 3)
-                            .foregroundColor(.gold),
+                            .foregroundColor(.copper),
                         alignment: .leading
                     )
                     .cornerRadius(6)
-                    .padding(.bottom, 40)
+
+                    // Citations
+                    if !remedy.citations.isEmpty {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Sources")
+                                .font(.notoSans(size: 10, weight: .semibold))
+                                .foregroundColor(.sage)
+                                .kerning(0.5)
+                            ForEach(Array(remedy.citations.enumerated()), id: \.offset) { i, citation in
+                                Link(destination: URL(string: citation.url) ?? URL(string: "https://pubmed.ncbi.nlm.nih.gov")!) {
+                                    HStack(alignment: .top, spacing: 6) {
+                                        Text("\(i + 1).")
+                                            .font(.notoSans(size: 10))
+                                            .foregroundColor(.sage)
+                                        Text(citation.text)
+                                            .font(.notoSans(size: 10))
+                                            .foregroundColor(.sage)
+                                            .lineSpacing(2)
+                                            .multilineTextAlignment(.leading)
+                                            .fixedSize(horizontal: false, vertical: true)
+                                        Spacer()
+                                        Image(systemName: "arrow.up.right")
+                                            .font(.system(size: 9))
+                                            .foregroundColor(.sage.opacity(0.6))
+                                    }
+                                }
+                            }
+                        }
+                        .padding(12)
+                        .background(Color.sage.opacity(0.06))
+                        .cornerRadius(8)
+                    }
+
+                    Spacer(minLength: 40)
+
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 24)
             }
         }
         .background(Color.cream)
-
+        .sheet(item: $selectedIngredient) { detail in
+            IngredientDetailSheet(ingredient: detail)
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.visible)
+        }
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

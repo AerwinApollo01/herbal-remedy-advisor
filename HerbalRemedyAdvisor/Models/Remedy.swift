@@ -1,5 +1,19 @@
 import Foundation
 
+struct IngredientDetail: Identifiable, Hashable {
+    var id: String { name }
+    let name: String
+    let what: String
+    let why: String
+    let whereToBuy: String
+    let safety: String?
+}
+
+struct RemedyCitation: Hashable {
+    let text: String
+    let url: String
+}
+
 struct Remedy: Identifiable, Equatable, Hashable {
     let id = UUID()
     let name: String
@@ -8,10 +22,14 @@ struct Remedy: Identifiable, Equatable, Hashable {
     let tid: String
     let icon: String
     let color: String
-    let ingredients: [String]
+    let ingredientDetails: [IngredientDetail]
     let desc: String
     let steps: [String]
     let duration: Int
+    let disclaimer: String
+    let citations: [RemedyCitation]
+
+    var ingredients: [String] { ingredientDetails.map(\.name) }
 
     var sfSymbol: String {
         switch icon {
@@ -33,5 +51,9 @@ struct Remedy: Identifiable, Equatable, Hashable {
 
     static func == (lhs: Remedy, rhs: Remedy) -> Bool {
         lhs.name == rhs.name
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
     }
 }

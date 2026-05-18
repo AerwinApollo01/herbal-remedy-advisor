@@ -3,6 +3,7 @@ import SwiftUI
 struct SettingsScreen: View {
     @EnvironmentObject var authVM: AuthViewModel
     @State private var showDisclaimer = false
+    @State private var showOurStory = false
     @State private var showSignOutConfirm = false
     @State private var showDeleteConfirm = false
 
@@ -32,21 +33,33 @@ struct SettingsScreen: View {
 
                         // MARK: Our Story
                         card {
-                            VStack(alignment: .leading, spacing: 14) {
-                                sectionHeading("Our Story")
+                            VStack(alignment: .leading, spacing: 0) {
+                                sectionHeading("About")
+                                    .padding(.bottom, 14)
 
-                                storyParagraph(
-                                    "Nise was born from a simple belief: that centuries of healing wisdom deserve a place in modern life. Across eight living traditions — from Ayurveda to Traditional Chinese Medicine, from Western herbalism to Indigenous plant medicine — communities have used nature's pharmacy to restore balance, ease discomfort, and nurture the whole person."
-                                )
+                                Divider().background(Color.mist.opacity(0.15))
 
-                                storyParagraph(
-                                    "We built Nise to make that wisdom accessible without the noise. No quick-fix claims. No ingredient overwhelm. Just thoughtful guidance, one day at a time, grounded in remedies that healers have trusted for generations."
-                                )
-
-                                storyParagraph(
-                                    "Our mission is to help you build a daily practice — small, intentional, and yours."
-                                )
+                                Button {
+                                    showOurStory = true
+                                } label: {
+                                    HStack {
+                                        Image(systemName: "heart.text.square")
+                                            .font(.system(size: 15))
+                                            .foregroundColor(.mist)
+                                        Text("Our Story")
+                                            .font(.notoSans(size: 15))
+                                            .foregroundColor(.mist)
+                                        Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .font(.system(size: 12, weight: .semibold))
+                                            .foregroundColor(.mist.opacity(0.5))
+                                    }
+                                    .padding(.top, 16)
+                                }
                             }
+                        }
+                        .sheet(isPresented: $showOurStory) {
+                            OurStoryView()
                         }
 
                         // MARK: Account
@@ -140,6 +153,24 @@ struct SettingsScreen: View {
                                     }
                                     .padding(.top, 16)
                                 }
+
+                                Divider().background(Color.mist.opacity(0.15)).padding(.top, 16)
+
+                                Link(destination: URL(string: "https://nise.app/privacy")!) {
+                                    HStack {
+                                        Image(systemName: "hand.raised.fill")
+                                            .font(.system(size: 15))
+                                            .foregroundColor(.mist)
+                                        Text("Privacy Policy")
+                                            .font(.notoSans(size: 15))
+                                            .foregroundColor(.mist)
+                                        Spacer()
+                                        Image(systemName: "arrow.up.right")
+                                            .font(.system(size: 12, weight: .semibold))
+                                            .foregroundColor(.mist.opacity(0.5))
+                                    }
+                                    .padding(.top, 16)
+                                }
                             }
                         }
                         .sheet(isPresented: $showDisclaimer) {
@@ -183,12 +214,4 @@ struct SettingsScreen: View {
             .foregroundColor(.cream)
     }
 
-    @ViewBuilder
-    private func storyParagraph(_ text: String) -> some View {
-        Text(text)
-            .font(.notoSans(size: 14))
-            .foregroundColor(.mist)
-            .lineSpacing(5)
-            .fixedSize(horizontal: false, vertical: true)
-    }
 }

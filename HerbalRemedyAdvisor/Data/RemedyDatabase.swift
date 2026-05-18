@@ -10,7 +10,43 @@ struct RemedyDatabase {
         tid: "ayurveda",
         icon: "🌿",
         color: "#B03020",
-        ingredients: ["Triphala powder", "Fresh ginger root", "Black pepper", "Honey", "Warm water"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Triphala powder",
+                what: "A classical Ayurvedic blend of three dried fruits — amalaki, bibhitaki, and haritaki — used for over 2,000 years as a gentle digestive tonic and detoxifier.",
+                why: "Triphala gently cleanses the colon, reduces Ama (metabolic waste), and tonifies the digestive tract without dependency.",
+                whereToBuy: "Indian grocery stores, health food stores, or online via Banyan Botanicals or Mountain Rose Herbs.",
+                safety: "Start with a small dose — may cause loose stools initially. Avoid during pregnancy."
+            ),
+            IngredientDetail(
+                name: "Fresh ginger root",
+                what: "A warming rhizome (underground stem) whose active compounds — gingerols and shogaols — are among the most studied anti-inflammatory and digestive agents in natural medicine.",
+                why: "Ginger stimulates digestive enzymes and bile production, and amplifies Triphala's cleansing action by warming the digestive tract.",
+                whereToBuy: "Any grocery store, fresh produce section.",
+                safety: "Generally safe at culinary doses. May thin blood at high therapeutic doses."
+            ),
+            IngredientDetail(
+                name: "Black pepper",
+                what: "A common spice containing piperine — a compound that dramatically increases the absorption of other herbs and nutrients.",
+                why: "Piperine can increase absorption of other botanicals by up to 2000%, making Triphala's active compounds significantly more bioavailable.",
+                whereToBuy: "Any grocery store.",
+                safety: nil
+            ),
+            IngredientDetail(
+                name: "Honey",
+                what: "Raw, unprocessed honey that retains active enzymes, antimicrobial compounds, and prebiotic sugars. In Ayurveda, honey is called Yogavahi — a substance that carries other herbs deeper into tissues.",
+                why: "Acts as a carrier (Yogavahi) that drives the herbs into tissues, and soothes the digestive lining.",
+                whereToBuy: "Health food stores or farmers markets. Look for raw and unfiltered on the label.",
+                safety: "Never add honey to boiling liquid — Ayurveda considers heated honey damaging to the digestive tract. Add only after cooling below 40°C / 104°F."
+            ),
+            IngredientDetail(
+                name: "Warm water",
+                what: "The delivery medium for this decoction. In Ayurveda, warm water itself is considered medicinal — it activates Agni (digestive fire) and aids absorption.",
+                why: "Warm water activates Agni more effectively than cold and ensures the herbs are fully dissolved and bioavailable.",
+                whereToBuy: "No sourcing needed.",
+                safety: nil
+            )
+        ],
         desc: "A foundational Ayurvedic cleansing tonic combining the three fruits of Triphala — amalaki, bibhitaki, and haritaki — with warming ginger to stimulate Agni (digestive fire), eliminate Ama (toxins), and restore balance to all three doshas.",
         steps: [
             "Boil 2 cups of water and add 1 tsp Triphala powder and ½ tsp freshly grated ginger.",
@@ -18,7 +54,18 @@ struct RemedyDatabase {
             "Strain into a cup, add a pinch of black pepper, and let cool to drinking temperature.",
             "Stir in 1 tsp raw honey and drink 30 minutes before bed each evening."
         ],
-        duration: 21
+        duration: 21,
+        disclaimer: "Triphala is a gentle natural laxative and may cause loose stools in the first few days — this is normal and should stabilize by Day 3. Avoid this protocol during pregnancy. If you have IBS or inflammatory bowel conditions, consult a practitioner before starting.",
+        citations: [
+            RemedyCitation(
+                text: "Pole, S. Ayurvedic Medicine: The Principles of Traditional Practice. Churchill Livingstone, 2006.",
+                url: "https://www.elsevier.com/books/ayurvedic-medicine/pole/978-0-443-10090-1"
+            ),
+            RemedyCitation(
+                text: "Baliga, M.S. et al. Triphala, Ayurvedic formulation for treating and preventing cancer. J Exp Ther Oncol. 2012.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/23272505/"
+            )
+        ]
     )
 
     static let ashwagandhaGoldenMilk = Remedy(
@@ -28,7 +75,43 @@ struct RemedyDatabase {
         tid: "ayurveda",
         icon: "🥛",
         color: "#B03020",
-        ingredients: ["Ashwagandha root powder", "Turmeric", "Cinnamon", "Cardamom", "Warm whole milk or oat milk"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Ashwagandha root powder",
+                what: "The root of Withania somnifera, an adaptogenic shrub used in Ayurveda for over 3,000 years. Its active compounds — withanolides — modulate the stress response system (HPA axis) and support adrenal function.",
+                why: "Ashwagandha directly addresses deep fatigue by tonifying the adrenal glands, reducing cortisol, and rebuilding Ojas — the vital essence that governs immunity and energy reserves.",
+                whereToBuy: "Health food stores, Indian grocery stores, or online via Banyan Botanicals or Sun Potion.",
+                safety: "May interact with thyroid medications, sedatives, and immunosuppressants. Do not use during pregnancy. If you have a thyroid condition, consult your doctor before starting."
+            ),
+            IngredientDetail(
+                name: "Turmeric",
+                what: "A bright yellow rhizome whose active compound — curcumin — is one of the most well-studied anti-inflammatory agents in natural medicine. It is fat-soluble and requires a lipid carrier for absorption.",
+                why: "Curcumin reduces systemic inflammation associated with chronic fatigue, and synergizes with ashwagandha's adaptogenic action. The milk fat in this recipe ensures absorption.",
+                whereToBuy: "Any grocery store or Indian grocery store.",
+                safety: "High doses may interact with blood-thinning medications. Use culinary amounts as directed."
+            ),
+            IngredientDetail(
+                name: "Cinnamon",
+                what: "True Ceylon cinnamon (Cinnamomum verum) — not cassia — is a warming spice that helps balance blood sugar and enhances the digestive and warming qualities of this formula.",
+                why: "Stabilizes blood sugar fluctuations that contribute to afternoon energy crashes, and adds warming Agni-kindling properties to support absorption.",
+                whereToBuy: "Health food stores. Look specifically for Ceylon cinnamon (lighter in color, milder flavor) rather than cassia (the common grocery store variety).",
+                safety: "Cassia cinnamon (most grocery store cinnamon) contains coumarin and can affect the liver in large amounts over time. Use Ceylon cinnamon for this protocol."
+            ),
+            IngredientDetail(
+                name: "Cardamom",
+                what: "An aromatic seed pod used in Ayurveda as a digestive, nervine, and respiratory herb. Contains 1,8-cineole and terpinyl acetate.",
+                why: "Soothes the digestive tract and enhances the absorption of ashwagandha, while adding a pleasant flavor that balances the earthiness of the root.",
+                whereToBuy: "Any grocery store or Indian grocery store.",
+                safety: nil
+            ),
+            IngredientDetail(
+                name: "Warm whole milk or oat milk",
+                what: "The liquid base of the formula. Fat is biologically necessary to dissolve and transport ashwagandha's withanolides and turmeric's curcumin across the intestinal wall.",
+                why: "Without a fat-containing carrier, both ashwagandha and turmeric pass through the digestive tract largely unabsorbed. Full-fat milk or oat milk with added fat provides the lipid matrix required.",
+                whereToBuy: "Any grocery store. For dairy-free, use full-fat oat milk or coconut milk.",
+                safety: nil
+            )
+        ],
         desc: "Ashwagandha, the revered Ayurvedic adaptogen, is blended with turmeric and warming spices into a nourishing golden milk. This protocol addresses deep fatigue by tonifying the adrenals, calming the nervous system, and rebuilding Ojas — the vital essence of immunity and vitality.",
         steps: [
             "Warm 1.5 cups of milk over medium heat; do not boil.",
@@ -36,7 +119,18 @@ struct RemedyDatabase {
             "Simmer gently for 5 minutes, stirring continuously to fully dissolve the herbs.",
             "Pour into a mug, sweeten with honey or maple syrup if desired, and drink each morning upon rising."
         ],
-        duration: 30
+        duration: 30,
+        disclaimer: "Ashwagandha can influence thyroid hormone levels and cortisol. If you take thyroid medication, sedatives, or immunosuppressants, consult your doctor before starting. Not recommended during pregnancy or breastfeeding. Results typically become noticeable after 2–3 weeks of consistent use.",
+        citations: [
+            RemedyCitation(
+                text: "Chandrasekhar, K. et al. A prospective, randomized double-blind study of ashwagandha root in reducing stress and anxiety. Indian J Psychol Med. 2012;34(3):255–262.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/23439798/"
+            ),
+            RemedyCitation(
+                text: "Welch, C. Balance Your Hormones, Balance Your Life. Da Capo Lifelong Books, 2011.",
+                url: "https://www.hachettebookgroup.com/titles/claudia-welch/balance-your-hormones-balance-your-life/9780738215174/"
+            )
+        ]
     )
 
     static let neemTurmericTea = Remedy(
@@ -46,7 +140,43 @@ struct RemedyDatabase {
         tid: "ayurveda",
         icon: "🍃",
         color: "#B03020",
-        ingredients: ["Dried neem leaf", "Turmeric root or powder", "Licorice root", "Coriander seeds", "Raw honey"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Dried neem leaf",
+                what: "Leaves of Azadirachta indica — called 'the village pharmacy' across India. Rich in nimbin, nimbidin, and azadirachtin. One of Ayurveda's most powerful blood purifiers and bitter tonics.",
+                why: "Clears heat and toxins (Pitta and Ama) from the blood and lymphatic system, addressing skin conditions at their root rather than suppressing symptoms at the surface.",
+                whereToBuy: "Indian grocery stores, Banyan Botanicals, or Mountain Rose Herbs (online).",
+                safety: "Do not use during pregnancy — may stimulate uterine contractions. Not suitable for children under 12. Use only leaf preparations; neem oil is not safe for internal use."
+            ),
+            IngredientDetail(
+                name: "Turmeric root or powder",
+                what: "A rhizome whose curcumin content has been shown to modulate over 160 physiological pathways, including NF-kB — a master regulator of inflammation — and to support liver detoxification.",
+                why: "Directly reduces skin inflammation and supports the liver's ability to filter and clear the blood-borne triggers that drive chronic skin conditions.",
+                whereToBuy: "Any grocery store or Indian grocery store.",
+                safety: "High doses may interact with blood-thinning medications. Culinary doses as directed are safe."
+            ),
+            IngredientDetail(
+                name: "Licorice root",
+                what: "Root of Glycyrrhiza glabra, used in both Ayurveda and TCM as a harmonizer and soother. Glycyrrhizin coats and protects mucous membranes and modulates inflammatory responses.",
+                why: "Soothes the bitter intensity of neem, protects the digestive lining during cleansing, and adds its own anti-inflammatory action.",
+                whereToBuy: "Health food stores or online via Mountain Rose Herbs. Look for cut root pieces, not candy.",
+                safety: "Not for people with high blood pressure, kidney disease, or edema — glycyrrhizin raises blood pressure at therapeutic doses. Limit to 14-day courses as directed."
+            ),
+            IngredientDetail(
+                name: "Coriander seeds",
+                what: "Seeds of Coriandrum sativum — a cooling digestive herb that reduces Pitta (heat) and supports kidney function. Used in Ayurveda to cool and balance the formula.",
+                why: "Counteracts the heat generated by neem and turmeric, protecting the digestive tract while supporting urinary clearance of toxins.",
+                whereToBuy: "Any grocery store or Indian grocery store.",
+                safety: nil
+            ),
+            IngredientDetail(
+                name: "Raw honey",
+                what: "Unprocessed honey with active enzymes, antimicrobial compounds, and antioxidants. In Ayurveda, honey added to cooled preparations acts as Yogavahi — carrying herbs into deeper tissues.",
+                why: "Enhances absorption of the formula's active compounds and soothes the digestive tract after the cleansing action of neem.",
+                whereToBuy: "Health food stores or farmers markets.",
+                safety: "Add only after the tea has cooled below 40°C / 104°F. Never heat raw honey."
+            )
+        ],
         desc: "Neem, called 'the village pharmacy' in India, is one of Ayurveda's most powerful blood purifiers. Combined with anti-inflammatory turmeric and soothing licorice, this tea addresses skin irritations at their root — clearing heat, toxins, and Pitta imbalance from the blood and lymphatic system.",
         steps: [
             "Bring 2 cups of water to a boil and add 1 tsp dried neem leaves and ½ tsp coriander seeds.",
@@ -54,7 +184,18 @@ struct RemedyDatabase {
             "Strain the tea and let cool until comfortably warm.",
             "Add 1 tsp raw honey and drink once daily in the morning on an empty stomach."
         ],
-        duration: 14
+        duration: 14,
+        disclaimer: "Neem is a potent blood-purifying herb and should not be used during pregnancy or by children under 12. Licorice root raises blood pressure — avoid if you have hypertension, kidney disease, or edema. Limit this protocol to 14 days as directed. If skin symptoms worsen significantly, discontinue and consult a practitioner.",
+        citations: [
+            RemedyCitation(
+                text: "Subapriya, R. & Nagini, S. Medicinal properties of neem leaves: a review. Curr Med Chem Anticancer Agents. 2005;5(2):149–156.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/15777222/"
+            ),
+            RemedyCitation(
+                text: "Bhishagratna, K.K. (trans.) Sushruta Samhita. Chaukhamba Sanskrit Pratishthan, 1991.",
+                url: "https://archive.org/details/SushrutaSamhita"
+            )
+        ]
     )
 
     static let boswelliaTurmericPaste = Remedy(
@@ -64,7 +205,43 @@ struct RemedyDatabase {
         tid: "ayurveda",
         icon: "🫚",
         color: "#B03020",
-        ingredients: ["Boswellia serrata resin or powder", "Turmeric powder", "Black pepper", "Ghee (clarified butter)", "Ginger powder"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Boswellia serrata resin or powder",
+                what: "Resin from the Boswellia serrata tree, known in Sanskrit as Shallaki. Contains boswellic acids — particularly AKBA (acetyl-11-keto-β-boswellic acid) — that selectively inhibit the 5-LOX enzyme pathway responsible for producing pro-inflammatory leukotrienes.",
+                why: "AKBA targets the same inflammatory pathway as many prescription anti-inflammatories, but without the gastrointestinal side effects associated with NSAIDs.",
+                whereToBuy: "Health food stores or online via Banyan Botanicals, Zandu, or Himalaya brand.",
+                safety: "Generally well-tolerated. May interact with anti-inflammatory medications — consult your doctor if you take NSAIDs or prescription arthritis medication."
+            ),
+            IngredientDetail(
+                name: "Turmeric powder",
+                what: "Curcumin in turmeric inhibits NF-kB and COX-2 — two central regulators of the inflammatory response — through a different mechanism than boswellic acids, creating a synergistic anti-inflammatory effect.",
+                why: "Curcumin and boswellic acids work on complementary pathways, providing broader anti-inflammatory coverage than either herb alone.",
+                whereToBuy: "Any grocery store or Indian grocery store.",
+                safety: "High doses may interact with blood-thinning medications. Use as directed."
+            ),
+            IngredientDetail(
+                name: "Black pepper",
+                what: "Contains piperine, a compound that dramatically increases curcumin bioavailability by inhibiting its rapid metabolism in the liver and intestines.",
+                why: "Without piperine, over 90% of curcumin is metabolized before reaching systemic circulation. Even a small amount of black pepper makes this formula significantly more effective.",
+                whereToBuy: "Any grocery store.",
+                safety: nil
+            ),
+            IngredientDetail(
+                name: "Ghee (clarified butter)",
+                what: "Clarified butter with milk solids removed. In Ayurveda, ghee is classified as a Snehana (oleation) agent that carries fat-soluble compounds — including curcumin and boswellic acids — through the intestinal wall and into tissues.",
+                why: "Both turmeric and boswellia are fat-soluble. Ghee dramatically increases their absorption and simultaneously nourishes the joint tissues and synovial membranes.",
+                whereToBuy: "Indian grocery stores, health food stores, or any grocery store. Look for grass-fed ghee.",
+                safety: "Those with dairy allergies may substitute virgin coconut oil, which provides a similar lipid carrier effect."
+            ),
+            IngredientDetail(
+                name: "Ginger powder",
+                what: "Dried ginger root with concentrated shogaols — warming compounds that improve peripheral circulation and reduce inflammatory prostaglandins through COX inhibition.",
+                why: "Increases blood flow to affected joints, enhancing the delivery of the anti-inflammatory compounds, and adds its own independent anti-inflammatory activity.",
+                whereToBuy: "Any grocery store.",
+                safety: "Avoid high therapeutic doses if taking blood-thinning medications."
+            )
+        ],
         desc: "Boswellia — known as Shallaki in Sanskrit — has been used in Ayurveda for millennia to reduce joint inflammation and restore mobility. This golden paste combines its active boswellic acids with turmeric's curcumin, amplified by black pepper's piperine for maximum bioavailability.",
         steps: [
             "Combine 1 tsp boswellia powder, 1 tsp turmeric, ½ tsp ginger, and ¼ tsp black pepper in a small bowl.",
@@ -72,7 +249,18 @@ struct RemedyDatabase {
             "Remove from heat and let cool slightly. Take ½ tsp of the paste with warm water or milk.",
             "Apply a small amount topically to affected joints and massage gently if needed."
         ],
-        duration: 21
+        duration: 21,
+        disclaimer: "If you take NSAIDs, prescription anti-inflammatories, or blood-thinning medications, consult your doctor before combining them with this protocol — both boswellia and turmeric have anti-inflammatory and mild blood-thinning properties. Topical application is an adjunct practice, not a substitute for professional care for acute joint injuries.",
+        citations: [
+            RemedyCitation(
+                text: "Siddiqui, M.Z. Boswellia serrata, a potential antiinflammatory agent: an overview. Indian J Pharm Sci. 2011;73(3):255–261.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/22457547/"
+            ),
+            RemedyCitation(
+                text: "Lad, V. Textbook of Ayurveda, Volume 1: Fundamental Principles. Ayurvedic Press, 2002.",
+                url: "https://www.ayurvedapress.com/product/textbook-of-ayurveda-volume-1/"
+            )
+        ]
     )
 
     static let agniStimulatingBitters = Remedy(
@@ -82,7 +270,43 @@ struct RemedyDatabase {
         tid: "ayurveda",
         icon: "🌱",
         color: "#B03020",
-        ingredients: ["Trikatu (ginger, black pepper, long pepper)", "Dried orange peel", "Cumin seeds", "Fennel seeds", "Apple cider vinegar"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Trikatu (ginger, black pepper, long pepper)",
+                what: "A classical Ayurvedic compound formula of three warming spices — shunthi (dry ginger), maricha (black pepper), and pippali (long pepper). Documented in the Charaka Samhita as a premier digestive stimulant.",
+                why: "Trikatu kindles Agni (digestive fire), stimulates digestive enzyme and bile secretion, reduces Ama (metabolic waste), and drives other herbs deeper into the tissues.",
+                whereToBuy: "Indian grocery stores, Banyan Botanicals, or online. Often sold pre-blended as 'Trikatu powder'.",
+                safety: "Contraindicated in Pitta conditions such as acid reflux or GERD — these warming herbs can aggravate excess stomach heat. Avoid during pregnancy."
+            ),
+            IngredientDetail(
+                name: "Dried orange peel",
+                what: "The zest of citrus, dried to concentrate its bitter compounds — hesperidin and nobiletin — which are classified as bitter digestive stimulants (bitters) in European and Ayurvedic traditions alike.",
+                why: "Bitter taste directly triggers digestive secretions via the vagus nerve reflex, priming the stomach for a meal. Orange peel adds flavor while delivering real digestive benefit.",
+                whereToBuy: "Health food stores or dried naturally at home. Avoid commercially sweetened or flavored peel.",
+                safety: nil
+            ),
+            IngredientDetail(
+                name: "Cumin seeds",
+                what: "Seeds of Cuminum cyminum containing thymoquinone and cumin aldehydes — compounds shown to stimulate the release of digestive enzymes from the pancreas.",
+                why: "Directly stimulates enzyme production needed to break down proteins and fats, reducing the bloating and heaviness that often signals weak digestion.",
+                whereToBuy: "Any grocery store or Indian grocery store.",
+                safety: nil
+            ),
+            IngredientDetail(
+                name: "Fennel seeds",
+                what: "Seeds of Foeniculum vulgare — a carminative herb whose volatile oils (trans-anethole, fenchone) relax intestinal smooth muscle, relieving trapped gas and intestinal cramping.",
+                why: "Prevents the gas and bloating that can occur as digestion improves and the gut begins moving more actively — counteracting the 'stirring up' effect of the Trikatu.",
+                whereToBuy: "Any grocery store.",
+                safety: "Avoid therapeutic doses during pregnancy. Safe at culinary amounts."
+            ),
+            IngredientDetail(
+                name: "Apple cider vinegar",
+                what: "Raw, unpasteurized ACV containing acetic acid and live Acetobacter culture (the 'mother'). Acetic acid mimics stomach acid, priming the digestive environment before meals.",
+                why: "Stimulates stomach acid (HCl) production — a common deficiency in people with sluggish digestion — and lowers the pH of the gastric environment to optimize enzyme function.",
+                whereToBuy: "Any grocery store. Look for raw, unfiltered ACV 'with the mother' — Bragg is a common brand.",
+                safety: "Always dilute as directed — undiluted ACV erodes tooth enamel over time. Rinse mouth after drinking. Not suitable for those with active GERD or peptic ulcers."
+            )
+        ],
         desc: "In Ayurveda, weak Agni — digestive fire — is considered the root of most disease. These warming bitters kindle Agni, stimulate digestive enzyme production, and restore the body's natural appetite signals. The Trikatu blend is a classical Ayurvedic formula documented in the Charaka Samhita.",
         steps: [
             "Toast 1 tsp cumin and 1 tsp fennel seeds in a dry pan for 2 minutes until fragrant; grind coarsely.",
@@ -90,7 +314,18 @@ struct RemedyDatabase {
             "Add 1 tbsp apple cider vinegar and 2 tbsp warm water; stir well.",
             "Drink 15 minutes before each meal to prime digestion and stimulate appetite."
         ],
-        duration: 14
+        duration: 14,
+        disclaimer: "These bitters stimulate stomach acid production. Do not use if you have GERD, active acid reflux, or peptic ulcers — increasing stomach acid in these conditions can worsen symptoms. Trikatu is a heating formula that may cause discomfort in those with Pitta-type imbalances (frequent heartburn, skin redness, irritability).",
+        citations: [
+            RemedyCitation(
+                text: "Lad, V. & Frawley, D. The Yoga of Herbs: An Ayurvedic Guide to Herbal Medicine. Lotus Press, 1986.",
+                url: "https://www.lotuspress.com/product/yoga-of-herbs/"
+            ),
+            RemedyCitation(
+                text: "Charaka Samhita, Sutrasthana 27 (Annaphala Varga — on properties of Trikatu). Circa 400–200 BCE.",
+                url: "https://www.carakasamhitaonline.com/index.php?title=Sutrasthana"
+            )
+        ]
     )
 
     static let wormwoodCloveTonic = Remedy(
@@ -100,7 +335,43 @@ struct RemedyDatabase {
         tid: "tcm",
         icon: "🫖",
         color: "#C03030",
-        ingredients: ["Dried wormwood (Artemisia)", "Clove buds", "Huang Lian (Coptis root)", "Fresh ginger slices", "Dried tangerine peel (Chen Pi)"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Dried wormwood (Artemisia)",
+                what: "Known as Qing Hao in TCM — a bitter, cold herb documented in the Bencao Gangmu by Li Shizhen (1578). Contains artemisinin and absinthin, which clear damp-heat from the middle jiao (digestive center).",
+                why: "Directly addresses the TCM pattern of damp-heat in the stomach and intestines, which presents as bloating, nausea, foul breath, and a heavy, uncomfortable sensation after eating.",
+                whereToBuy: "TCM herb shops, Mayway (online), or Pacific Botanicals.",
+                safety: "Contains thujone — do not exceed the stated dose. Not safe during pregnancy or for children under 12. Do not use for more than 14 days continuously."
+            ),
+            IngredientDetail(
+                name: "Clove buds",
+                what: "Known as Ding Xiang in TCM — a warming aromatic herb rich in eugenol, which has potent antifungal and antibacterial properties. It warms the middle jiao and descends rebellious Qi (addresses nausea and bloating).",
+                why: "Counterbalances the cold nature of wormwood, ensuring the formula warms and activates rather than over-cooling the digestive system. Also directly addresses gas and bloating.",
+                whereToBuy: "Any grocery store.",
+                safety: "Safe at culinary doses. Clove oil (concentrated) is unsafe for internal use in large amounts."
+            ),
+            IngredientDetail(
+                name: "Huang Lian (Coptis root)",
+                what: "One of the bitterest herbs in the TCM pharmacopoeia — a premier damp-heat clearing agent. Its active compound berberine has been extensively studied for antimicrobial and gut-microbiome modulating properties.",
+                why: "Clears fire toxins and damp-heat from the stomach and intestines, reducing microbial imbalances that drive bloating, and restoring harmonious Qi flow through the stomach meridian.",
+                whereToBuy: "TCM herb shops or online via Plum Flower or Pacific Botanicals.",
+                safety: "Berberine lowers blood sugar — monitor carefully if diabetic. Avoid during pregnancy. May interact with certain antibiotics and blood sugar medications."
+            ),
+            IngredientDetail(
+                name: "Fresh ginger slices",
+                what: "Known as Sheng Jiang in TCM — a warming harmonizer that moderates the cold, bitter properties of wormwood and Huang Lian, and reduces nausea.",
+                why: "Prevents the cold nature of this formula from damaging the Spleen-Stomach (digestive center) and adds direct anti-nausea and digestive-stimulating action.",
+                whereToBuy: "Any grocery store.",
+                safety: nil
+            ),
+            IngredientDetail(
+                name: "Dried tangerine peel (Chen Pi)",
+                what: "The dried peel of Citrus reticulata, aged to concentrate its therapeutic properties. Known as Chen Pi ('aged peel') in TCM — a Qi-moving, damp-drying, and digestion-aiding herb.",
+                why: "Moves stagnant Qi through the digestive tract (the root of bloating and gas in TCM), dries dampness, and makes the formula more fragrant and tolerable to drink.",
+                whereToBuy: "TCM herb shops and Asian grocery stores. The older the peel, the better its quality.",
+                safety: nil
+            )
+        ],
         desc: "This TCM digestive tonic combines Qing Hao (wormwood) — documented in the Bencao Gangmu by Li Shizhen — with warming cloves and the bitter detoxifier Huang Lian. Together they clear damp-heat from the middle jiao, reduce bloating, and restore harmonious Qi flow through the stomach meridian.",
         steps: [
             "Bring 3 cups of water to a boil; add 2g dried wormwood, 3 clove buds, and a small piece of Chen Pi.",
@@ -108,7 +379,18 @@ struct RemedyDatabase {
             "Decoct on low heat for 20 minutes, allowing the liquid to reduce to approximately 2 cups.",
             "Strain, divide into two portions, and drink one cup warm before lunch and one before dinner."
         ],
-        duration: 14
+        duration: 14,
+        disclaimer: "Wormwood contains thujone and must not be exceeded beyond the stated dose or 14-day duration. Not safe during pregnancy or for children under 12. If you are diabetic or take blood sugar medication, monitor your levels carefully when using Huang Lian (berberine). This formula is quite bitter — that bitterness is part of how it works.",
+        citations: [
+            RemedyCitation(
+                text: "Bensky, D., Clavey, S. & Stöger, E. Chinese Herbal Medicine: Materia Medica, 3rd ed. Eastland Press, 2004.",
+                url: "https://eastlandpress.com/products/chinese-herbal-medicine-materia-medica-3rd-edition"
+            ),
+            RemedyCitation(
+                text: "Li, Shizhen. Bencao Gangmu (Compendium of Materia Medica). 1578 CE. Translated by Luo, X. Foreign Languages Press, 2003.",
+                url: "https://archive.org/details/bencao-gangmu"
+            )
+        ]
     )
 
     static let brahmiGinkgoBrew = Remedy(
@@ -118,7 +400,43 @@ struct RemedyDatabase {
         tid: "tcm",
         icon: "🧠",
         color: "#C03030",
-        ingredients: ["Brahmi (Bacopa monnieri) powder", "Ginkgo biloba leaf", "He Shou Wu (Fo-Ti root)", "Dried wolfberries (Goji)", "Green tea"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Brahmi (Bacopa monnieri) powder",
+                what: "A water-soluble herb from Ayurveda — one of the most studied nootropic plants in modern research. Its active compounds (bacosides A and B) enhance synaptic communication and protect neurons from oxidative stress.",
+                why: "Clinical trials show consistent improvement in memory, learning rate, and mental processing speed after 8–12 weeks of use. Addresses the Ayurvedic root cause of brain fog: insufficient nourishment of the Majja dhatu (nerve tissue).",
+                whereToBuy: "Health food stores, Banyan Botanicals, or online via Gaia Herbs or NOW Foods.",
+                safety: "May mildly slow heart rate. Avoid combining with calcium channel blockers. Not recommended for children without practitioner guidance."
+            ),
+            IngredientDetail(
+                name: "Ginkgo biloba leaf",
+                what: "Leaves of the Ginkgo biloba tree — one of the oldest living tree species on Earth, used in TCM for centuries. Its flavonoids (quercetin, kaempferol) and terpenoids (ginkgolides, bilobalide) improve blood flow to the brain and protect neurons from free radical damage.",
+                why: "Increases cerebral microcirculation, delivering more oxygen and glucose to brain cells — directly addressing the cognitive sluggishness and poor recall associated with brain fog.",
+                whereToBuy: "Health food stores or online via Nature's Way or Gaia Herbs.",
+                safety: "Thins the blood — do not combine with warfarin, aspirin, NSAIDs, or other blood thinners. Stop use 2 weeks before any surgery."
+            ),
+            IngredientDetail(
+                name: "He Shou Wu (Fo-Ti root)",
+                what: "A revered TCM tonic herb (Polygonum multiflorum) that nourishes the liver and kidneys — the organ systems that govern cognitive sharpness and memory in TCM theory. Contains stilbene glycosides and emodin.",
+                why: "Replenishes the Kidney-Brain axis (Jing essence) depleted by chronic stress and overwork — addressing the deeper root of mental fatigue beyond what circulation-enhancing herbs alone can correct.",
+                whereToBuy: "TCM herb shops or online. Always purchase processed (Zhi) He Shou Wu — not raw.",
+                safety: "Raw He Shou Wu has been linked to liver toxicity in documented case reports. Only use the processed (Zhi/prepared) form. Avoid combining with iron supplements, which bind to its anthraquinone content."
+            ),
+            IngredientDetail(
+                name: "Dried wolfberries (Goji)",
+                what: "Berries of Lycium barbarum — a TCM superfood tonic rich in zeaxanthin (protects retinal and brain cells), polysaccharides (immune-modulating), and betaine (liver-protective).",
+                why: "Nourishes the Liver and Kidney Yin in TCM, supporting the foundation from which clear, sustained mental energy arises. Provides antioxidant protection to brain cells during the cleansing process.",
+                whereToBuy: "Health food stores, Asian grocery stores, or any large grocery store.",
+                safety: "Generally very safe. May mildly interact with blood thinners or diabetes medications at large therapeutic doses."
+            ),
+            IngredientDetail(
+                name: "Green tea",
+                what: "Leaves of Camellia sinensis providing two key cognitive compounds: L-theanine (an amino acid that promotes calm, focused alertness without sedation) and EGCG (a potent antioxidant that crosses the blood-brain barrier).",
+                why: "L-theanine synergizes with the formula's other herbs to produce sustained mental clarity rather than jittery stimulation, while EGCG provides direct neuroprotection.",
+                whereToBuy: "Any grocery store. Loose leaf green tea has higher EGCG content than bagged tea.",
+                safety: "Contains caffeine — avoid taking this formula after 4 PM to preserve sleep quality."
+            )
+        ],
         desc: "A cross-traditional clarity formula drawing from both TCM and Ayurveda. Ginkgo biloba, a sacred TCM herb used for millennia, increases cerebral circulation. Brahmi, the Ayurvedic brain tonic, enhances memory and reduces mental fog. He Shou Wu nourishes the kidney-brain axis described in TCM theory.",
         steps: [
             "Steep 1 tsp ginkgo biloba leaf and 1 tsp dried goji berries in 2 cups just-boiled water for 10 minutes.",
@@ -126,7 +444,18 @@ struct RemedyDatabase {
             "Add He Shou Wu tincture (10 drops) or ½ tsp powder if available.",
             "Drink one cup mid-morning and one early afternoon; avoid after 4 PM to support sleep."
         ],
-        duration: 21
+        duration: 21,
+        disclaimer: "Ginkgo biloba thins the blood — do not combine with warfarin, aspirin, or NSAIDs. Only use processed (Zhi) He Shou Wu; raw He Shou Wu has been linked to liver injury in case reports. Because this formula contains caffeine from green tea, avoid taking it after 4 PM. Full cognitive benefits typically require 4–8 weeks of consistent use.",
+        citations: [
+            RemedyCitation(
+                text: "Stough, C. et al. The chronic effects of an extract of Bacopa monniera on cognitive function in healthy human subjects. Psychopharmacology. 2001;156(4):481–484.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/11498727/"
+            ),
+            RemedyCitation(
+                text: "Kleijnen, J. & Knipschild, P. Ginkgo biloba for cerebral insufficiency. Lancet. 1992;340(8828):1136–1139.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/1359209/"
+            )
+        ]
     )
 
     static let saffronRhodiolaBlend = Remedy(
@@ -136,7 +465,43 @@ struct RemedyDatabase {
         tid: "persian",
         icon: "🌸",
         color: "#7B35A0",
-        ingredients: ["Persian saffron threads", "Rhodiola rosea root powder", "Rose water", "Cardamom", "Raw honey"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Persian saffron threads",
+                what: "Stigmas of Crocus sativus — the world's most precious spice, with Iran producing over 90% of the global supply. Active compounds crocin and safranal modulate serotonin, dopamine, and norepinephrine reuptake — the same pathways targeted by many antidepressant medications.",
+                why: "Ibn Sina (Avicenna) prescribed saffron in his Canon of Medicine to 'elevate the spirits and strengthen the heart.' Modern clinical trials confirm significant mood-brightening effects at 30mg/day over 6–8 weeks.",
+                whereToBuy: "Persian or Middle Eastern grocery stores, specialty spice shops, or online via Heray Spice. Look for 'Super Negin' or 'Sargol' grade (deep red threads, no yellow styles).",
+                safety: "Safe at culinary doses. At therapeutic doses (30mg+), saffron may stimulate uterine contractions — avoid medicinal use during pregnancy. Always steep in warm water first to extract crocin."
+            ),
+            IngredientDetail(
+                name: "Rhodiola rosea root powder",
+                what: "Root of a Siberian alpine plant used in traditional medicine across Russia, Scandinavia, and Central Asia. Active compounds rosavins and salidrosides regulate the cortisol stress response and support mitochondrial energy production.",
+                why: "Directly addresses the cortisol dysregulation that underlies mood instability and emotional reactivity. Clinical trials show reduced anxiety, improved stress resilience, and reduced fatigue within 2–4 weeks.",
+                whereToBuy: "Health food stores or online via Gaia Herbs, Natrol, or Himalaya. Look for standardized extracts with ≥3% rosavins.",
+                safety: "Has mild stimulant properties — avoid taking after 3 PM to preserve sleep. May interact with MAOIs and SSRIs. If you are on antidepressants, consult your doctor before combining."
+            ),
+            IngredientDetail(
+                name: "Rose water",
+                what: "Steam-distilled hydrosol from Rosa damascena petals — a cornerstone of Persian Unani medicine. Contains citronellol and geraniol, which have documented anxiolytic and heart-calming (cardiotonic) properties.",
+                why: "Used in Persian medicine as a Qalb (heart) tonic that calms emotional agitation and supports the nervous system. Also makes the formula deeply aromatic — scent itself is part of the therapeutic experience.",
+                whereToBuy: "Middle Eastern grocery stores, health food stores, or online. Ensure it is food-grade rose water, not cosmetic rose water.",
+                safety: "Ensure food-grade purchase. Cosmetic rose water may contain additives not safe for ingestion."
+            ),
+            IngredientDetail(
+                name: "Cardamom",
+                what: "Aromatic seed pods of Elettaria cardamomum — used extensively in Persian, Ayurvedic, and Arabic medicine as a digestive, nervine, and mood-brightening herb.",
+                why: "Soothes the gut-brain axis, reducing the digestive tension that often accompanies anxiety and mood changes, and adds warm, elevating aromatic notes to the formula.",
+                whereToBuy: "Any grocery store or Indian/Middle Eastern grocery store.",
+                safety: nil
+            ),
+            IngredientDetail(
+                name: "Raw honey",
+                what: "In Persian Unani medicine, honey (Asal) is classified as a Mufradat — a single-ingredient medicine with broad healing properties. Raw honey provides antimicrobial compounds, prebiotic sugars, and trace minerals.",
+                why: "Acts as a carrier and harmonizer, making the formula more bioavailable, and adds its own calming, restorative properties to the blend.",
+                whereToBuy: "Health food stores or farmers markets.",
+                safety: "Do not heat above 40°C / 104°F — add after the formula cools slightly."
+            )
+        ],
         desc: "Ibn Sina (Avicenna) wrote extensively on saffron's power to elevate the spirits and strengthen the heart in his Canon of Medicine. This blend pairs royal saffron — the most prized Persian botanical — with adaptogenic Rhodiola to regulate cortisol, restore emotional resilience, and brighten mood through multiple pathways.",
         steps: [
             "Steep a generous pinch of saffron threads (10-15) in 2 tbsp warm water for 10 minutes until golden.",
@@ -144,7 +509,18 @@ struct RemedyDatabase {
             "Add the saffron water and 1 tsp rose water; stir gently to combine.",
             "Sweeten with 1 tsp raw honey and drink each morning, taking three mindful breaths before the first sip."
         ],
-        duration: 21
+        duration: 21,
+        disclaimer: "Rhodiola has mild stimulant properties — take this formula in the morning, not evening. If you take SSRIs, MAOIs, or other antidepressants, consult your doctor before adding Rhodiola. At therapeutic doses, saffron may stimulate uterine contractions and is not recommended during pregnancy. This formula supports mood — it is not a substitute for professional mental health care.",
+        citations: [
+            RemedyCitation(
+                text: "Akhondzadeh, S. et al. Comparison of Crocus sativus L. and imipramine in the treatment of mild to moderate depression. BMC Complement Altern Med. 2004;4:12.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/15341662/"
+            ),
+            RemedyCitation(
+                text: "Ibn Sina (Avicenna). Al-Qanun fi al-Tibb (Canon of Medicine). 1025 CE. Translated by O. Cameron Gruner. AMS Press, 1973.",
+                url: "https://archive.org/details/canonofmedicinev00avic"
+            )
+        ]
     )
 
     static let papayaSeedHoney = Remedy(
@@ -154,7 +530,43 @@ struct RemedyDatabase {
         tid: "folk",
         icon: "🍈",
         color: "#C08010",
-        ingredients: ["Fresh papaya seeds", "Raw wildflower honey", "Coconut oil", "Lime juice", "Turmeric"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Fresh papaya seeds",
+                what: "The black seeds found inside a ripe papaya, typically discarded. They contain carpaine (an alkaloid), benzyl isothiocyanate (an isothiocyanate), and proteolytic enzymes — compounds revered in Thai, Indonesian, and Filipino traditional healing for digestive cleansing.",
+                why: "Used across the Jamu tradition of Java and Thai folk medicine as a 7-day intensive digestive cleanse. Proteolytic enzymes help break down proteins in the gut, while carpaine supports the gut environment.",
+                whereToBuy: "Any grocery store that sells fresh whole papaya — seeds are inside and usually discarded. Use only seeds from ripe (orange/yellow) papaya, not green.",
+                safety: "Do not use during pregnancy — carpaine may stimulate uterine contractions. Limit to 7 days as directed. Not for children under 12."
+            ),
+            IngredientDetail(
+                name: "Raw wildflower honey",
+                what: "Unprocessed honey from bees that forage multiple wild flower species. Contains hydrogen peroxide, defensin-1 (a bee-derived antimicrobial peptide), and diverse prebiotic sugars that selectively feed beneficial gut bacteria.",
+                why: "Provides antimicrobial support to the digestive environment while simultaneously feeding beneficial flora — a prebiotic action that helps restore microbial balance during and after the cleanse.",
+                whereToBuy: "Health food stores or farmers markets. Look for 'raw' and 'unfiltered' on the label. Local wildflower honey is preferred over monofloral commercial varieties.",
+                safety: "Not for infants under 12 months (risk of infant botulism). Never heat raw honey — it destroys the active compounds."
+            ),
+            IngredientDetail(
+                name: "Coconut oil",
+                what: "Cold-pressed, unrefined coconut oil rich in medium-chain triglycerides (MCTs) — particularly lauric acid, which converts to monolaurin in the body, a compound with documented antimicrobial properties.",
+                why: "Supports the gut mucosal lining and provides MCT-based antimicrobial activity complementary to the papaya seeds. In Thai folk medicine, coconut oil is considered a protective and strengthening food for the digestive organs.",
+                whereToBuy: "Any grocery store. Look for unrefined, cold-pressed, extra virgin coconut oil.",
+                safety: "Use as directed — coconut oil is high in saturated fat and should not replace cooking oils during the protocol."
+            ),
+            IngredientDetail(
+                name: "Lime juice",
+                what: "Freshly squeezed juice of limes, providing citric acid and vitamin C. Citric acid stimulates bile production and slightly acidifies the stomach environment, supporting digestion.",
+                why: "Enhances the bioavailability of the papaya seed blend and provides a palatable brightness that balances the bitter, peppery flavor of the seeds.",
+                whereToBuy: "Any grocery store. Always use fresh-squeezed — bottled lime juice is heated during processing, destroying enzyme activity.",
+                safety: "Rinse your mouth with water after drinking to protect tooth enamel from prolonged citric acid exposure."
+            ),
+            IngredientDetail(
+                name: "Turmeric",
+                what: "A warming, anti-inflammatory rhizome used across Southeast Asian traditional medicine to soothe gut inflammation and support liver function during cleansing.",
+                why: "Reduces inflammatory irritation in the gut lining that can occur during intensive digestive cleansing, supporting comfort and recovery throughout the 7-day protocol.",
+                whereToBuy: "Any grocery store or Indian grocery store.",
+                safety: nil
+            )
+        ],
         desc: "Used across Thailand, Indonesia, and the Philippines, papaya seeds contain carpaine and benzyl isothiocyanate — compounds that have been revered in traditional healing for digestive cleansing. This 7-day intensive protocol is drawn from Jamu tradition and Thai folk medicine for restoring gut harmony.",
         steps: [
             "Scoop seeds from ½ a ripe papaya; rinse well and allow to air dry on a paper towel.",
@@ -162,7 +574,18 @@ struct RemedyDatabase {
             "Take the blend each morning on an empty stomach, 30 minutes before breakfast.",
             "Follow with 1 glass of warm water with a few drops of coconut oil stirred in."
         ],
-        duration: 7
+        duration: 7,
+        disclaimer: "Do not use this protocol during pregnancy — papaya seeds contain carpaine, which may stimulate uterine contractions. This is a traditional 7-day digestive cleanse, not a medical treatment for parasitic infections. If you suspect a parasitic infection, consult a doctor for proper diagnosis and treatment. Limit to 7 days as directed.",
+        citations: [
+            RemedyCitation(
+                text: "Okeniyi, J.A. et al. Effectiveness of dried Carica papaya seeds against human intestinal parasitosis. J Med Food. 2007;10(1):194–196.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/17472487/"
+            ),
+            RemedyCitation(
+                text: "Phuakupt, K. et al. Ethnobotany of medicinal plants used in Southern Thai traditional medicine. J Ethnopharmacol. 2019.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/30248389/"
+            )
+        ]
     )
 
     static let garlicThymeOxymel = Remedy(
@@ -172,7 +595,43 @@ struct RemedyDatabase {
         tid: "euro",
         icon: "🧄",
         color: "#1A60A0",
-        ingredients: ["Fresh garlic cloves", "Fresh or dried thyme", "Raw apple cider vinegar", "Raw honey", "Fennel seeds"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Fresh garlic cloves",
+                what: "Bulbs of Allium sativum — one of the most studied medicinal plants in history, referenced in the Ebers Papyrus (1500 BCE) and prescribed by Hippocrates. When crushed, garlic releases allicin via an enzyme reaction (allinase activation) that requires a 10-minute wait.",
+                why: "Allicin has demonstrated broad-spectrum antimicrobial activity against gut pathogens while preserving beneficial bacteria — directly addressing the microbial dysbiosis that drives digestive issues.",
+                whereToBuy: "Any grocery store. Fresh whole bulbs only — pre-minced garlic has dramatically lower allicin content due to enzyme deactivation during processing.",
+                safety: "May thin the blood — caution if taking warfarin, aspirin, or anticoagulants. Can cause reflux in sensitive individuals. Always crush and wait 10 minutes before use to activate allicin."
+            ),
+            IngredientDetail(
+                name: "Fresh or dried thyme",
+                what: "Leaves of Thymus vulgaris — a Mediterranean herb whose volatile oils (thymol and carvacrol) are potent antimicrobials. Used by ancient Greeks and in European monastic medicine as a digestive and respiratory herb.",
+                why: "Thymol inhibits pathogenic bacteria and yeasts that contribute to digestive dysbiosis, while also stimulating digestive secretions and relieving intestinal spasms.",
+                whereToBuy: "Any grocery store. Fresh thyme has higher thymol content; dried is also effective.",
+                safety: "Safe at culinary doses. Avoid high therapeutic doses during pregnancy."
+            ),
+            IngredientDetail(
+                name: "Raw apple cider vinegar",
+                what: "Unpasteurized ACV containing acetic acid and live Acetobacter culture (the 'mother' — visible as cloudy strands). Hippocrates used oxymel — a mixture of vinegar and honey — as a medicine for multiple conditions, documented in 'On the Nature of Man.'",
+                why: "Provides the acidic medium of the oxymel that inhibits pathogens, supports low stomach acid, and serves as the extraction medium that draws the active compounds from garlic and thyme.",
+                whereToBuy: "Any grocery store. Look for raw, unfiltered ACV with 'the mother' — Bragg Organic is widely available.",
+                safety: "Always dilute as directed — undiluted ACV erodes tooth enamel. Not suitable for those with active peptic ulcers or GERD."
+            ),
+            IngredientDetail(
+                name: "Raw honey",
+                what: "The sweet counterpart to vinegar in the classical oxymel preparation. In European herbalism, honey serves both as a preservative that extends the formula's shelf life and as a medicine that soothes and heals the gut lining.",
+                why: "Antimicrobial compounds in raw honey (hydrogen peroxide, defensin-1) complement the formula's action, while prebiotic sugars support the growth of beneficial bacteria.",
+                whereToBuy: "Health food stores or farmers markets. Raw and unfiltered for maximum therapeutic activity.",
+                safety: "Do not heat — add raw to the oxymel preparation and stir to combine. Not for infants under 12 months."
+            ),
+            IngredientDetail(
+                name: "Fennel seeds",
+                what: "Seeds of Foeniculum vulgare — a carminative and antispasmodic herb used in European folk medicine to relieve gas, bloating, and intestinal cramping.",
+                why: "Prevents the gas and bloating that can occur as gut motility increases during the protocol, and adds a pleasant anise-like flavor that makes the oxymel more palatable.",
+                whereToBuy: "Any grocery store.",
+                safety: "Avoid large therapeutic doses during pregnancy. Safe at culinary amounts."
+            )
+        ],
         desc: "An oxymel — a classical Greek preparation meaning 'acid and honey' — was documented by Hippocrates as a vehicle for delivering bitter and pungent herbs. This European formula uses garlic's allicin and thyme's thymol to address digestive dysbiosis, improve gut motility, and restore the terrain of the intestinal flora.",
         steps: [
             "Crush 4 garlic cloves and let sit for 10 minutes to activate allicin; finely chop or mince.",
@@ -180,7 +639,18 @@ struct RemedyDatabase {
             "Pour ¼ cup raw apple cider vinegar and ¼ cup raw honey over the herbs; seal and shake well.",
             "Take 1 tbsp of the oxymel in 4 oz warm water twice daily — once before breakfast and once before dinner."
         ],
-        duration: 21
+        duration: 21,
+        disclaimer: "Garlic thins the blood. If you take warfarin, aspirin, or anticoagulant medications, consult your doctor before this protocol. Raw ACV must always be diluted as directed — undiluted vinegar erodes tooth enamel over time. Rinse your mouth after each dose.",
+        citations: [
+            RemedyCitation(
+                text: "Hippocrates. On the Nature of Man. Circa 400 BCE. Collected in Hippocratic Writings. Penguin Classics, 1983.",
+                url: "https://archive.org/details/hippocraticwriti00lloy"
+            ),
+            RemedyCitation(
+                text: "Rivlin, R.S. Historical perspective on the use of garlic. J Nutr. 2001;131(3):951S–954S.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/11238798/"
+            )
+        ]
     )
 
     static let blackWalnutOregano = Remedy(
@@ -190,7 +660,43 @@ struct RemedyDatabase {
         tid: "euro",
         icon: "🌰",
         color: "#1A60A0",
-        ingredients: ["Black walnut hull tincture", "Oil of oregano (Origanum vulgare)", "Clove powder", "Wormwood tincture", "Probiotic-rich kefir or yogurt"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Black walnut hull tincture",
+                what: "A tincture made from the green outer hull of Juglans nigra — the black walnut tree. The hull contains juglone, a naphthoquinone compound with potent antifungal and antimicrobial properties. Used by European monastic healers and referenced by Hildegard von Bingen in the 12th century.",
+                why: "Juglone disrupts the energy metabolism of pathogens and fungi in the gut, addressing microbial imbalances that are often the hidden driver of intense sugar cravings.",
+                whereToBuy: "Health food stores or online via Herb Pharm or Gaia Herbs. Always purchase as a standardized tincture — never use raw green hulls directly (caustic and staining).",
+                safety: "Do not use during pregnancy. Use only standardized tinctures, not raw hull preparations. Do not exceed the stated dose."
+            ),
+            IngredientDetail(
+                name: "Oil of oregano (Origanum vulgare)",
+                what: "A concentrated essential oil from Mediterranean oregano, standardized to contain at least 70% carvacrol — a phenolic compound with broad-spectrum antimicrobial activity that disrupts the cell membranes of pathogenic bacteria, yeasts, and fungi.",
+                why: "Carvacrol is one of the most potent natural antimicrobials known, active against a wide range of pathogens while showing selective preservation of beneficial Lactobacillus strains in research.",
+                whereToBuy: "Health food stores. Look for Mediterranean origin oil with ≥70% carvacrol — North American oregano has much lower carvacrol content.",
+                safety: "Very potent — must be diluted in olive oil before ingestion as directed. May reduce iron absorption; take with food. Avoid during pregnancy. Not for prolonged use beyond 14 days."
+            ),
+            IngredientDetail(
+                name: "Clove powder",
+                what: "Ground dried flower buds of Syzygium aromaticum, containing eugenol — a compound with documented antifungal activity, particularly against Candida species, and biofilm-disrupting properties.",
+                why: "Addresses the afternoon sugar craving pattern that often signals yeast or bacterial imbalances in the lower digestive tract, where clove's antifungal action is most needed.",
+                whereToBuy: "Any grocery store.",
+                safety: "Safe at culinary doses. Clove essential oil is unsafe for internal use in concentrated amounts."
+            ),
+            IngredientDetail(
+                name: "Wormwood tincture",
+                what: "A tincture of Artemisia absinthium — European wormwood, distinct from Chinese Qing Hao. Contains absinthin and artabsin, which have bitter tonic and antimicrobial properties documented in Paracelsus's 16th-century writings on intestinal purification.",
+                why: "Provides bitter tonic action that disrupts the dysbiotic gut environment supporting pathogenic overgrowth, completing the classical European three-herb purge cycle with black walnut and oregano.",
+                whereToBuy: "Health food stores or online via Herb Pharm. Purchase as a standardized tincture for controlled dosing.",
+                safety: "Contains thujone — strictly do not exceed 20 drops as directed. Avoid during pregnancy. Not for use by those with epilepsy or taking epilepsy medications."
+            ),
+            IngredientDetail(
+                name: "Probiotic-rich kefir or yogurt",
+                what: "A fermented dairy product containing live cultures of Lactobacillus and Bifidobacterium species — beneficial bacteria that colonize the gut and competitively exclude pathogens.",
+                why: "Replenishes and restores beneficial gut flora after the antimicrobial herbs have cleared the way — this is the essential final step that turns a purge into a full restoration protocol.",
+                whereToBuy: "Any grocery store. Look for 'live and active cultures' on the label. Plain, unsweetened varieties only — sugar feeds the pathogenic organisms you are addressing.",
+                safety: "Those with dairy intolerance may use coconut kefir, available at health food stores. Always use plain, unsweetened varieties."
+            )
+        ],
         desc: "Used by European monastic healers and documented in Paracelsus's writings on purification, black walnut hull — rich in juglone — combined with oregano's carvacrol creates a powerful protocol for addressing sugar cravings linked to microbial imbalances. This formula follows the classical European three-herb purge cycle.",
         steps: [
             "Take 20 drops of black walnut hull tincture in 4 oz water each morning before eating.",
@@ -198,7 +704,18 @@ struct RemedyDatabase {
             "Take a pinch of clove powder in warm water with lunch to address afternoon cravings.",
             "End each day with ½ cup plain kefir or yogurt to replenish beneficial flora."
         ],
-        duration: 14
+        duration: 14,
+        disclaimer: "This is a potent antimicrobial protocol. Do not exceed the stated doses — particularly for wormwood tincture (no more than 20 drops) and oil of oregano. If you are pregnant, have epilepsy, or take immunosuppressant medications, do not use this protocol without consulting your doctor. Always complete the probiotic step daily — the kefir or yogurt is not optional.",
+        citations: [
+            RemedyCitation(
+                text: "Paracelsus (Philippus Aureolus Theophrastus Bombastus von Hohenheim). Archidoxa. 1570 CE. Discussed in Webster, C. Paracelsus: Medicine, Magic and Mission. Yale University Press, 2008.",
+                url: "https://archive.org/details/archidoxis00para"
+            ),
+            RemedyCitation(
+                text: "Nostro, A. et al. Susceptibility of methicillin-resistant staphylococci to oregano essential oil, carvacrol and thymol. FEMS Microbiol Lett. 2007;272(2):179–183.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/17490428/"
+            )
+        ]
     )
 
     static let valerianPassionflower = Remedy(
@@ -208,7 +725,43 @@ struct RemedyDatabase {
         tid: "euro",
         icon: "🌙",
         color: "#1A60A0",
-        ingredients: ["Valerian root (dried or tincture)", "Passionflower leaf", "Lemon balm", "Lavender flowers", "Chamomile"],
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Valerian root (dried or tincture)",
+                what: "Root of Valeriana officinalis — one of the most widely studied sleep herbs in Western botanical medicine. Valerenic acid inhibits GABA-transaminase, the enzyme that breaks down the calming neurotransmitter GABA, extending its calming effect without the dependency associated with pharmaceutical sedatives.",
+                why: "Addresses the neurological root of sleep difficulties by enhancing GABAergic tone — the brain's primary 'braking system' that quiets racing thoughts and helps initiate sleep onset.",
+                whereToBuy: "Health food stores or online via Gaia Herbs or Herb Pharm. Available as dried root or tincture — tincture works faster.",
+                safety: "May cause vivid dreams; drowsiness may persist into the morning at high doses. Do not combine with alcohol, prescription sedatives, or benzodiazepines — additive sedative effect."
+            ),
+            IngredientDetail(
+                name: "Passionflower leaf",
+                what: "Leaves of Passiflora incarnata — a native North American vine used by Indigenous peoples and later adopted into European herbal medicine. Chrysin and orientin bind GABA-A receptors, reducing anxiety and helping the mind 'let go' at bedtime.",
+                why: "Particularly effective for sleep difficulties driven by an overactive, anxious mind — the type that replays the day's events or generates worry at night. Passionflower quiets this without the next-morning grogginess of stronger sedatives.",
+                whereToBuy: "Health food stores or online via Mountain Rose Herbs.",
+                safety: "Avoid during pregnancy — may cause uterine contractions. Mild sedative — do not drive or operate machinery after use."
+            ),
+            IngredientDetail(
+                name: "Lemon balm",
+                what: "Leaves of Melissa officinalis — a fragrant herb in the mint family. Rosmarinic acid inhibits GABA-transaminase (same mechanism as valerian) and reduces cortisol. Used by medieval physicians including Paracelsus for calming the nervous system.",
+                why: "Reduces the cortisol elevation that prevents sleep in people whose stress response is activated in the evening — commonly experienced as 'tired but wired' before bed.",
+                whereToBuy: "Health food stores, often sold fresh or as dried herb. Also easily grown at home.",
+                safety: "May mildly suppress thyroid hormone activity — use with caution if you have hypothyroidism or take thyroid medication."
+            ),
+            IngredientDetail(
+                name: "Lavender flowers",
+                what: "Dried flowers of Lavandula angustifolia — whose volatile compounds linalool and linalyl acetate have demonstrated anxiolytic effects equivalent to low-dose lorazepam in clinical studies, without dependency or cognitive impairment.",
+                why: "Added as a tincture after steeping to preserve the volatile aromatic compounds that would evaporate in boiling water. Both the ingested compounds and the scent itself contribute to the calming effect.",
+                whereToBuy: "Health food stores and online. Ensure you purchase culinary-grade dried lavender (not decorative or cosmetic grade).",
+                safety: "Use only culinary-grade or food-grade lavender. Lavender essential oil is NOT safe for internal use — this formula uses dried flowers or tincture only."
+            ),
+            IngredientDetail(
+                name: "Chamomile",
+                what: "Flowers of Matricaria chamomilla — the most widely consumed herbal sleep aid in the world. Apigenin binds benzodiazepine receptors mildly, promoting gentle relaxation without sedation. Hildegard von Bingen prescribed chamomile in the 12th century for 'all inner disorders.'",
+                why: "Provides a gentle, approachable base layer of relaxation that makes the stronger herbs in this formula easier to tolerate, and adds direct GABA-modulating support.",
+                whereToBuy: "Any grocery store. Look for whole chamomile flowers (not powdered) for highest apigenin content.",
+                safety: "Avoid if you have a known ragweed allergy (same botanical family). Otherwise one of the safest herbal medicines available."
+            )
+        ],
         desc: "Hildegard von Bingen prescribed valerian for 'those whose mind is troubled at night' in her 12th-century Physica. This evening tonic combines valerian's GABA-potentiating properties with passionflower, lemon balm, and lavender in a classic European sleep formula — calming the nervous system without dependency.",
         steps: [
             "Combine 1 tsp dried valerian root, 1 tsp passionflower, ½ tsp lemon balm, and ½ tsp chamomile flowers.",
@@ -216,22 +769,362 @@ struct RemedyDatabase {
             "Strain through a fine mesh; add 4 drops lavender tincture or a drop of food-grade lavender oil.",
             "Drink the full cup warm, 45 minutes before your intended bedtime, in a quiet, dimly lit space."
         ],
-        duration: 14
+        duration: 14,
+        disclaimer: "Do not combine this tonic with alcohol, prescription sleeping pills, or benzodiazepines — the combination creates an additive sedative effect. Passionflower is not safe during pregnancy. If you have hypothyroidism, speak with your doctor before using lemon balm. Use culinary-grade lavender only — lavender essential oil is not safe for internal use.",
+        citations: [
+            RemedyCitation(
+                text: "Hildegard von Bingen. Physica. Circa 1150 CE. Translated by Throop, P. Healing Arts Press, 1998.",
+                url: "https://archive.org/details/hildegard-von-bingen-physica"
+            ),
+            RemedyCitation(
+                text: "Bent, S. et al. Valerian for sleep: a systematic review and meta-analysis. Am J Med. 2006;119(12):1005–1012.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/17145239/"
+            )
+        ]
+    )
+
+    // MARK: - African Herbalism
+
+    static let moringaBaobabTonic = Remedy(
+        name: "Moringa Leaf & Baobab Vitality Tonic",
+        origin: "African Herbalism · West Africa",
+        tradition: "African Herbalism",
+        tid: "african",
+        icon: "🌾",
+        color: "#4A7C45",
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Moringa leaf powder",
+                what: "Dried leaves of Moringa oleifera — the 'miracle tree' used for centuries across West and East Africa. Gram for gram: more iron than spinach, more calcium than milk, more vitamin C than oranges, and a complete essential amino acid profile — rare in any plant.",
+                why: "Addresses the micronutrient deficiencies — particularly iron — that are among the most common and overlooked drivers of chronic fatigue in women. Provides the nutritional foundation the body needs to produce sustained energy.",
+                whereToBuy: "Health food stores or online via Organic India or Kuli Kuli. Look for raw, cold-dried moringa — not heat-processed, which destroys heat-sensitive nutrients.",
+                safety: "Generally very safe. May interact with thyroid medication at high doses. Moringa leaves are safe during pregnancy; moringa root and bark are not — avoid those parts."
+            ),
+            IngredientDetail(
+                name: "Baobab fruit powder",
+                what: "The tart, chalky powder from the fruit of Adansonia digitata — the 'Tree of Life' revered across Sub-Saharan Africa. Contains more vitamin C than oranges by weight, along with significant prebiotic fiber, magnesium, and potassium.",
+                why: "Vitamin C dramatically enhances iron absorption from moringa — a critical pairing, since plant-based iron (non-heme) requires vitamin C to be bioavailable. The prebiotic fiber also supports gut health, which underlies sustained energy and immunity.",
+                whereToBuy: "Health food stores or online via Aduna or Mighty Baobab. Increasingly available in larger grocery stores.",
+                safety: "Very safe. The high fiber content may cause initial digestive adjustment — start with a half dose for the first 3 days."
+            ),
+            IngredientDetail(
+                name: "Fresh ginger root",
+                what: "Warming, circulation-stimulating rhizome whose gingerols and shogaols improve peripheral blood flow and digestive absorption of nutrients.",
+                why: "Stimulates circulation and digestive secretions, ensuring the formula's micronutrients are fully absorbed and distributed — particularly important when addressing fatigue-linked micronutrient deficiencies.",
+                whereToBuy: "Any grocery store.",
+                safety: nil
+            ),
+            IngredientDetail(
+                name: "Cinnamon",
+                what: "Ceylon cinnamon (Cinnamomum verum) — a warming spice that stabilizes blood sugar through insulin-sensitizing compounds.",
+                why: "Blood sugar instability is one of the most common but underrecognized contributors to fatigue — particularly the mid-afternoon energy crash. Ceylon cinnamon prevents the glucose fluctuations that drive this pattern.",
+                whereToBuy: "Health food stores. Specify Ceylon cinnamon, not cassia (the common grocery store variety).",
+                safety: "Use Ceylon cinnamon for extended protocols — cassia contains coumarin that can affect the liver in large amounts over time."
+            ),
+            IngredientDetail(
+                name: "Raw honey",
+                what: "Unprocessed honey used across African traditional medicine as the primary medicine delivery vehicle. Provides easily digestible natural sugars, active enzymes, and prebiotic compounds.",
+                why: "In West African healing tradition, honey is the essential carrier that makes bitter or earthy herbal formulas palatable and enhances absorption. Provides a gentle, non-spike energy boost as a complement to moringa's sustained nutrition.",
+                whereToBuy: "Health food stores or farmers markets. Raw and unfiltered.",
+                safety: "Not for infants under 12 months."
+            )
+        ],
+        desc: "Moringa oleifera — the 'miracle tree' of African traditional medicine — carries more iron than spinach and more vitamin C than oranges. Paired with baobab's prebiotic richness, this tonic addresses the nutritional root causes of chronic fatigue: iron deficiency, micronutrient gaps, and the blood sugar instability that drives daily energy crashes.",
+        steps: [
+            "Warm 2 cups of water to just below boiling; add 2 slices of fresh ginger and simmer for 5 minutes.",
+            "Remove from heat and whisk in 1 tsp moringa powder and 1 tsp baobab powder until fully dissolved.",
+            "Add a pinch of Ceylon cinnamon; let steep for 3 minutes.",
+            "Sweeten with 1 tsp raw honey and drink each morning within 30 minutes of waking."
+        ],
+        duration: 21,
+        disclaimer: "Moringa leaf powder is safe for most people, but if you take thyroid medication, consult your doctor before starting — moringa can influence thyroid function at high doses. Moringa leaves are safe during pregnancy; avoid moringa bark or root preparations. Results from this protocol are typically noticeable within 7–10 days of consistent use.",
+        citations: [
+            RemedyCitation(
+                text: "Fahey, J.W. Moringa oleifera: A review of the medical evidence for its nutritional, therapeutic, and prophylactic properties. Trees for Life Journal. 2005;1:5.",
+                url: "https://www.moringanews.org/documents/moringa_review_Fahey.pdf"
+            ),
+            RemedyCitation(
+                text: "Muthai, K.U. et al. Nutritional variation in Moringa oleifera grown under different conditions. Food Sci Nutr. 2017;5(6):1174–1189.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/29188008/"
+            )
+        ]
+    )
+
+    static let rooibosBuchuBrew = Remedy(
+        name: "Rooibos & Buchu Skin Brew",
+        origin: "African Herbalism · South Africa",
+        tradition: "African Herbalism",
+        tid: "african",
+        icon: "🍵",
+        color: "#4A7C45",
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Rooibos (red bush) leaf",
+                what: "Dried leaves and stems of Aspalathus linearis — endemic to South Africa's Cederberg region, used by the indigenous Khoikhoi people for centuries. Contains aspalathin — a unique antioxidant found in no other plant on Earth — along with nothofagin and dozens of anti-inflammatory flavonoids.",
+                why: "Aspalathin has documented cortisol-modulating properties that reduce stress-driven skin flare-ups — one of the most common but underaddressed triggers for chronic skin irritation. Completely caffeine-free, making it safe for daily long-term use.",
+                whereToBuy: "Health food stores, specialty tea shops, or online. Organic loose-leaf rooibos preferred over bagged.",
+                safety: "Extremely safe; one of the most studied herbal teas in the world. Very rarely associated with elevated liver enzymes in unusually high consumption — culinary amounts are fully safe."
+            ),
+            IngredientDetail(
+                name: "Buchu leaf",
+                what: "Leaves of Agathosma betulina — a fynbos (Cape scrub) shrub used medicinally by the Khoikhoi and Xhosa peoples of South Africa for over 300 years before European contact. Rich in diosphenol and flavonoids with anti-inflammatory and diuretic properties.",
+                why: "Supports the kidneys and lymphatic elimination pathways — the drainage channels whose congestion the Khoikhoi tradition identifies as the root of skin irritation. Also provides direct anti-inflammatory compounds that reduce dermal inflammation.",
+                whereToBuy: "Health food stores or online via Mountain Rose Herbs or Cape Kingdom Nutraceuticals.",
+                safety: "Generally safe. Avoid during pregnancy. Not for long-term use by those with kidney disease."
+            ),
+            IngredientDetail(
+                name: "Honeybush leaf",
+                what: "Dried leaves of Cyclopia species — another plant endemic to South Africa's fynbos. Contains mangiferin and hesperidin with antioxidant capacity greater than rooibos, and documented phytoestrogenic activity.",
+                why: "Phytoestrogenic compounds in honeybush support skin hydration and elasticity — particularly relevant for the hormonal skin changes experienced by women in the 28–45 age range. Synergizes deeply with rooibos.",
+                whereToBuy: "Health food stores or online. Often sold blended with rooibos.",
+                safety: "Due to phytoestrogenic properties, consult your doctor if you have hormone-sensitive conditions (PCOS, endometriosis, estrogen-receptor positive conditions)."
+            ),
+            IngredientDetail(
+                name: "Lemon juice",
+                what: "Fresh citrus juice providing vitamin C — the rate-limiting cofactor for collagen synthesis — and citric acid that aids active compound extraction from the dried herbs.",
+                why: "Vitamin C is required for the production of collagen, the structural protein that gives skin integrity and resilience. Addressing vitamin C status through food-form sources has documented benefits for skin repair.",
+                whereToBuy: "Any grocery store. Fresh-squeezed only — bottled juice is heated, losing most vitamin C.",
+                safety: "Rinse your mouth after drinking to protect tooth enamel."
+            ),
+            IngredientDetail(
+                name: "Raw honey",
+                what: "Unprocessed honey whose antimicrobial and anti-inflammatory compounds — hydrogen peroxide, defensin-1, methylglyoxal — reach systemic circulation when consumed internally.",
+                why: "Internal consumption of raw honey reduces markers of systemic inflammation that underlie chronic skin conditions. The traditional South African healing model treats skin issues as whole-body rather than local problems.",
+                whereToBuy: "Health food stores or farmers markets. Raw and unfiltered.",
+                safety: "Not for infants under 12 months."
+            )
+        ],
+        desc: "The Khoikhoi people of South Africa used rooibos — containing aspalathin, found in no other plant on Earth — to address skin conditions and inflammation. This brew pairs it with buchu, a fynbos herb used medicinally for centuries before European contact, to address skin irritation through the elimination pathways rather than at the surface.",
+        steps: [
+            "Bring 2 cups of water to just below boiling; add 1 tbsp loose rooibos and 1 tsp buchu leaf.",
+            "Add 1 tsp honeybush leaf; cover and steep for 10 minutes.",
+            "Strain and let cool to drinking temperature.",
+            "Add juice of ½ lemon and 1 tsp raw honey; drink once daily, preferably in the morning."
+        ],
+        duration: 14,
+        disclaimer: "Honeybush contains phytoestrogenic compounds — consult your doctor before starting if you have a history of hormone-sensitive conditions. Buchu is not recommended during pregnancy. If skin symptoms are accompanied by fever, rapidly spreading redness, or difficulty breathing, seek medical attention promptly.",
+        citations: [
+            RemedyCitation(
+                text: "Joubert, E. & de Beer, D. Rooibos (Aspalathus linearis) beyond the farm gate: From herbal tea to potential phytopharmaceutical. S Afr J Bot. 2011;77(4):869–886.",
+                url: "https://www.sciencedirect.com/science/article/pii/S0254629911001421"
+            ),
+            RemedyCitation(
+                text: "Viljoen, A. et al. Buchu — Agathosma betulina and Agathosma crenulata (Rutaceae): A review of the historical, traditional uses and medicinal properties. J Ethnopharmacol. 2006;119(3):413–419.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/16973314/"
+            )
+        ]
+    )
+
+    static let grainsOfParadiseTonic = Remedy(
+        name: "Grains of Paradise Digestive Tonic",
+        origin: "African Herbalism · West Africa",
+        tradition: "African Herbalism",
+        tid: "african",
+        icon: "🌶",
+        color: "#4A7C45",
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Grains of paradise (Aframomum melegueta)",
+                what: "Seeds of a West African plant in the ginger family — historically so prized they gave the 'Grain Coast' of West Africa (modern Liberia and Ghana) its name. Contains paradol, shogaol, and gingerol-related compounds that activate TRPV1 and TRPV3 thermoreceptors in the digestive tract.",
+                why: "Paradol stimulates digestive peristalsis and reduces intestinal gas through thermoreceptor activation — a distinct and complementary mechanism to black pepper or ginger. Provides the digestive 'fire' celebrated in West African healing traditions as the key to gut harmony.",
+                whereToBuy: "Specialty spice shops, West African grocery stores, or online via Burlap & Barrel or Kalustyan's. Increasingly stocked in upscale grocery stores.",
+                safety: "Safe at culinary and mild therapeutic doses. Avoid in high amounts during pregnancy."
+            ),
+            IngredientDetail(
+                name: "Fresh ginger root",
+                what: "The foundational digestive herb of African and global traditional medicine. Warming, carminative, and anti-nausea through its gingerols and shogaols.",
+                why: "Synergizes with grains of paradise through complementary TRPV1 activation — both herbs stimulate the same digestive warming receptors through different compounds, creating a broader, more sustained carminative effect.",
+                whereToBuy: "Any grocery store.",
+                safety: nil
+            ),
+            IngredientDetail(
+                name: "Fennel seeds",
+                what: "Carminative seeds of Foeniculum vulgare — their volatile oils (trans-anethole, fenchone) relax intestinal smooth muscle and prevent gas formation.",
+                why: "Prevents the discomfort that can occur as warming herbs increase digestive motility. Ensures the protocol remains comfortable while the gut adjusts to more active peristaltic movement.",
+                whereToBuy: "Any grocery store.",
+                safety: "Safe at culinary doses. Avoid large therapeutic amounts during pregnancy."
+            ),
+            IngredientDetail(
+                name: "Lemon juice",
+                what: "Fresh citrus providing citric acid and vitamin C — the sour taste directly activates the vagal digestive reflex, stimulating digestive secretions before they are needed.",
+                why: "The sour taste triggers the same digestive preparation reflex as bitters — priming the stomach, liver, and pancreas for efficient digestion. A natural digestive aperitif element.",
+                whereToBuy: "Any grocery store. Fresh-squeezed only.",
+                safety: "Dilute well and rinse mouth after."
+            ),
+            IngredientDetail(
+                name: "Raw honey",
+                what: "The harmonizing sweetener used across West African healing traditions to balance pungent and warming herb formulas, preventing over-stimulation of the digestive lining.",
+                why: "Moderates the heat of grains of paradise and ginger, making the formula comfortable for daily use across the full 14-day protocol. Also provides prebiotic sugars that feed beneficial gut bacteria.",
+                whereToBuy: "Health food stores or farmers markets.",
+                safety: "Not for infants under 12 months."
+            )
+        ],
+        desc: "Grains of paradise — so prized in West African trade history they named the Grain Coast — are seeds in the ginger family used by healers across Nigeria, Senegal, and Ghana to kindle digestive fire and resolve bloating. This tonic activates the same digestive thermoreceptors as ginger, but through a distinct compound pathway that makes the combination significantly more potent.",
+        steps: [
+            "Lightly crush 1 tsp grains of paradise with the flat of a knife or mortar and pestle.",
+            "Combine with 2 slices fresh ginger and 1 tsp fennel seeds in a saucepan with 2 cups water.",
+            "Bring to a low simmer and decoct for 10 minutes; remove from heat and steep 5 minutes.",
+            "Strain, add juice of ½ lemon and 1 tsp raw honey, and drink warm 20 minutes before your main meal."
+        ],
+        duration: 14,
+        disclaimer: "This formula is warming and activating. Avoid if you have GERD, active acid reflux, or peptic ulcers — warming digestive herbs can aggravate these conditions. Grains of paradise should not be consumed in high amounts during pregnancy. If you experience significant heartburn or digestive pain, discontinue and consult a practitioner.",
+        citations: [
+            RemedyCitation(
+                text: "Dzeufiet, P.D. et al. Hypoglycemic effect of Aframomum melegueta (Roscoe) K. Schum seeds in streptozotocin-diabetic rats. Afr J Tradit Complement Altern Med. 2012;10(1):71–79.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/24082346/"
+            ),
+            RemedyCitation(
+                text: "Iwu, M.M. Handbook of African Medicinal Plants, 2nd ed. CRC Press, 2014.",
+                url: "https://www.routledge.com/Handbook-of-African-Medicinal-Plants/Iwu/p/book/9781466585911"
+            )
+        ]
+    )
+
+    // MARK: - Persian Medicine (additional)
+
+    static let blackSeedElixir = Remedy(
+        name: "Black Seed (Habbatus Sauda) Elixir",
+        origin: "Persian Medicine · Iran & Arabia",
+        tradition: "Persian Medicine",
+        tid: "persian",
+        icon: "🖤",
+        color: "#7B35A0",
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Nigella sativa seeds or cold-pressed oil",
+                what: "Seeds of Nigella sativa — called Habbatus Sauda in Arabic and Siah Daneh in Persian. The most documented plant in both Ibn Sina's Canon of Medicine and Islamic prophetic tradition. The active compound thymoquinone has been the subject of over 1,000 published scientific studies examining its anti-inflammatory, antioxidant, and immune-modulating properties.",
+                why: "Thymoquinone inhibits both the COX and 5-LOX inflammatory enzyme pathways simultaneously — dual-pathway action that is particularly effective for joint inflammation, which involves both pathways. Ibn Sina prescribed it specifically for joint conditions and 'heaviness of the limbs.'",
+                whereToBuy: "Middle Eastern grocery stores, health food stores, or online via Amazing Herbs (a well-researched brand). Cold-pressed oil is preferred over whole seeds for this formula — more bioavailable thymoquinone.",
+                safety: "Generally very safe. May lower blood sugar — caution if diabetic or on blood sugar medication. May interact with blood thinners at therapeutic doses."
+            ),
+            IngredientDetail(
+                name: "Raw honey",
+                what: "In Persian and Islamic medicine, honey (Asal) is the primary prescribed vehicle for black seed administration — documented in both Ibn Sina's Canon and in hadith literature as the ideal carrier for Habbatus Sauda.",
+                why: "Honey enhances thymoquinone absorption and provides its own anti-inflammatory compounds. The traditional combination of black seed and honey is the oldest documented use of Nigella sativa as medicine.",
+                whereToBuy: "Health food stores or farmers markets. Raw and unfiltered.",
+                safety: "Not for infants under 12 months."
+            ),
+            IngredientDetail(
+                name: "Apple cider vinegar",
+                what: "In Persian medicine, vinegar-honey preparations (Sikanjabeen) are a classical formulation for reducing inflammation and supporting liver metabolism. ACV provides acetic acid and live culture.",
+                why: "Provides the acidic Sikanjabeen base of classical Persian medicine that enhances the solubility and absorption of fat-soluble thymoquinone, and contributes its own anti-inflammatory support.",
+                whereToBuy: "Any grocery store. Raw, unfiltered with the mother.",
+                safety: "Always dilute as directed. Not for those with peptic ulcers or GERD."
+            ),
+            IngredientDetail(
+                name: "Turmeric",
+                what: "Anti-inflammatory rhizome whose curcumin also inhibits NF-kB — the same master inflammatory transcription factor that thymoquinone targets, through complementary binding sites.",
+                why: "Curcumin and thymoquinone create synergistic anti-inflammatory coverage by inhibiting NF-kB from different binding sites simultaneously — broader suppression of the inflammatory signaling cascade than either compound alone.",
+                whereToBuy: "Any grocery store or Indian grocery store.",
+                safety: "High doses may interact with blood-thinning medications."
+            ),
+            IngredientDetail(
+                name: "Black pepper",
+                what: "Piperine dramatically increases the bioavailability of both thymoquinone and curcumin by inhibiting their rapid hepatic metabolism.",
+                why: "Without piperine, both thymoquinone and curcumin are rapidly cleared by the liver before reaching systemic circulation. Even a small pinch of black pepper extends their effective duration in the body significantly.",
+                whereToBuy: "Any grocery store.",
+                safety: nil
+            )
+        ],
+        desc: "Ibn Sina wrote in the Canon of Medicine that black seed 'stimulates the body's energy and helps recovery from fatigue and dispiritedness.' Habbatus Sauda — Nigella sativa — has been the subject of over 1,000 modern studies, with thymoquinone showing dual COX and 5-LOX anti-inflammatory inhibition particularly relevant for joint and muscular discomfort.",
+        steps: [
+            "Combine 1 tsp raw black seed oil (or ground seeds) with 1 tbsp raw honey in a small cup; stir well.",
+            "Add 1 tsp apple cider vinegar and ½ tsp turmeric with a pinch of black pepper.",
+            "Top with 2 oz warm water and stir until fully combined.",
+            "Take each morning on an empty stomach, at least 20 minutes before eating."
+        ],
+        duration: 21,
+        disclaimer: "Black seed (Nigella sativa) may lower blood sugar — if you are diabetic or take blood sugar medication, monitor your levels carefully when starting this protocol. May interact with blood-thinning medications at therapeutic doses. If you are on any prescription medication, consult your doctor before combining. Raw black seed oil has a strong, pungent flavor — this is normal.",
+        citations: [
+            RemedyCitation(
+                text: "Randhawa, M.A. & Alghamdi, M.S. Anticancer activity of Nigella sativa (black seed): A review. Am J Chin Med. 2011;39(6):1075–1091.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/22083982/"
+            ),
+            RemedyCitation(
+                text: "Ibn Sina (Avicenna). Al-Qanun fi al-Tibb (Canon of Medicine), Book II — Habbatus Sauda (Black Seed). 1025 CE.",
+                url: "https://archive.org/details/canonofmedicinev00avic"
+            )
+        ]
+    )
+
+    static let fenugreekChamomileTonic = Remedy(
+        name: "Fenugreek & Chamomile Mood Tonic",
+        origin: "Persian Medicine · Iran",
+        tradition: "Persian Medicine",
+        tid: "persian",
+        icon: "🌼",
+        color: "#7B35A0",
+        ingredientDetails: [
+            IngredientDetail(
+                name: "Fenugreek seeds",
+                what: "Seeds of Trigonella foenum-graecum — one of the oldest documented medicinal plants, found in Egyptian tombs and referenced by Hippocrates. Ibn Sina prescribed it for women's health, digestion, and 'sadness of the heart.' Contains diosgenin (a phytosterol precursor with phytoestrogenic activity) and 4-hydroxyisoleucine (a unique amino acid that improves insulin sensitivity and serotonin precursor availability).",
+                why: "Diosgenin's phytoestrogenic activity helps regulate the hormonal fluctuations that drive mood instability in women — particularly in the luteal phase and perimenopause. 4-hydroxyisoleucine enhances serotonin precursor uptake, providing mood-brightening support through a metabolic pathway.",
+                whereToBuy: "Indian grocery stores, Middle Eastern grocery stores, or any grocery store (often in the spice aisle as whole seeds).",
+                safety: "Avoid at therapeutic doses during pregnancy — fenugreek has traditionally been used to induce labor. May lower blood sugar. Those with hormone-sensitive conditions should consult their doctor before starting."
+            ),
+            IngredientDetail(
+                name: "Dried chamomile flowers",
+                what: "Flowers of Matricaria chamomilla — used in Persian medicine for centuries as a nervine and digestive herb. Apigenin binds GABA-A receptors (reducing anxiety) and has been shown to bind serotonin receptors (supporting mood stability). One of the most studied anxiolytic herbs in modern pharmacology.",
+                why: "Provides immediate, gentle anxiolytic action that complements fenugreek's longer-acting hormonal support — addressing both the immediate experience of mood instability and the underlying hormonal pattern driving it.",
+                whereToBuy: "Any grocery store or health food store. Whole dried flowers preferred over powdered.",
+                safety: "Avoid if allergic to ragweed (same family). Otherwise extremely safe and gentle."
+            ),
+            IngredientDetail(
+                name: "Rose water",
+                what: "Steam-distilled hydrosol from Rosa damascena — Iran's Kashan region produces the world's most prized Damask rose water, used for over 1,000 years in Persian Unani medicine to 'strengthen the heart' and calm emotional agitation. Contains citronellol and geraniol with documented anxiolytic properties.",
+                why: "The aromatic experience of rose water is part of its therapeutic action — olfactory receptor activation of the limbic system (the brain's emotional center) by rose fragrance has documented mood-modulating effects in human studies. A rare example of a treatment where taste and scent are both medicine.",
+                whereToBuy: "Middle Eastern grocery stores, health food stores, or online. Must be food-grade, not cosmetic.",
+                safety: "Ensure food-grade purchase. Cosmetic rose water may contain additives not safe for internal use."
+            ),
+            IngredientDetail(
+                name: "Cardamom",
+                what: "Aromatic pods of Elettaria cardamomum — described by Ibn Sina as a 'gladdener of the heart' and used across Persian medicine as a digestive nervine that addresses the gut-brain connection underlying emotional health.",
+                why: "Many mood disorders have a significant gastrointestinal component — cardamom's dual action on the digestive tract and the nervous system makes it ideally suited for mood formulas that also need to address the physical symptoms (digestive tension, nausea) that accompany anxiety and low mood.",
+                whereToBuy: "Any grocery store or Indian/Middle Eastern grocery store.",
+                safety: nil
+            ),
+            IngredientDetail(
+                name: "Raw honey",
+                what: "In Persian and Unani medicine, honey is prescribed as the essential carrier that delivers nervine herbs into the 'subtle channels' (Lataif) that influence emotional experience. Also provides prebiotic substrate supporting the gut-brain axis.",
+                why: "Enhances the palatability and absorption of fenugreek's bitter saponins — making it possible to maintain a daily therapeutic dose comfortably throughout the 21-day protocol.",
+                whereToBuy: "Health food stores or farmers markets.",
+                safety: "Not for infants under 12 months. Add after cooling below 40°C / 104°F."
+            )
+        ],
+        desc: "Ibn Sina prescribed fenugreek for 'sadness of the heart' in the Canon of Medicine — its diosgenin content provides phytoestrogenic regulation of the hormonal mood fluctuations that affect many women. Paired with Persian chamomile and Damask rose water, this tonic addresses both the underlying hormonal pattern and the immediate experience of emotional instability.",
+        steps: [
+            "Soak 1 tsp fenugreek seeds in cold water overnight; drain and rinse before use.",
+            "Bring 2 cups water to a boil; add soaked fenugreek seeds and simmer for 10 minutes.",
+            "Add 1 tbsp dried chamomile flowers and ¼ tsp cardamom; remove from heat and steep 8 minutes.",
+            "Strain, let cool slightly, add 1 tsp rose water and 1 tsp raw honey; drink each evening."
+        ],
+        duration: 21,
+        disclaimer: "Fenugreek has phytoestrogenic activity and mild blood-sugar-lowering effects. Do not use at therapeutic doses during pregnancy. If you have a hormone-sensitive condition (endometriosis, PCOS, estrogen-receptor positive cancers) or take blood sugar medication, consult your doctor before starting. This formula supports mood and is not a substitute for professional mental health care.",
+        citations: [
+            RemedyCitation(
+                text: "Bhardwaj, S. et al. Antidepressant-like activity of Trigonella foenum-graecum seed extract in animal models of depression. Phytother Res. 2012;26(1):5–13.",
+                url: "https://pubmed.ncbi.nlm.nih.gov/21560181/"
+            ),
+            RemedyCitation(
+                text: "Ibn Sina (Avicenna). Al-Qanun fi al-Tibb (Canon of Medicine), Book II — Hulba (Fenugreek). 1025 CE.",
+                url: "https://archive.org/details/canonofmedicinev00avic"
+            )
+        ]
     )
 
     // MARK: - Symptom → Remedy Mapping
 
     static let symptomMap: [String: [Remedy]] = [
-        "Bloating & Gas": [triphalaGinger, wormwoodCloveTonic],
-        "Fatigue": [ashwagandhaGoldenMilk],
+        "Bloating & Gas": [triphalaGinger, wormwoodCloveTonic, grainsOfParadiseTonic],
+        "Fatigue": [ashwagandhaGoldenMilk, moringaBaobabTonic],
         "Digestive Issues": [papayaSeedHoney, garlicThymeOxymel],
-        "Skin Irritation": [neemTurmericTea],
+        "Skin Irritation": [neemTurmericTea, rooibosBuchuBrew],
         "Brain Fog": [brahmiGinkgoBrew],
         "Sugar Cravings": [blackWalnutOregano],
-        "Joint Discomfort": [boswelliaTurmericPaste],
+        "Joint Discomfort": [boswelliaTurmericPaste, blackSeedElixir],
         "Sleep Issues": [valerianPassionflower],
         "Appetite Loss": [agniStimulatingBitters],
-        "Mood Changes": [saffronRhodiolaBlend]
+        "Mood Changes": [saffronRhodiolaBlend, fenugreekChamomileTonic]
     ]
 
     static func remedies(for tid: String) -> [Remedy] {

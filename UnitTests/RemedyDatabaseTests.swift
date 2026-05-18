@@ -98,4 +98,116 @@ final class RemedyDatabaseTests: XCTestCase {
             XCTAssertFalse(remedy.sfSymbol.isEmpty, "\(remedy.name) sfSymbol must not be empty")
         }
     }
+
+    // MARK: - Phase 2: IngredientDetail + disclaimer + citations data integrity
+
+    func test_allRemediesHaveIngredientDetails() {
+        let all = RemedyDatabase.symptomMap.values.flatMap { $0 }
+        for remedy in all {
+            XCTAssertFalse(remedy.ingredientDetails.isEmpty,
+                           "\(remedy.name) must have at least one IngredientDetail")
+        }
+    }
+
+    func test_ingredientDetailsMatchIngredientNames() {
+        let all = RemedyDatabase.symptomMap.values.flatMap { $0 }
+        for remedy in all {
+            XCTAssertEqual(remedy.ingredients, remedy.ingredientDetails.map(\.name),
+                           "\(remedy.name): ingredients computed property must match ingredientDetails names")
+        }
+    }
+
+    func test_allRemediesHaveNonEmptyDisclaimer() {
+        let all = RemedyDatabase.symptomMap.values.flatMap { $0 }
+        for remedy in all {
+            XCTAssertFalse(remedy.disclaimer.isEmpty,
+                           "\(remedy.name) must have a non-empty disclaimer")
+        }
+    }
+
+    func test_allRemediesHaveCitations() {
+        let all = RemedyDatabase.symptomMap.values.flatMap { $0 }
+        for remedy in all {
+            XCTAssertFalse(remedy.citations.isEmpty,
+                           "\(remedy.name) must have at least one citation")
+        }
+    }
+
+    func test_allCitationsHaveNonEmptyURLs() {
+        let all = RemedyDatabase.symptomMap.values.flatMap { $0 }
+        for remedy in all {
+            for citation in remedy.citations {
+                XCTAssertFalse(citation.url.isEmpty,
+                               "\(remedy.name) citation '\(citation.text.prefix(40))...' must have a non-empty URL")
+                XCTAssertNotNil(URL(string: citation.url),
+                                "\(remedy.name) citation URL '\(citation.url)' must be a valid URL")
+            }
+        }
+    }
+
+    func test_ingredientDetailIDsAreUniquePerRemedy() {
+        let all = RemedyDatabase.symptomMap.values.flatMap { $0 }
+        for remedy in all {
+            let ids = remedy.ingredientDetails.map(\.id)
+            XCTAssertEqual(ids.count, Set(ids).count,
+                           "\(remedy.name) has duplicate ingredient names (IngredientDetail.id must be unique per remedy)")
+        }
+    }
+
+    // MARK: - Phase 2: New traditions
+
+    func test_africanHerbalismTidHasRemedies() {
+        let results = RemedyDatabase.remedies(for: "african")
+        XCTAssertFalse(results.isEmpty, "African Herbalism should have remedies")
+        XCTAssertTrue(results.allSatisfy { $0.tid == "african" },
+                      "All african results should have tid 'african'")
+    }
+
+    func test_africanHerbalismHasAtLeastThreeRemedies() {
+        let results = RemedyDatabase.remedies(for: "african")
+        XCTAssertGreaterThanOrEqual(results.count, 3,
+                                    "African Herbalism should have at least 3 remedies")
+    }
+
+    func test_persianMedicineHasAtLeastThreeRemedies() {
+        let results = RemedyDatabase.remedies(for: "persian")
+        XCTAssertGreaterThanOrEqual(results.count, 3,
+                                    "Persian Medicine should have at least 3 remedies")
+    }
+
+    // MARK: - Phase 2: Wellness goal weighting (SymptomViewModel)
+
+    func test_wellnessGoalBoost_digestiveHealth_prioritizesDigestiveRemedies() {
+        let vm = SymptomViewModel()
+        vm.wellnessGoal = "Digestive Health"
+        vm.selectedSymptoms = ["Bloating & Gas", "Fatigue"]
+        vm.analyzeSymptoms()
+        // Wait for the 2-second async delay
+        let expectation = XCTestExpectation(description: "analyzeSymptoms completes")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { expectation.fulfill() }
+        wait(for: [expectation], timeout: 4)
+
+        guard let first = vm.matchedRemedies.first else {
+            XCTFail("Must return at least one remedy")
+            return
+        }
+        let digestiveSymptoms: Set<String> = ["Digestive Issues", "Bloating & Gas", "Appetite Loss"]
+        let firstIsDigestive = RemedyDatabase.symptomMap.contains { key, vals in
+            digestiveSymptoms.contains(key) && vals.contains(first)
+        }
+        XCTAssertTrue(firstIsDigestive,
+                      "With Digestive Health goal, first result should be a digestive remedy; got \(first.name)")
+    }
+
+    func test_noWellnessGoal_returnsUnweightedOrder() {
+        let vm = SymptomViewModel()
+        vm.wellnessGoal = nil
+        vm.selectedSymptoms = ["Bloating & Gas"]
+        vm.analyzeSymptoms()
+        let expectation = XCTestExpectation(description: "analyzeSymptoms completes")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { expectation.fulfill() }
+        wait(for: [expectation], timeout: 4)
+        XCTAssertFalse(vm.matchedRemedies.isEmpty,
+                       "No-goal analysis must still return remedies")
+    }
 }

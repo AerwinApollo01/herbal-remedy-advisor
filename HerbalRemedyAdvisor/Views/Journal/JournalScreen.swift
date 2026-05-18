@@ -55,7 +55,7 @@ struct JournalScreen: View {
         VStack(spacing: 0) {
             AppHeader(
                 icon: "book.closed.fill",
-                label: "Cleanse Journal",
+                label: "Protocol Journal",
                 title: "Remedy Calendar",
                 subtitle: "Track your daily practice"
             )
@@ -234,7 +234,7 @@ struct JournalScreen: View {
         VStack(spacing: 0) {
             AppHeader(
                 icon: "book.closed.fill",
-                label: "Cleanse Journal",
+                label: "Protocol Journal",
                 title: "Remedy Calendar",
                 subtitle: "Track your daily practice"
             )
@@ -246,7 +246,7 @@ struct JournalScreen: View {
                 Text("No Active Protocol")
                     .font(.notoSerif(size: 20))
                     .foregroundColor(.forest)
-                Text("Browse remedies and tap \"Start\" to begin your cleanse journal.")
+                Text("Browse remedies and tap \"Start\" to begin tracking your active protocol.")
                     .font(.notoSans(size: 13))
                     .foregroundColor(.subtext)
                     .multilineTextAlignment(.center)

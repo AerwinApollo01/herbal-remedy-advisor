@@ -1,9 +1,11 @@
+import StoreKit
 import SwiftUI
 
 struct ProtocolCompleteOverlay: View {
     @EnvironmentObject var journalVM: JournalViewModel
     @State private var trophyScale: CGFloat = 0
     @Environment(\.accessibilityReduceMotion) var reduceMotion
+    @Environment(\.requestReview) private var requestReview
 
     private var recipe: Remedy? { journalVM.journalRecipe }
     private var tradition: Tradition? {
@@ -64,6 +66,10 @@ struct ProtocolCompleteOverlay: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                                 withAnimation(.spring()) { trophyScale = 1.0 }
                             }
+                        }
+                        // Request App Store review after the celebration moment lands
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                            requestReview()
                         }
                     }
 
