@@ -6,6 +6,7 @@ class JournalViewModel: ObservableObject {
     @Published var completedDays: [Int] = []
     @Published var completedProtocols: [String: Int] = [:]
     @Published var taskChecked: [Bool] = []
+    @Published var dayFeelings: [Int: String] = [:]   // day number → feeling key
     @Published var protocolStartDate: Date?
     @Published var reminderOn: Bool = false
     @Published var reminderHour: Int = 7
@@ -49,11 +50,11 @@ class JournalViewModel: ObservableObject {
 
     var streakLabel: String {
         let count = completedDays.count
-        if count == 0  { return "Begin your journey" }
-        if count < 3   { return "You're getting started!" }
-        if count < 7   { return "3-day streak — keep going!" }
-        if count < 14  { return "One week strong" }
-        return "Remarkable dedication"
+        if count == 0  { return "Begin your restorative cycle" }
+        if count < 3   { return "Your cycle has begun" }
+        if count < 7   { return "Three days into your protocol" }
+        if count < 14  { return "One week of your regimen complete" }
+        return "Remarkable dedication to your practice"
     }
 
     var isProtocolComplete: Bool {
@@ -83,12 +84,13 @@ class JournalViewModel: ObservableObject {
         navigateToJournalTrigger += 1
     }
 
-    func completeDay() {
+    func completeDay(feeling: String? = nil) {
         guard let recipe = journalRecipe else { return }
         let nextDay = currentDayNumber
         if !completedDays.contains(nextDay) {
             completedDays.append(nextDay)
         }
+        if let feeling { dayFeelings[nextDay] = feeling }
         taskChecked = Array(repeating: false, count: recipe.steps.count)
         if completedDays.count >= recipe.duration {
             completedProtocols[recipe.name, default: 0] += 1
@@ -189,6 +191,7 @@ class JournalViewModel: ObservableObject {
     private var reminderHourKey:     String { "\(keyPrefix)journal_reminder_hour" }
     private var reminderMinuteKey:   String { "\(keyPrefix)journal_reminder_minute" }
     private var taskCheckedKey:      String { "\(keyPrefix)journal_task_checked" }
+    private var dayFeelingsKey:      String { "\(keyPrefix)journal_day_feelings" }
 
     // MARK: - Persistence
 
@@ -210,6 +213,9 @@ class JournalViewModel: ObservableObject {
         d.set(reminderMinute, forKey: reminderMinuteKey)
         if let data = try? JSONEncoder().encode(taskChecked) {
             d.set(data, forKey: taskCheckedKey)
+        }
+        if let data = try? JSONEncoder().encode(dayFeelings) {
+            d.set(data, forKey: dayFeelingsKey)
         }
     }
 
@@ -256,6 +262,11 @@ class JournalViewModel: ObservableObject {
             taskChecked = checked
         } else {
             taskChecked = Array(repeating: false, count: remedy.steps.count)
+        }
+
+        if let data = d.data(forKey: dayFeelingsKey),
+           let feelings = try? JSONDecoder().decode([Int: String].self, from: data) {
+            dayFeelings = feelings
         }
     }
 

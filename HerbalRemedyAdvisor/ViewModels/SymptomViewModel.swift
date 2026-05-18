@@ -27,7 +27,7 @@ class SymptomViewModel: ObservableObject {
         "Stress & Sleep":    ["Sleep Issues", "Mood Changes", "Fatigue"],
         "Immune Support":    ["Fatigue", "Skin Irritation"],
         "Energy & Vitality": ["Fatigue", "Brain Fog"],
-        "Detox & Cleanse":   ["Digestive Issues", "Bloating & Gas", "Skin Irritation"],
+        "Detox & Restore":   ["Digestive Issues", "Bloating & Gas", "Skin Irritation"],
         "Skin Health":       ["Skin Irritation"],
     ]
 

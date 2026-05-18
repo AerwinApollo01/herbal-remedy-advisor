@@ -76,7 +76,7 @@ struct RemedyCard: View {
                             .background(Color.gold)
                             .cornerRadius(10)
                     }
-                    .accessibilityHint("Begins the cleanse journal for this remedy")
+                    .accessibilityHint("Begins the protocol journal for this remedy")
                 }
             }
             .padding(12)

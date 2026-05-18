@@ -13,7 +13,7 @@ struct OnboardingScreen: View {
     private let wellnessGoals = [
         "Digestive Health", "Stress & Sleep",
         "Immune Support",   "Energy & Vitality",
-        "Detox & Cleanse",  "Skin Health",
+        "Detox & Restore",  "Skin Health",
     ]
 
     // MARK: - State

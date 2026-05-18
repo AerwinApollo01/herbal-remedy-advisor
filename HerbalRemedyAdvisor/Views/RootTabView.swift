@@ -40,11 +40,13 @@ struct RootTabView: View {
                 }
                 .tag(3)
 
-            SettingsScreen()
-                .tabItem {
-                    Label("About", systemImage: "leaf.circle.fill")
-                }
-                .tag(4)
+            NavigationStack {
+                SettingsScreen()
+            }
+            .tabItem {
+                Label("About", systemImage: "leaf.circle.fill")
+            }
+            .tag(4)
         }
         .onAppear { configureTabBar() }
         .accentColor(.gold)

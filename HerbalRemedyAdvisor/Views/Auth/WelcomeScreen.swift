@@ -47,7 +47,7 @@ struct WelcomeScreen: View {
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 40)
 
-                        Text("Select your symptoms, explore what healers across cultures have used for centuries, and track your cleanse — one day at a time.")
+                        Text("Select your symptoms, explore what healers across cultures have used for centuries, and track your protocol — one day at a time.")
                             .font(.notoSans(size: 13))
                             .foregroundColor(.mist.opacity(0.8))
                             .multilineTextAlignment(.center)

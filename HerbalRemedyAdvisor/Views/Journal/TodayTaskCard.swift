@@ -5,7 +5,8 @@ struct TodayTaskCard: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header — shows the actual protocol name
+
+            // Header
             VStack(alignment: .leading, spacing: 3) {
                 HStack {
                     Text("DAY \(journalVM.currentDayNumber) PROTOCOL")
@@ -35,7 +36,7 @@ struct TodayTaskCard: View {
                 )
             )
 
-            // Preparation steps — read-only numbered list
+            // Read-only preparation steps
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(Array((journalVM.journalRecipe?.steps ?? []).enumerated()), id: \.offset) { i, step in
                     HStack(alignment: .top, spacing: 12) {

@@ -3,7 +3,6 @@ import SwiftUI
 struct SettingsScreen: View {
     @EnvironmentObject var authVM: AuthViewModel
     @State private var showDisclaimer = false
-    @State private var showOurStory = false
     @State private var showSignOutConfirm = false
     @State private var showDeleteConfirm = false
 
@@ -39,9 +38,7 @@ struct SettingsScreen: View {
 
                                 Divider().background(Color.mist.opacity(0.15))
 
-                                Button {
-                                    showOurStory = true
-                                } label: {
+                                NavigationLink(destination: OurStoryView()) {
                                     HStack {
                                         Image(systemName: "heart.text.square")
                                             .font(.system(size: 15))
@@ -57,9 +54,6 @@ struct SettingsScreen: View {
                                     .padding(.top, 16)
                                 }
                             }
-                        }
-                        .sheet(isPresented: $showOurStory) {
-                            OurStoryView()
                         }
 
                         // MARK: Account

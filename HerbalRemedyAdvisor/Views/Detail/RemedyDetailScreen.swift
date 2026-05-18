@@ -105,7 +105,7 @@ struct RemedyDetailScreen: View {
                     Button {
                         journalVM.startJournal(remedy: remedy)
                     } label: {
-                        Text("Begin \(remedy.duration)-Day Cleanse Journal")
+                        Text("Begin \(remedy.duration)-Day Protocol")
                             .font(.notoSerif(size: 15))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
@@ -120,7 +120,7 @@ struct RemedyDetailScreen: View {
                             .cornerRadius(16)
                             .shadow(color: .gold.opacity(0.4), radius: 8, y: 4)
                     }
-                    .accessibilityHint("Starts your cleanse journal for this remedy")
+                    .accessibilityHint("Starts your protocol journal for this remedy")
 
                     // Per-remedy disclaimer
                     VStack(alignment: .leading, spacing: 6) {
@@ -178,6 +178,27 @@ struct RemedyDetailScreen: View {
                         .background(Color.sage.opacity(0.06))
                         .cornerRadius(8)
                     }
+
+                    // General reference disclaimer footer
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack(spacing: 5) {
+                            Image(systemName: "info.circle")
+                                .font(.system(size: 9))
+                                .foregroundColor(.subtext.opacity(0.5))
+                            Text("GENERAL REFERENCE")
+                                .font(.notoSans(size: 9, weight: .semibold))
+                                .foregroundColor(.subtext.opacity(0.5))
+                                .kerning(0.5)
+                        }
+                        Text("The sources and preparation methods documented here are provided for educational and cultural archival purposes only. They do not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before beginning any herbal protocol or regimen.")
+                            .font(.notoSans(size: 10))
+                            .foregroundColor(.subtext.opacity(0.45))
+                            .lineSpacing(3)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding(12)
+                    .background(Color.mist.opacity(0.08))
+                    .cornerRadius(8)
 
                     Spacer(minLength: 40)
 

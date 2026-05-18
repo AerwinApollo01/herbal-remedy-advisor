@@ -49,10 +49,10 @@ struct RemedyDatabase {
         ],
         desc: "A foundational Ayurvedic cleansing tonic combining the three fruits of Triphala — amalaki, bibhitaki, and haritaki — with warming ginger to stimulate Agni (digestive fire), eliminate Ama (toxins), and restore balance to all three doshas.",
         steps: [
-            "Boil 2 cups of water and add 1 tsp Triphala powder and ½ tsp freshly grated ginger.",
-            "Simmer on low heat for 10 minutes, then remove from heat and steep for 5 minutes.",
-            "Strain into a cup, add a pinch of black pepper, and let cool to drinking temperature.",
-            "Stir in 1 tsp raw honey and drink 30 minutes before bed each evening."
+            "Traditionally, Ayurvedic vaidyas began this decoction by bringing two cups of water to a boil with one teaspoon of Triphala powder and half a teaspoon of freshly grated ginger root.",
+            "The mixture was simmered on low heat for ten minutes, then removed from the flame and allowed to steep undisturbed for five more — a resting period classical Ayurvedic texts described as allowing Agni to settle into the brew.",
+            "Healers strained the liquid into a cup and added a pinch of black pepper to activate piperine, allowing the preparation to cool to a comfortably warm drinking temperature.",
+            "Raw honey — never added to hot liquid, as Ayurvedic tradition held that heated honey became harmful — was stirred in last. The tonic was consumed thirty minutes before sleep each evening."
         ],
         duration: 21,
         disclaimer: "Triphala is a gentle natural laxative and may cause loose stools in the first few days — this is normal and should stabilize by Day 3. Avoid this protocol during pregnancy. If you have IBS or inflammatory bowel conditions, consult a practitioner before starting.",
@@ -114,10 +114,10 @@ struct RemedyDatabase {
         ],
         desc: "Ashwagandha, the revered Ayurvedic adaptogen, is blended with turmeric and warming spices into a nourishing golden milk. This protocol addresses deep fatigue by tonifying the adrenals, calming the nervous system, and rebuilding Ojas — the vital essence of immunity and vitality.",
         steps: [
-            "Warm 1.5 cups of milk over medium heat; do not boil.",
-            "Whisk in 1 tsp ashwagandha powder, ½ tsp turmeric, ¼ tsp cinnamon, and a pinch of cardamom.",
-            "Simmer gently for 5 minutes, stirring continuously to fully dissolve the herbs.",
-            "Pour into a mug, sweeten with honey or maple syrup if desired, and drink each morning upon rising."
+            "In classical Ayurvedic households, this formula was prepared by gently warming one and a half cups of whole milk over medium heat — never brought to a full boil, as boiling was considered to damage the milk's Ojas-building properties.",
+            "One teaspoon of ashwagandha powder, half a teaspoon of turmeric, a quarter teaspoon of cinnamon, and a pinch of cardamom were whisked in together until fully dissolved into the lipid medium.",
+            "The blend was simmered gently for five minutes with continuous stirring — a step that traditional practitioners emphasized for ensuring the fat-soluble compounds fully merged with the warm milk base.",
+            "Poured into a cup and lightly sweetened with honey or maple syrup, this golden milk was consumed each morning upon rising, before any food was taken."
         ],
         duration: 30,
         disclaimer: "Ashwagandha can influence thyroid hormone levels and cortisol. If you take thyroid medication, sedatives, or immunosuppressants, consult your doctor before starting. Not recommended during pregnancy or breastfeeding. Results typically become noticeable after 2–3 weeks of consistent use.",
@@ -179,10 +179,10 @@ struct RemedyDatabase {
         ],
         desc: "Neem, called 'the village pharmacy' in India, is one of Ayurveda's most powerful blood purifiers. Combined with anti-inflammatory turmeric and soothing licorice, this tea addresses skin irritations at their root — clearing heat, toxins, and Pitta imbalance from the blood and lymphatic system.",
         steps: [
-            "Bring 2 cups of water to a boil and add 1 tsp dried neem leaves and ½ tsp coriander seeds.",
-            "Add ½ tsp turmeric and a small piece of licorice root; reduce heat and simmer for 12 minutes.",
-            "Strain the tea and let cool until comfortably warm.",
-            "Add 1 tsp raw honey and drink once daily in the morning on an empty stomach."
+            "In traditional Ayurvedic practice, this blood-purifying decoction was prepared by bringing two cups of water to a boil, into which one teaspoon of dried neem leaves and half a teaspoon of coriander seeds were added.",
+            "Half a teaspoon of turmeric and a small piece of licorice root were introduced, the heat reduced to a gentle simmer, and the brew was decocted for twelve minutes — the extended time considered necessary to fully draw out neem's bitter purifying compounds.",
+            "The tea was strained and allowed to cool until comfortably warm — Ayurvedic practice held that neem's cooling properties were best preserved when the preparation was consumed below boiling temperature.",
+            "One teaspoon of raw honey was added only after cooling, and the preparation was consumed once daily on an empty stomach in the morning — the timing the classical texts emphasized for optimal blood-purifying action."
         ],
         duration: 14,
         disclaimer: "Neem is a potent blood-purifying herb and should not be used during pregnancy or by children under 12. Licorice root raises blood pressure — avoid if you have hypertension, kidney disease, or edema. Limit this protocol to 14 days as directed. If skin symptoms worsen significantly, discontinue and consult a practitioner.",
@@ -242,12 +242,12 @@ struct RemedyDatabase {
                 safety: "Avoid high therapeutic doses if taking blood-thinning medications."
             )
         ],
-        desc: "Boswellia — known as Shallaki in Sanskrit — has been used in Ayurveda for millennia to reduce joint inflammation and restore mobility. This golden paste combines its active boswellic acids with turmeric's curcumin, amplified by black pepper's piperine for maximum bioavailability.",
+        desc: "Boswellia — known as Shallaki in Sanskrit — has been used in Ayurveda for millennia to support joint comfort and restore ease of movement. This golden paste combines its active boswellic acids with turmeric's curcumin, amplified by black pepper's piperine for maximum bioavailability.",
         steps: [
-            "Combine 1 tsp boswellia powder, 1 tsp turmeric, ½ tsp ginger, and ¼ tsp black pepper in a small bowl.",
-            "Warm 1 tbsp ghee in a pan over low heat; add the herb mixture and stir into a smooth paste.",
-            "Remove from heat and let cool slightly. Take ½ tsp of the paste with warm water or milk.",
-            "Apply a small amount topically to affected joints and massage gently if needed."
+            "Shallaki paste was historically prepared by Ayurvedic practitioners by combining one teaspoon each of boswellia and turmeric powder with half a teaspoon of ginger powder and a quarter teaspoon of black pepper in a small bowl.",
+            "A tablespoon of ghee — classified as a Snehana (oleation) carrier in Ayurveda — was warmed gently in a pan, then the herb mixture was stirred in and worked into a smooth, cohesive paste over low heat.",
+            "The pan was removed from heat and allowed to cool slightly; the paste was stored in a small sealed vessel, as classical texts noted it could be prepared in advance and kept for several days.",
+            "Half a teaspoon of the paste was taken with warm water or milk. Practitioners also applied a small amount topically to areas of joint discomfort and massaged gently — a dual internal and external application documented in classical Ayurvedic joint protocols."
         ],
         duration: 21,
         disclaimer: "If you take NSAIDs, prescription anti-inflammatories, or blood-thinning medications, consult your doctor before combining them with this protocol — both boswellia and turmeric have anti-inflammatory and mild blood-thinning properties. Topical application is an adjunct practice, not a substitute for professional care for acute joint injuries.",
@@ -309,10 +309,10 @@ struct RemedyDatabase {
         ],
         desc: "In Ayurveda, weak Agni — digestive fire — is considered the root of most disease. These warming bitters kindle Agni, stimulate digestive enzyme production, and restore the body's natural appetite signals. The Trikatu blend is a classical Ayurvedic formula documented in the Charaka Samhita.",
         steps: [
-            "Toast 1 tsp cumin and 1 tsp fennel seeds in a dry pan for 2 minutes until fragrant; grind coarsely.",
-            "Combine with ½ tsp Trikatu blend and 1 tsp dried orange peel in a small jar.",
-            "Add 1 tbsp apple cider vinegar and 2 tbsp warm water; stir well.",
-            "Drink 15 minutes before each meal to prime digestion and stimulate appetite."
+            "In classical Ayurvedic practice, this digestive bitters formula began with one teaspoon each of cumin and fennel seeds toasted dry in a pan for two minutes until fragrant, then ground coarsely — the toasting considered essential to activate the carminative volatile oils.",
+            "The ground spices were combined with half a teaspoon of Trikatu blend and one teaspoon of dried orange peel in a small preparation jar — a combination classical texts called a premier Agni-kindling compound.",
+            "One tablespoon of apple cider vinegar and two tablespoons of warm water were poured over the herbs and stirred well, creating the traditional pre-meal bitters preparation.",
+            "This formula was consumed fifteen minutes before each meal — a timing considered essential in Ayurvedic tradition, as the bitters were meant to prime the digestive field before food arrived."
         ],
         duration: 14,
         disclaimer: "These bitters stimulate stomach acid production. Do not use if you have GERD, active acid reflux, or peptic ulcers — increasing stomach acid in these conditions can worsen symptoms. Trikatu is a heating formula that may cause discomfort in those with Pitta-type imbalances (frequent heartburn, skin redness, irritability).",
@@ -374,10 +374,10 @@ struct RemedyDatabase {
         ],
         desc: "This TCM digestive tonic combines Qing Hao (wormwood) — documented in the Bencao Gangmu by Li Shizhen — with warming cloves and the bitter detoxifier Huang Lian. Together they clear damp-heat from the middle jiao, reduce bloating, and restore harmonious Qi flow through the stomach meridian.",
         steps: [
-            "Bring 3 cups of water to a boil; add 2g dried wormwood, 3 clove buds, and a small piece of Chen Pi.",
-            "Add 2-3 slices of fresh ginger and a pinch of Huang Lian; reduce to a simmer.",
-            "Decoct on low heat for 20 minutes, allowing the liquid to reduce to approximately 2 cups.",
-            "Strain, divide into two portions, and drink one cup warm before lunch and one before dinner."
+            "Traditional TCM practitioners prepared this decoction by bringing three cups of water to a boil, then adding two grams of dried wormwood (Qing Hao), three clove buds, and a small piece of aged tangerine peel (Chen Pi).",
+            "Two to three slices of fresh ginger and a measured pinch of Huang Lian were added, the heat reduced to a low simmer — a deliberate balancing of warming and cooling herbs that TCM theory described as harmonizing the middle jiao.",
+            "The formula was decocted on low heat for twenty minutes, allowing the liquid to reduce to approximately two cups — the reduction considered essential for concentrating the damp-heat-clearing compounds into a potent medicinal dose.",
+            "The strained decoction was divided into two equal portions and consumed warm — one cup before midday and the second before the evening meal — a twice-daily rhythm documented in Li Shizhen's classical materia medica."
         ],
         duration: 14,
         disclaimer: "Wormwood contains thujone and must not be exceeded beyond the stated dose or 14-day duration. Not safe during pregnancy or for children under 12. If you are diabetic or take blood sugar medication, monitor your levels carefully when using Huang Lian (berberine). This formula is quite bitter — that bitterness is part of how it works.",
@@ -439,10 +439,10 @@ struct RemedyDatabase {
         ],
         desc: "A cross-traditional clarity formula drawing from both TCM and Ayurveda. Ginkgo biloba, a sacred TCM herb used for millennia, increases cerebral circulation. Brahmi, the Ayurvedic brain tonic, enhances memory and reduces mental fog. He Shou Wu nourishes the kidney-brain axis described in TCM theory.",
         steps: [
-            "Steep 1 tsp ginkgo biloba leaf and 1 tsp dried goji berries in 2 cups just-boiled water for 10 minutes.",
-            "Strain and reheat gently; whisk in 1 tsp Brahmi powder until fully dissolved.",
-            "Add He Shou Wu tincture (10 drops) or ½ tsp powder if available.",
-            "Drink one cup mid-morning and one early afternoon; avoid after 4 PM to support sleep."
+            "This cross-traditional clarity formula was prepared by steeping one teaspoon of ginkgo biloba leaf and one teaspoon of dried goji berries in two cups of just-boiled water for ten minutes — the just-boiled temperature, rather than a full rolling boil, considered ideal for preserving the delicate flavonoid compounds.",
+            "After straining, the brew was gently reheated and one teaspoon of Brahmi powder was whisked in until fully dissolved — Ayurvedic practitioners held that warm (not hot) liquid activated the bacosides most effectively.",
+            "Ten drops of processed (Zhi) He Shou Wu tincture — or half a teaspoon of the prepared powder — were added last to complete the classical TCM Kidney-Brain nourishing combination.",
+            "One cup was consumed mid-morning and the second in the early afternoon. Classical practitioners of both traditions consistently noted that the formula should not be taken after four in the afternoon, as the green tea base would interfere with the evening's restorative rest."
         ],
         duration: 21,
         disclaimer: "Ginkgo biloba thins the blood — do not combine with warfarin, aspirin, or NSAIDs. Only use processed (Zhi) He Shou Wu; raw He Shou Wu has been linked to liver injury in case reports. Because this formula contains caffeine from green tea, avoid taking it after 4 PM. Full cognitive benefits typically require 4–8 weeks of consistent use.",
@@ -504,10 +504,10 @@ struct RemedyDatabase {
         ],
         desc: "Ibn Sina (Avicenna) wrote extensively on saffron's power to elevate the spirits and strengthen the heart in his Canon of Medicine. This blend pairs royal saffron — the most prized Persian botanical — with adaptogenic Rhodiola to regulate cortisol, restore emotional resilience, and brighten mood through multiple pathways.",
         steps: [
-            "Steep a generous pinch of saffron threads (10-15) in 2 tbsp warm water for 10 minutes until golden.",
-            "Warm 1.5 cups of water or oat milk and whisk in ½ tsp Rhodiola powder and ¼ tsp cardamom.",
-            "Add the saffron water and 1 tsp rose water; stir gently to combine.",
-            "Sweeten with 1 tsp raw honey and drink each morning, taking three mindful breaths before the first sip."
+            "In classical Persian practice, saffron was never added directly to boiling liquid. A generous pinch of threads — ten to fifteen — was first steeped in two tablespoons of warm water for ten minutes until the liquid turned a deep golden amber.",
+            "One and a half cups of water or oat milk were warmed separately, and half a teaspoon of Rhodiola powder and a quarter teaspoon of cardamom were whisked in — a step Persian healers described as awakening the adaptogens.",
+            "The golden saffron water and one teaspoon of food-grade rose water were added to the warm blend and stirred gently — the rose water, in Persian Unani tradition, was considered equally a medicine for the heart as for the body.",
+            "Sweetened with one teaspoon of raw honey, this tonic was consumed each morning. Traditional Persian physicians prescribed three slow, mindful breaths before the first sip as an integral part of the therapeutic practice."
         ],
         duration: 21,
         disclaimer: "Rhodiola has mild stimulant properties — take this formula in the morning, not evening. If you take SSRIs, MAOIs, or other antidepressants, consult your doctor before adding Rhodiola. At therapeutic doses, saffron may stimulate uterine contractions and is not recommended during pregnancy. This formula supports mood — it is not a substitute for professional mental health care.",
@@ -569,10 +569,10 @@ struct RemedyDatabase {
         ],
         desc: "Used across Thailand, Indonesia, and the Philippines, papaya seeds contain carpaine and benzyl isothiocyanate — compounds that have been revered in traditional healing for digestive cleansing. This 7-day intensive protocol is drawn from Jamu tradition and Thai folk medicine for restoring gut harmony.",
         steps: [
-            "Scoop seeds from ½ a ripe papaya; rinse well and allow to air dry on a paper towel.",
-            "Blend 1 tbsp fresh seeds with 1 tbsp raw honey, 1 tsp lime juice, and a pinch of turmeric until smooth.",
-            "Take the blend each morning on an empty stomach, 30 minutes before breakfast.",
-            "Follow with 1 glass of warm water with a few drops of coconut oil stirred in."
+            "In Thai and Jamu tradition, fresh papaya seeds were harvested from a fully ripe, orange-yellow papaya — the ripeness being considered essential — then rinsed carefully and laid on a clean cloth to air dry before preparation.",
+            "One tablespoon of the prepared seeds was blended smooth with one tablespoon of raw honey, one teaspoon of fresh lime juice, and a pinch of turmeric — a combination documented across both Thai folk medicine and the Jamu tradition of Java.",
+            "The blended preparation was consumed each morning on an empty stomach, at least thirty minutes before the first meal — the empty stomach timing considered essential to allow direct contact between the preparation and the digestive environment.",
+            "A glass of warm water with several drops of coconut oil stirred in was taken immediately after — a traditional Thai practice of following intensive seed preparations with a protective oil to support the digestive lining."
         ],
         duration: 7,
         disclaimer: "Do not use this protocol during pregnancy — papaya seeds contain carpaine, which may stimulate uterine contractions. This is a traditional 7-day digestive cleanse, not a medical treatment for parasitic infections. If you suspect a parasitic infection, consult a doctor for proper diagnosis and treatment. Limit to 7 days as directed.",
@@ -634,10 +634,10 @@ struct RemedyDatabase {
         ],
         desc: "An oxymel — a classical Greek preparation meaning 'acid and honey' — was documented by Hippocrates as a vehicle for delivering bitter and pungent herbs. This European formula uses garlic's allicin and thyme's thymol to address digestive dysbiosis, improve gut motility, and restore the terrain of the intestinal flora.",
         steps: [
-            "Crush 4 garlic cloves and let sit for 10 minutes to activate allicin; finely chop or mince.",
-            "Combine garlic with 2 tbsp fresh thyme leaves and 1 tsp fennel seeds in a small jar.",
-            "Pour ¼ cup raw apple cider vinegar and ¼ cup raw honey over the herbs; seal and shake well.",
-            "Take 1 tbsp of the oxymel in 4 oz warm water twice daily — once before breakfast and once before dinner."
+            "The Greek oxymel tradition required that garlic be crushed and left to rest for ten full minutes before any other preparation step — a practice Hippocratic physicians understood to be essential for enzymatic activation of the medicinal compounds.",
+            "The rested garlic was combined with two tablespoons of fresh thyme leaves and one teaspoon of fennel seeds in a small jar — an aromatic herb combination documented in both Greek and European monastic medicine as a digestive restorative.",
+            "A quarter cup each of raw apple cider vinegar and raw honey was poured over the herbs, the jar sealed and shaken to combine — a classical oxymel preservation method that kept the preparation viable at room temperature for several weeks.",
+            "One tablespoon of the oxymel was administered in four ounces of warm water twice daily — before the morning meal and before the evening meal — following the Hippocratic tradition of using bitter and pungent preparations as pre-meal digestive primers."
         ],
         duration: 21,
         disclaimer: "Garlic thins the blood. If you take warfarin, aspirin, or anticoagulant medications, consult your doctor before this protocol. Raw ACV must always be diluted as directed — undiluted vinegar erodes tooth enamel over time. Rinse your mouth after each dose.",
@@ -699,10 +699,10 @@ struct RemedyDatabase {
         ],
         desc: "Used by European monastic healers and documented in Paracelsus's writings on purification, black walnut hull — rich in juglone — combined with oregano's carvacrol creates a powerful protocol for addressing sugar cravings linked to microbial imbalances. This formula follows the classical European three-herb purge cycle.",
         steps: [
-            "Take 20 drops of black walnut hull tincture in 4 oz water each morning before eating.",
-            "Add 2-3 drops of oil of oregano to a teaspoon of olive oil and hold under tongue for 30 seconds, then swallow.",
-            "Take a pinch of clove powder in warm water with lunch to address afternoon cravings.",
-            "End each day with ½ cup plain kefir or yogurt to replenish beneficial flora."
+            "In the European monastic herbal tradition, black walnut hull tincture was administered as twenty drops in four ounces of water each morning before food — the empty stomach timing considered essential to allow direct contact with the intestinal environment.",
+            "Two to three drops of oil of oregano were combined with one teaspoon of olive oil and held briefly under the tongue before swallowing — a method Paracelsus-era practitioners used to maximize absorption of volatile aromatic compounds through the sublingual mucosa.",
+            "A small pinch of clove powder in warm water was taken with the midday meal to address afternoon digestive irregularities — timing aligned with the traditional European understanding that digestive activity diminishes after noon and requires carminative support.",
+            "Each day concluded with half a cup of plain kefir or unsweetened yogurt — a restorative final step that European healers considered essential to complete the classical purge-and-replenish cycle."
         ],
         duration: 14,
         disclaimer: "This is a potent antimicrobial protocol. Do not exceed the stated doses — particularly for wormwood tincture (no more than 20 drops) and oil of oregano. If you are pregnant, have epilepsy, or take immunosuppressant medications, do not use this protocol without consulting your doctor. Always complete the probiotic step daily — the kefir or yogurt is not optional.",
@@ -764,10 +764,10 @@ struct RemedyDatabase {
         ],
         desc: "Hildegard von Bingen prescribed valerian for 'those whose mind is troubled at night' in her 12th-century Physica. This evening tonic combines valerian's GABA-potentiating properties with passionflower, lemon balm, and lavender in a classic European sleep formula — calming the nervous system without dependency.",
         steps: [
-            "Combine 1 tsp dried valerian root, 1 tsp passionflower, ½ tsp lemon balm, and ½ tsp chamomile flowers.",
-            "Pour 2 cups of boiling water over the herbs; cover and steep for 15 minutes.",
-            "Strain through a fine mesh; add 4 drops lavender tincture or a drop of food-grade lavender oil.",
-            "Drink the full cup warm, 45 minutes before your intended bedtime, in a quiet, dimly lit space."
+            "European herbalists prepared this evening blend by combining one teaspoon each of dried valerian root and passionflower leaf with half a teaspoon each of dried lemon balm and chamomile flowers in a ceramic vessel — ceramic being the traditional preference for delicate nervine infusions.",
+            "Two cups of freshly boiled water were poured over the herbs and the vessel was immediately covered and left to steep for fifteen minutes — the covering considered essential to prevent the volatile aromatic compounds from escaping with the steam.",
+            "After straining through fine mesh, four drops of culinary-grade lavender tincture — or a single drop of food-grade lavender oil — were stirred in off the heat, preserving the volatile linalool compounds that would otherwise evaporate if added to a hot liquid.",
+            "The full cup was consumed warm, forty-five minutes before the intended bedtime, in a quiet and dimly lit space — European physicians prescribed both the formula and the environmental conditions as equal parts of the therapeutic ritual."
         ],
         duration: 14,
         disclaimer: "Do not combine this tonic with alcohol, prescription sleeping pills, or benzodiazepines — the combination creates an additive sedative effect. Passionflower is not safe during pregnancy. If you have hypothyroidism, speak with your doctor before using lemon balm. Use culinary-grade lavender only — lavender essential oil is not safe for internal use.",
@@ -831,10 +831,10 @@ struct RemedyDatabase {
         ],
         desc: "Moringa oleifera — the 'miracle tree' of African traditional medicine — carries more iron than spinach and more vitamin C than oranges. Paired with baobab's prebiotic richness, this tonic addresses the nutritional root causes of chronic fatigue: iron deficiency, micronutrient gaps, and the blood sugar instability that drives daily energy crashes.",
         steps: [
-            "Warm 2 cups of water to just below boiling; add 2 slices of fresh ginger and simmer for 5 minutes.",
-            "Remove from heat and whisk in 1 tsp moringa powder and 1 tsp baobab powder until fully dissolved.",
-            "Add a pinch of Ceylon cinnamon; let steep for 3 minutes.",
-            "Sweeten with 1 tsp raw honey and drink each morning within 30 minutes of waking."
+            "West African healers who used this nutrient-rich tonic began by warming two cups of water to just below boiling, adding two slices of fresh ginger root and simmering gently for five minutes to extract the warming compounds.",
+            "The water was removed from heat and one teaspoon each of moringa leaf powder and baobab fruit powder were whisked in until fully dissolved — a technique traditional practitioners emphasized, as boiling temperatures were understood to degrade moringa's heat-sensitive nutritional content.",
+            "A pinch of Ceylon cinnamon was added, and the preparation was steeped for three minutes — a brief resting period that West African healing tradition held was necessary for the botanical constituents to fully integrate.",
+            "One teaspoon of raw honey was stirred in as the final step, and the tonic was consumed each morning within thirty minutes of waking — the traditional timing that aligned with the body's morning absorption window on an empty, primed digestive system."
         ],
         duration: 21,
         disclaimer: "Moringa leaf powder is safe for most people, but if you take thyroid medication, consult your doctor before starting — moringa can influence thyroid function at high doses. Moringa leaves are safe during pregnancy; avoid moringa bark or root preparations. Results from this protocol are typically noticeable within 7–10 days of consistent use.",
@@ -896,10 +896,10 @@ struct RemedyDatabase {
         ],
         desc: "The Khoikhoi people of South Africa used rooibos — containing aspalathin, found in no other plant on Earth — to address skin conditions and inflammation. This brew pairs it with buchu, a fynbos herb used medicinally for centuries before European contact, to address skin irritation through the elimination pathways rather than at the surface.",
         steps: [
-            "Bring 2 cups of water to just below boiling; add 1 tbsp loose rooibos and 1 tsp buchu leaf.",
-            "Add 1 tsp honeybush leaf; cover and steep for 10 minutes.",
-            "Strain and let cool to drinking temperature.",
-            "Add juice of ½ lemon and 1 tsp raw honey; drink once daily, preferably in the morning."
+            "Among the Khoikhoi people of the Cape region, rooibos was prepared by bringing water to just below boiling — a careful temperature distinction that South African herbalists maintained to preserve the heat-sensitive aspalathin compounds.",
+            "One tablespoon of loose rooibos and one teaspoon of buchu leaf were added, the vessel covered, and the herbs steeped for ten minutes — the covered steeping being essential in traditional practice to capture the aromatic diosphenol compounds of the buchu leaf.",
+            "One teaspoon of honeybush leaf was included in the final steeping stage; the brew was then strained and allowed to cool to a comfortable drinking temperature — the three-herb combination reflecting the classical fynbos healing tradition of layering complementary botanicals.",
+            "The juice of half a lemon and one teaspoon of raw honey were stirred in last, and the brew was consumed once daily in the morning — morning use aligning with the Khoikhoi tradition of using elimination-supporting herbs before the body's daily food processing began."
         ],
         duration: 14,
         disclaimer: "Honeybush contains phytoestrogenic compounds — consult your doctor before starting if you have a history of hormone-sensitive conditions. Buchu is not recommended during pregnancy. If skin symptoms are accompanied by fever, rapidly spreading redness, or difficulty breathing, seek medical attention promptly.",
@@ -961,10 +961,10 @@ struct RemedyDatabase {
         ],
         desc: "Grains of paradise — so prized in West African trade history they named the Grain Coast — are seeds in the ginger family used by healers across Nigeria, Senegal, and Ghana to kindle digestive fire and resolve bloating. This tonic activates the same digestive thermoreceptors as ginger, but through a distinct compound pathway that makes the combination significantly more potent.",
         steps: [
-            "Lightly crush 1 tsp grains of paradise with the flat of a knife or mortar and pestle.",
-            "Combine with 2 slices fresh ginger and 1 tsp fennel seeds in a saucepan with 2 cups water.",
-            "Bring to a low simmer and decoct for 10 minutes; remove from heat and steep 5 minutes.",
-            "Strain, add juice of ½ lemon and 1 tsp raw honey, and drink warm 20 minutes before your main meal."
+            "West African healers of the Grain Coast tradition began this preparation by lightly crushing one teaspoon of grains of paradise with a mortar and pestle — the crushing, not grinding, releasing the aromatic volatile oils while preserving the structure of the active paradol compounds.",
+            "The cracked seeds were combined with two slices of fresh ginger and one teaspoon of fennel seeds in a saucepan with two cups of water, then brought to a low simmer — gradual heat being preferred over sudden boiling in traditional West African preparation.",
+            "The blend was decocted gently for ten minutes, then removed from heat and allowed to steep for five additional minutes — a resting period that Ghanaian and Senegalese healers held was necessary for the compounds to fully meld.",
+            "After straining, the juice of half a lemon and one teaspoon of raw honey were added, and the tonic was consumed warm twenty minutes before the main meal — a pre-meal timing that West African digestive tradition considered essential for priming the body's absorption response."
         ],
         duration: 14,
         disclaimer: "This formula is warming and activating. Avoid if you have GERD, active acid reflux, or peptic ulcers — warming digestive herbs can aggravate these conditions. Grains of paradise should not be consumed in high amounts during pregnancy. If you experience significant heartburn or digestive pain, discontinue and consult a practitioner.",
@@ -1026,12 +1026,12 @@ struct RemedyDatabase {
                 safety: nil
             )
         ],
-        desc: "Ibn Sina wrote in the Canon of Medicine that black seed 'stimulates the body's energy and helps recovery from fatigue and dispiritedness.' Habbatus Sauda — Nigella sativa — has been the subject of over 1,000 modern studies, with thymoquinone showing dual COX and 5-LOX anti-inflammatory inhibition particularly relevant for joint and muscular discomfort.",
+        desc: "Ibn Sina wrote in the Canon of Medicine that black seed 'stimulates the body's energy and helps recovery from fatigue and dispiritedness.' Habbatus Sauda — Nigella sativa — has been the subject of over 1,000 modern studies, with thymoquinone showing dual COX and 5-LOX anti-inflammatory inhibition particularly relevant for joint mobility and muscular ease.",
         steps: [
-            "Combine 1 tsp raw black seed oil (or ground seeds) with 1 tbsp raw honey in a small cup; stir well.",
-            "Add 1 tsp apple cider vinegar and ½ tsp turmeric with a pinch of black pepper.",
-            "Top with 2 oz warm water and stir until fully combined.",
-            "Take each morning on an empty stomach, at least 20 minutes before eating."
+            "In classical Persian and Islamic medicine, the black seed elixir was prepared by combining one teaspoon of cold-pressed Nigella sativa oil (or freshly ground seeds) with one tablespoon of raw honey — the honey-and-black-seed pairing being the oldest documented use of Habbatus Sauda as medicine.",
+            "One teaspoon of apple cider vinegar, half a teaspoon of turmeric, and a pinch of black pepper were added to the cup — a formulation Persian physicians called Sikanjabeen-el-Aswad, combining the classical vinegar-honey Sikanjabeen base with the most revered therapeutic seed in the Islamic pharmacopeia.",
+            "Two ounces of warm water were added last and the formula stirred until fully combined — the warm water serving both as a volume carrier and as a gentle warming medium consistent with Persian Unani principles of supporting digestion.",
+            "The elixir was consumed each morning on an empty stomach, at least twenty minutes before any food was taken — a timing prescribed by Ibn Sina in the Canon of Medicine as optimal for Habbatus Sauda's systemic absorption."
         ],
         duration: 21,
         disclaimer: "Black seed (Nigella sativa) may lower blood sugar — if you are diabetic or take blood sugar medication, monitor your levels carefully when starting this protocol. May interact with blood-thinning medications at therapeutic doses. If you are on any prescription medication, consult your doctor before combining. Raw black seed oil has a strong, pungent flavor — this is normal.",
@@ -1093,10 +1093,10 @@ struct RemedyDatabase {
         ],
         desc: "Ibn Sina prescribed fenugreek for 'sadness of the heart' in the Canon of Medicine — its diosgenin content provides phytoestrogenic regulation of the hormonal mood fluctuations that affect many women. Paired with Persian chamomile and Damask rose water, this tonic addresses both the underlying hormonal pattern and the immediate experience of emotional instability.",
         steps: [
-            "Soak 1 tsp fenugreek seeds in cold water overnight; drain and rinse before use.",
-            "Bring 2 cups water to a boil; add soaked fenugreek seeds and simmer for 10 minutes.",
-            "Add 1 tbsp dried chamomile flowers and ¼ tsp cardamom; remove from heat and steep 8 minutes.",
-            "Strain, let cool slightly, add 1 tsp rose water and 1 tsp raw honey; drink each evening."
+            "In Persian medicine, fenugreek seeds were always prepared with an overnight soak in cold water — a practice that traditional healers recognized as softening the outer seed coat and initiating enzymatic activation of the phytoestrogenic compounds before decoction.",
+            "The soaked and rinsed seeds were simmered in two cups of water for ten minutes; the heat was then removed and one tablespoon of dried chamomile flowers and a quarter teaspoon of cardamom were added and steeped for eight minutes — the gentle, off-heat steeping preserving chamomile's volatile apigenin.",
+            "After straining, the brew was allowed to cool slightly before one teaspoon of food-grade rose water was added — the rose water in Persian Unani tradition was always added after heat to preserve the volatile aromatic compounds central to its heart-calming action.",
+            "One teaspoon of raw honey was stirred in as the final step, and the tonic was consumed each evening — evening use aligning with Persian medical tradition, which prescribed hormone-regulating botanicals in the late day to support the body's overnight restorative cycles."
         ],
         duration: 21,
         disclaimer: "Fenugreek has phytoestrogenic activity and mild blood-sugar-lowering effects. Do not use at therapeutic doses during pregnancy. If you have a hormone-sensitive condition (endometriosis, PCOS, estrogen-receptor positive cancers) or take blood sugar medication, consult your doctor before starting. This formula supports mood and is not a substitute for professional mental health care.",

@@ -4,6 +4,7 @@ struct JournalScreen: View {
     @EnvironmentObject var journalVM: JournalViewModel
     @Environment(\.accessibilityReduceMotion) var reduceMotion
     @State private var isCompletingDay = false
+    @State private var showFeelingPicker = false
     @State private var reminderTime: Date = JournalScreen.defaultReminderDate(hour: 7, minute: 30)
 
     private var recipe: Remedy? { journalVM.journalRecipe }
@@ -80,27 +81,27 @@ struct JournalScreen: View {
 
                     TodayTaskCard()
 
-                    // Mark Day Complete button
+                    // Mark Day Complete / Feeling check-in
                     if !journalVM.isProtocolComplete {
-                        Button {
-                            guard !isCompletingDay else { return }
-                            isCompletingDay = true
-                            journalVM.completeDay()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                isCompletingDay = false
+                        if showFeelingPicker {
+                            feelingPicker
+                        } else {
+                            Button {
+                                guard !isCompletingDay else { return }
+                                withAnimation(.easeInOut(duration: 0.2)) { showFeelingPicker = true }
+                            } label: {
+                                Label("Mark Day Complete", systemImage: "checkmark.circle")
+                                    .font(.notoSerif(size: 15))
+                                    .foregroundColor(.cream)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 16)
+                                    .background(Color.forest)
+                                    .cornerRadius(16)
+                                    .shadow(color: .forest.opacity(0.3), radius: 6, y: 3)
                             }
-                        } label: {
-                            Label("Mark Day Complete", systemImage: "checkmark.circle")
-                                .font(.notoSerif(size: 15))
-                                .foregroundColor(.cream)
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 16)
-                                .background(Color.forest)
-                                .cornerRadius(16)
-                                .shadow(color: .forest.opacity(0.3), radius: 6, y: 3)
+                            .accessibilityLabel("Mark today complete")
+                            .accessibilityHint("Marks today's protocol as completed")
                         }
-                        .accessibilityLabel("Mark today complete")
-                        .accessibilityHint("Marks today's protocol as completed")
                     }
 
                     reminderRow
@@ -257,6 +258,65 @@ struct JournalScreen: View {
             .background(Color.cream)
         }
         .background(Color.cream)
+    }
+
+    // MARK: - Feeling check-in
+
+    private static let feelings: [(key: String, label: String, icon: String)] = [
+        ("better",    "Feeling better",    "arrow.up.heart.fill"),
+        ("same",      "About the same",    "heart.fill"),
+        ("noticed",   "Noticed something", "sparkles"),
+    ]
+
+    private var feelingPicker: some View {
+        VStack(spacing: 10) {
+            Text("How do you feel today?")
+                .font(.notoSerif(size: 13))
+                .foregroundColor(.forest)
+
+            HStack(spacing: 8) {
+                ForEach(JournalScreen.feelings, id: \.key) { feeling in
+                    Button {
+                        completeDayWith(feeling: feeling.key)
+                    } label: {
+                        VStack(spacing: 5) {
+                            Image(systemName: feeling.icon)
+                                .font(.system(size: 16))
+                            Text(feeling.label)
+                                .font(.notoSans(size: 10, weight: .semibold))
+                                .multilineTextAlignment(.center)
+                                .lineLimit(2)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        .foregroundColor(.forest)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 6)
+                        .background(Color.forest.opacity(0.07))
+                        .cornerRadius(12)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.forest.opacity(0.2), lineWidth: 1)
+                        )
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
+        .padding(16)
+        .background(Color.white)
+        .cornerRadius(16)
+        .shadow(color: .forest.opacity(0.08), radius: 10, y: 3)
+        .transition(.opacity.combined(with: .move(edge: .bottom)))
+    }
+
+    private func completeDayWith(feeling: String) {
+        isCompletingDay = true
+        journalVM.completeDay(feeling: feeling)
+        showFeelingPicker = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            isCompletingDay = false
+        }
     }
 
     // MARK: - Helpers

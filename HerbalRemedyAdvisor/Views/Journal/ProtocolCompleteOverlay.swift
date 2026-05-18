@@ -99,7 +99,7 @@ struct ProtocolCompleteOverlay: View {
                         }
                     }
 
-                    Text("You have honoured an ancient healing tradition and completed your cleanse with dedication. This is an act of genuine self-respect.")
+                    Text("You have honoured an ancient healing tradition and completed your protocol with dedication. This is an act of genuine self-respect.")
                         .font(.notoSerif(size: 14))
                         .foregroundColor(.mist)
                         .multilineTextAlignment(.center)
