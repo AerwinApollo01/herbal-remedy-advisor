@@ -1127,6 +1127,11 @@ struct RemedyDatabase {
         "Mood Changes": [saffronRhodiolaBlend, fenugreekChamomileTonic]
     ]
 
+    static var all: [Remedy] {
+        var seen = Set<String>()
+        return symptomMap.values.flatMap { $0 }.filter { seen.insert($0.name).inserted }
+    }
+
     static func remedies(for tid: String) -> [Remedy] {
         var seen = Set<String>()
         var result: [Remedy] = []

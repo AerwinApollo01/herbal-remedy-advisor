@@ -1,6 +1,7 @@
 import Combine
 import FirebaseCrashlytics
 import Foundation
+import SwiftUI
 
 // MARK: - ProtocolsViewModel
 

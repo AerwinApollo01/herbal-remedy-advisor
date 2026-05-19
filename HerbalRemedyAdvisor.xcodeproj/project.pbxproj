@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		000E348EA16E9C71CCAE881D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87564A7201C2D5BE9D748D /* Quote.swift */; };
+		B7E0355B74E24A119D68660A /* NysProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A9067CDF824F90A895668B /* NysProtocol.swift */; };
+		2827FC12936642D28ECF447A /* ProtocolDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108C389351384405B09CB216 /* ProtocolDetailViewModel.swift */; };
+		D0C937E3685649A5887A41F0 /* ProtocolsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C2C3AD7E7141F3868F4411 /* ProtocolsViewModel.swift */; };
+		E9F3CF74A5604CACB3E33346 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AAE9A503A1467785F51FDE /* UserProfileViewModel.swift */; };
+		AAA680B5FD9D44E291EEE3BD /* AppConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00867126F03A48D796DF9F96 /* AppConfigService.swift */; };
+		358D297054E04608A8205DFA /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20672F3B44CF4C83AF7D14C8 /* PurchaseManager.swift */; };
+		CE317712526E44CB8BBDA12B /* ProtocolLockGateOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A985E2E2AB4A75888FDE7A /* ProtocolLockGateOverlay.swift */; };
+		DCC4D3FB396D4B9C9FF89D93 /* ProtocolDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3F870839E4BF5A6B93701 /* ProtocolDetailView.swift */; };
 		02BF3DAED35F7CA7E3801492 /* DayCompleteOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA127112A261D562623244 /* DayCompleteOverlay.swift */; };
 		0A51D41FC172032F6CC55A6D /* ProtocolCompleteOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06EE352DCD4850E921494A4 /* ProtocolCompleteOverlay.swift */; };
 		0D094EBD231E8B612E267720 /* RemedyDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94BEBBB3C43BB95CC69EA44 /* RemedyDetailScreen.swift */; };
@@ -101,6 +109,14 @@
 /* Begin PBXFileReference section */
 		0943C88D1462D50E892AED7C /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		0F3017EF7F8B60A99F9A297F /* TraditionBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionBadge.swift; sourceTree = "<group>"; };
+		A6A9067CDF824F90A895668B /* NysProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NysProtocol.swift; sourceTree = "<group>"; };
+		108C389351384405B09CB216 /* ProtocolDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDetailViewModel.swift; sourceTree = "<group>"; };
+		A9C2C3AD7E7141F3868F4411 /* ProtocolsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolsViewModel.swift; sourceTree = "<group>"; };
+		E0AAE9A503A1467785F51FDE /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		00867126F03A48D796DF9F96 /* AppConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigService.swift; sourceTree = "<group>"; };
+		20672F3B44CF4C83AF7D14C8 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		69A985E2E2AB4A75888FDE7A /* ProtocolLockGateOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolLockGateOverlay.swift; sourceTree = "<group>"; };
+		2AD3F870839E4BF5A6B93701 /* ProtocolDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDetailView.swift; sourceTree = "<group>"; };
 		181FB5C9D2E4C304E6B2F333 /* JournalFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFlowTests.swift; sourceTree = "<group>"; };
 		191EF8E2432D18B9A95AA08D /* TraditionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionViewModelTests.swift; sourceTree = "<group>"; };
 		1BDA127112A261D562623244 /* DayCompleteOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCompleteOverlay.swift; sourceTree = "<group>"; };
@@ -220,6 +236,7 @@
 			children = (
 				27681B38328DB75D0F36086B /* IngredientDetailSheet.swift */,
 				C94BEBBB3C43BB95CC69EA44 /* RemedyDetailScreen.swift */,
+				2AD3F870839E4BF5A6B93701 /* ProtocolDetailView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -234,6 +251,7 @@
 				1DC5A50EBCC0B2C8561A2568 /* ProgressBar.swift */,
 				2F8FA2B324933C6394AAA158 /* SkeletonRemedyCard.swift */,
 				1BDD3BE3B5926AFF4115B67B /* TraditionFlagView.swift */,
+				69A985E2E2AB4A75888FDE7A /* ProtocolLockGateOverlay.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -278,6 +296,8 @@
 				1F4D899855787B4DE5C5CC49 /* FirestoreService.swift */,
 				FE4635D83D041E415626F44C /* KeychainHelper.swift */,
 				FF8FDF1D43E642EBC8D19134 /* NotificationService.swift */,
+				00867126F03A48D796DF9F96 /* AppConfigService.swift */,
+				20672F3B44CF4C83AF7D14C8 /* PurchaseManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -342,6 +362,7 @@
 				9C87564A7201C2D5BE9D748D /* Quote.swift */,
 				565B2F4F71A5777B0CC74571 /* Remedy.swift */,
 				4EA30CD0ABCB1734160E852E /* Tradition.swift */,
+				A6A9067CDF824F90A895668B /* NysProtocol.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -409,6 +430,9 @@
 				FF1222CE62352BCA67C7206F /* JournalViewModel.swift */,
 				73907935D857D6F76E3223D2 /* SymptomViewModel.swift */,
 				A48FF9A7082703FEC9D7C6DB /* TraditionViewModel.swift */,
+				108C389351384405B09CB216 /* ProtocolDetailViewModel.swift */,
+				A9C2C3AD7E7141F3868F4411 /* ProtocolsViewModel.swift */,
+				E0AAE9A503A1467785F51FDE /* UserProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -606,6 +630,14 @@
 				BB673AD30EEDDD04C35E93B9 /* TraditionFlagView.swift in Sources */,
 				56B94E160DD838DBE46977FB /* TraditionViewModel.swift in Sources */,
 				54B128D2805A8F4E919E5BA9 /* WelcomeScreen.swift in Sources */,
+				B7E0355B74E24A119D68660A /* NysProtocol.swift in Sources */,
+				2827FC12936642D28ECF447A /* ProtocolDetailViewModel.swift in Sources */,
+				D0C937E3685649A5887A41F0 /* ProtocolsViewModel.swift in Sources */,
+				E9F3CF74A5604CACB3E33346 /* UserProfileViewModel.swift in Sources */,
+				AAA680B5FD9D44E291EEE3BD /* AppConfigService.swift in Sources */,
+				358D297054E04608A8205DFA /* PurchaseManager.swift in Sources */,
+				CE317712526E44CB8BBDA12B /* ProtocolLockGateOverlay.swift in Sources */,
+				DCC4D3FB396D4B9C9FF89D93 /* ProtocolDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

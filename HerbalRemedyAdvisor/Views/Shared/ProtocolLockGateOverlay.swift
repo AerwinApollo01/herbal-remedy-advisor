@@ -183,7 +183,7 @@ struct ProtocolLockGateOverlay: View {
             errorMessage = nil
             Task {
                 let result = await purchaseManager.purchaseLifetimeArchive()
-                if result == .success {
+                if case .success = result {
                     await userProfileVM.applyLifetimeUnlock()
                 } else if case .failed(let msg) = result {
                     errorMessage = msg
