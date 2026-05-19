@@ -1,0 +1,28 @@
+rules_version = '2';
+
+// =============================================================================
+// NYS · Firebase Storage Security Rules
+// Protocol hero images are readable by authenticated users.
+// All write operations are restricted to Admin SDK / authorized upload paths.
+// =============================================================================
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Protocol hero images — readable by authenticated users
+    match /protocols/{allPaths=**} {
+      allow read:  if request.auth != null;
+      allow write: if false;
+    }
+
+    // User-uploaded content (future) — owner-only
+    match /users/{uid}/{allPaths=**} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Default deny
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
