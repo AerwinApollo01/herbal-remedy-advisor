@@ -67,7 +67,8 @@ struct ResultsScreen: View {
         }
         .navigationDestination(isPresented: $navigateToDetail) {
             if let remedy = selectedRemedy {
-                RemedyDetailScreen(remedy: remedy)
+                // ProtocolDetailView: enriches with Firestore data + lock gate
+                ProtocolDetailView(remedy: remedy)
             }
         }
         .confirmationDialog(replaceDialogTitle, isPresented: $pendingReplaceRemedy.isSomeBinding,

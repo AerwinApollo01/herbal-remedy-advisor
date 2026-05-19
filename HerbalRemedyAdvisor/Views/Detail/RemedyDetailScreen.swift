@@ -267,6 +267,14 @@ struct RemedyDetailScreen: View {
             }
         }
         .background(Color.cream)
+        // Museum gate — applied as a ZStack overlay.
+        // Local catalog entries are always treated as accessible (isRemedyAccessible returns true).
+        // For Firestore-sourced remedies, isRemedyAccessible checks unlockedProtocolIDs.
+        .protocolLockGate(
+            isLocked: !userProfileVM.isRemedyAccessible(remedy),
+            title:    remedy.name,
+            protocolID: remedy.name
+        )
         .sheet(item: $selectedIngredient) { detail in
             IngredientDetailSheet(ingredient: detail)
                 .presentationDetents([.medium, .large])

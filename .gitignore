@@ -21,6 +21,13 @@ serviceAccountKey.json
 **/*credentials*.json
 **/*secrets*.json
 
+## Xcode configuration files that may embed secrets or environment-specific values
+*.xcconfig
+!*.xcconfig.example          # allow committed example/template xcconfig files
+Configurations/*.xcconfig
+Config/*.xcconfig
+BuildConfiguration/*.xcconfig
+
 ## API keys and environment variable files
 .env
 .env.*
