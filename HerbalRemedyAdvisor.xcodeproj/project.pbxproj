@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		000E348EA16E9C71CCAE881D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87564A7201C2D5BE9D748D /* Quote.swift */; };
+		D71EB2DA16194B998EB93D30 /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24350CCEBEB54DBFA53E4911 /* BuildConfig.swift */; };
 		89D44935B6FE447685762D85 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECB6B2F3A1845D997932527 /* FirebaseAppCheck */; };
 		34707F0119454A6B98C5EEA3 /* InputSanitizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281D3904E89498CA7617E35 /* InputSanitizer.swift */; };
 		7C9D7944E2C540DBBB0CFDDE /* NysAppCheckProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4352D3E52F7644B4BCFC6C0C /* NysAppCheckProviderFactory.swift */; };
@@ -112,6 +113,7 @@
 /* Begin PBXFileReference section */
 		0943C88D1462D50E892AED7C /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		0F3017EF7F8B60A99F9A297F /* TraditionBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionBadge.swift; sourceTree = "<group>"; };
+		24350CCEBEB54DBFA53E4911 /* BuildConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfig.swift; sourceTree = "<group>"; };
 		2281D3904E89498CA7617E35 /* InputSanitizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSanitizer.swift; sourceTree = "<group>"; };
 		4352D3E52F7644B4BCFC6C0C /* NysAppCheckProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NysAppCheckProviderFactory.swift; sourceTree = "<group>"; };
 		A6A9067CDF824F90A895668B /* NysProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NysProtocol.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				6BCA14B8792CF393AA4B8A0A /* HerbalRemedyAdvisorApp.swift */,
+				24350CCEBEB54DBFA53E4911 /* BuildConfig.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				DCC4D3FB396D4B9C9FF89D93 /* ProtocolDetailView.swift in Sources */,
 				34707F0119454A6B98C5EEA3 /* InputSanitizer.swift in Sources */,
 				7C9D7944E2C540DBBB0CFDDE /* NysAppCheckProviderFactory.swift in Sources */,
+				D71EB2DA16194B998EB93D30 /* BuildConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

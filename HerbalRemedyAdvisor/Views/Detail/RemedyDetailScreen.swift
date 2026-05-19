@@ -271,7 +271,9 @@ struct RemedyDetailScreen: View {
         // Local catalog entries are always treated as accessible (isRemedyAccessible returns true).
         // For Firestore-sourced remedies, isRemedyAccessible checks unlockedProtocolIDs.
         .protocolLockGate(
-            isLocked: !userProfileVM.isRemedyAccessible(remedy),
+            isLocked: BuildConfig.isTestFlightBetaBuild
+                ? false
+                : !userProfileVM.isRemedyAccessible(remedy),
             title:    remedy.name,
             protocolID: remedy.name
         )

@@ -93,15 +93,16 @@ struct ProtocolDetailView: View {
     //
     // While Firestore data is still loading, we conservatively treat the protocol
     // as accessible (isLoading grace period) to avoid flashing the gate on launch.
+    //
+    // BuildConfig.isTestFlightBetaBuild short-circuits the entire gate so every
+    // tester can access all archives. Flip the flag to false to restore standard gating.
     private var lockGateActive: Bool {
+        if BuildConfig.isTestFlightBetaBuild     { return false }
         if userProfileVM.isLifetimeArchiveUnlocked { return false }
-        // During loading: do not gate (grace period)
-        if case .loading = viewModel.fetchState { return false }
-        // If we have remote data, use its isStarterVolume flag
+        if case .loading = viewModel.fetchState  { return false }
         if case .success(let proto) = viewModel.fetchState {
             return !userProfileVM.isProtocolAccessible(proto)
         }
-        // Fallback: local catalog entries are treated as starter volumes
         return false
     }
 
@@ -265,11 +266,38 @@ struct ProtocolDetailView: View {
         .padding(.bottom, 40)
     }
 
+    // MARK: - Beta access banner
+
+    /// Shown at the top of every protocol when `isTestFlightBetaBuild` is active.
+    /// Uses muted cream-and-sage tracking typography so it reads as an informational
+    /// accent rather than UI chrome. Completely invisible in production builds.
+    @ViewBuilder
+    private var betaAccessBanner: some View {
+        if BuildConfig.isTestFlightBetaBuild {
+            Text("── Beta Flight Access Active — All Archives Unlocked ──")
+                .font(.notoSans(size: 10, weight: .semibold))
+                .foregroundColor(.sage.opacity(0.7))
+                .kerning(0.4)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 9)
+                .background(Color.sage.opacity(0.07))
+                .overlay(
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundColor(Color.sage.opacity(0.18)),
+                    alignment: .bottom
+                )
+        }
+    }
+
     // MARK: - Remote-enriched content (.success state)
 
     @ViewBuilder
     private func remoteContent(proto: NysProtocol) -> some View {
         VStack(alignment: .leading, spacing: 24) {
+
+            betaAccessBanner
 
             // Ingredients
             sectionBlock(title: "Ingredients") {
@@ -320,6 +348,8 @@ struct ProtocolDetailView: View {
 
     private var localFallbackContent: some View {
         VStack(alignment: .leading, spacing: 24) {
+
+            betaAccessBanner
 
             sectionBlock(title: "Ingredients") {
                 ingredientChips(for: remedy.ingredientDetails)
