@@ -57,6 +57,22 @@ final class UserProfileViewModel: ObservableObject {
         return true
     }
 
+    // MARK: - Session lifecycle
+
+    /// Wipes all sensitive in-memory state when a session expires or is revoked.
+    ///
+    /// Called by `HerbalRemedyAdvisorApp` in response to the `nysSessionDidExpire`
+    /// notification posted by `AuthViewModel`'s live session guard. Zeroing these
+    /// fields prevents stale monetization state from remaining resident in memory
+    /// after a Firebase token revocation event.
+    func clearSensitiveState() {
+        isLifetimeArchiveUnlocked = false
+        availableTokens           = 0
+        unlockedProtocolIDs       = []
+        userID                    = nil
+        errorMessage              = nil
+    }
+
     // MARK: - Firestore sync
 
     func fetchProfile() async {

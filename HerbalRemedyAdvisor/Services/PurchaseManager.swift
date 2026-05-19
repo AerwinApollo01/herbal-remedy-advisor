@@ -1,3 +1,4 @@
+import FirebaseCrashlytics
 import Foundation
 import StoreKit
 
@@ -40,6 +41,25 @@ final class PurchaseManager: ObservableObject {
         case failed(String)
     }
 
+    // MARK: - JWS verification error
+
+    /// Typed error raised when Apple's cryptographic signature check fails.
+    /// Kept separate from generic `Error` so call sites can distinguish a JWS
+    /// tamper event from a network or product-loading failure.
+    enum JWSVerificationError: LocalizedError {
+        case signatureInvalid
+        case transactionRevoked(id: UInt64)
+
+        var errorDescription: String? {
+            switch self {
+            case .signatureInvalid:
+                return "Purchase verification failed. Please try again or contact support."
+            case .transactionRevoked:
+                return "This purchase has been revoked. Contact Apple Support if you believe this is an error."
+            }
+        }
+    }
+
     // MARK: - Lifecycle
 
     /// Call once on launch to load the product metadata and verify entitlements.
@@ -76,10 +96,24 @@ final class PurchaseManager: ObservableObject {
             let result = try await product.purchase()
             switch result {
             case .success(let verification):
-                // Verify the transaction with Apple's JWS signature
+                // Unpack and cryptographically verify the StoreKit 2 JWS payload.
+                // checkVerified throws JWSVerificationError.signatureInvalid if Apple's
+                // signature does not pass — we never set isEntitled on an unverified result.
                 let transaction = try checkVerified(verification)
-                isEntitled = true
+
+                // Guard against a valid-but-revoked transaction (refund or family revocation).
+                if let revocationDate = transaction.revocationDate {
+                    Crashlytics.crashlytics().log(
+                        "[PurchaseManager] Transaction \(transaction.id) revoked at \(revocationDate) — access denied"
+                    )
+                    await transaction.finish()
+                    throw JWSVerificationError.transactionRevoked(id: transaction.id)
+                }
+
+                // Finish BEFORE setting local state so the App Store knows we've
+                // processed the transaction regardless of any downstream failure.
                 await transaction.finish()
+                isEntitled = true
                 return .success
 
             case .userCancelled:
@@ -130,10 +164,30 @@ final class PurchaseManager: ObservableObject {
 
     // MARK: - Helpers
 
+    /// Unpacks a StoreKit 2 `VerificationResult<T>` with explicit JWS validation.
+    ///
+    /// `.verified` — returns the payload. Access granted.
+    /// `.unverified` — logs a structured anomaly event to Crashlytics (type only, no PII),
+    ///                 then throws `JWSVerificationError.signatureInvalid`. Access denied.
+    ///                 The raw `VerificationResult.VerificationError` is intentionally NOT
+    ///                 surfaced to the UI to avoid leaking implementation details to attackers.
     private func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
         switch result {
-        case .unverified(_, let error):
-            throw error
+        case .unverified(_, let verificationError):
+            // Log the error type (not its description) so we can track anomaly frequency
+            // without embedding JWS internals in user-visible strings.
+            let anomaly = NSError(
+                domain: "NysApp.StoreKit.JWSVerification",
+                code: 4001,
+                userInfo: [
+                    "error_type": String(describing: type(of: verificationError)),
+                    NSLocalizedDescriptionKey: "JWS signature validation failed — isLifetimeArchiveUnlocked remains false",
+                ]
+            )
+            Crashlytics.crashlytics().record(error: anomaly)
+            Crashlytics.crashlytics().log("[PurchaseManager] JWS unverified — access route terminated")
+            throw JWSVerificationError.signatureInvalid
+
         case .verified(let value):
             return value
         }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		000E348EA16E9C71CCAE881D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87564A7201C2D5BE9D748D /* Quote.swift */; };
+		89D44935B6FE447685762D85 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECB6B2F3A1845D997932527 /* FirebaseAppCheck */; };
+		34707F0119454A6B98C5EEA3 /* InputSanitizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281D3904E89498CA7617E35 /* InputSanitizer.swift */; };
+		7C9D7944E2C540DBBB0CFDDE /* NysAppCheckProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4352D3E52F7644B4BCFC6C0C /* NysAppCheckProviderFactory.swift */; };
 		B7E0355B74E24A119D68660A /* NysProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A9067CDF824F90A895668B /* NysProtocol.swift */; };
 		2827FC12936642D28ECF447A /* ProtocolDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108C389351384405B09CB216 /* ProtocolDetailViewModel.swift */; };
 		D0C937E3685649A5887A41F0 /* ProtocolsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C2C3AD7E7141F3868F4411 /* ProtocolsViewModel.swift */; };
@@ -109,6 +112,8 @@
 /* Begin PBXFileReference section */
 		0943C88D1462D50E892AED7C /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		0F3017EF7F8B60A99F9A297F /* TraditionBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraditionBadge.swift; sourceTree = "<group>"; };
+		2281D3904E89498CA7617E35 /* InputSanitizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSanitizer.swift; sourceTree = "<group>"; };
+		4352D3E52F7644B4BCFC6C0C /* NysAppCheckProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NysAppCheckProviderFactory.swift; sourceTree = "<group>"; };
 		A6A9067CDF824F90A895668B /* NysProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NysProtocol.swift; sourceTree = "<group>"; };
 		108C389351384405B09CB216 /* ProtocolDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDetailViewModel.swift; sourceTree = "<group>"; };
 		A9C2C3AD7E7141F3868F4411 /* ProtocolsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolsViewModel.swift; sourceTree = "<group>"; };
@@ -199,6 +204,7 @@
 				9CC9CD50E86093C31CDE9A76 /* FirebaseCore in Frameworks */,
 				F4BA5D315E48ED31F17217B1 /* FirebaseFirestore in Frameworks */,
 				8DA5E936E5ADF8A360FDB99F /* FirebaseCrashlytics in Frameworks */,
+				89D44935B6FE447685762D85 /* FirebaseAppCheck in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +225,7 @@
 				426CAABA3EDBB70DF3484C74 /* Services */,
 				F9C06B00BF5FD619AC271BAB /* ViewModels */,
 				E19586A6487509D8C20FED3C /* Views */,
+				4DEC61D38C7C405280070A73 /* Security */,
 			);
 			path = HerbalRemedyAdvisor;
 			sourceTree = "<group>";
@@ -452,6 +459,16 @@
 			path = Journal;
 			sourceTree = "<group>";
 		};
+
+		4DEC61D38C7C405280070A73 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				2281D3904E89498CA7617E35 /* InputSanitizer.swift */,
+				4352D3E52F7644B4BCFC6C0C /* NysAppCheckProviderFactory.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -473,6 +490,7 @@
 				2621D01C4FC435DD96A6BE1C /* FirebaseCore */,
 				B1FB0D1E5FF7E67E09368421 /* FirebaseFirestore */,
 				0AA38941E02164C0095026BB /* FirebaseCrashlytics */,
+				0ECB6B2F3A1845D997932527 /* FirebaseAppCheck */,
 			);
 			productName = HerbalRemedyAdvisor;
 			productReference = DA8ADBAE49491ACEEB87AA3D /* HerbalRemedyAdvisor.app */;
@@ -638,6 +656,8 @@
 				358D297054E04608A8205DFA /* PurchaseManager.swift in Sources */,
 				CE317712526E44CB8BBDA12B /* ProtocolLockGateOverlay.swift in Sources */,
 				DCC4D3FB396D4B9C9FF89D93 /* ProtocolDetailView.swift in Sources */,
+				34707F0119454A6B98C5EEA3 /* InputSanitizer.swift in Sources */,
+				7C9D7944E2C540DBBB0CFDDE /* NysAppCheckProviderFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -989,6 +1009,12 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8649B18460D7D18DAD7D7574 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+
+		0ECB6B2F3A1845D997932527 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8649B18460D7D18DAD7D7574 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

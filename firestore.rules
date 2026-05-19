@@ -1,8 +1,19 @@
 // =============================================================================
-// NYS · Firestore Security Rules  v2
-// Attribute-Based Access Control (ABAC)
-// Last updated: 2026-05-18
+// NYS · Firestore Security Rules  v3
+// Zero-Trust Hardened ABAC — 2026-05-18
 // =============================================================================
+//
+// Threat model addressed:
+//   • Bot scraping / unauthenticated reads        → auth guard on every collection
+//   • Cross-user data access                      → strict owner-only isolation
+//   • Client-side monetisation escalation         → noMonetizationEscalation guard
+//   • Oversized / malformed payload injection     → server-side size caps
+//   • Arbitrary token delta manipulation          → ±1 guard on availableTokens
+//   • Undocumented collection enumeration         → explicit catch-all deny
+//
+// Administration writes (isLifetimeArchiveUnlocked, availableTokens) are performed
+// exclusively via the Firebase Admin SDK — never via the client SDK. The client
+// SDK is blocked from touching those fields by noMonetizationEscalation() below.
 //
 // Collection access matrix:
 // ┌──────────────────────────────┬──────────────────┬──────────────────────────┐
@@ -10,14 +21,11 @@
 // ├──────────────────────────────┼──────────────────┼──────────────────────────┤
 // │ /protocols/{document=**}     │ isAuthenticated  │ BLOCKED (Admin SDK only) │
 // │ /app_strings/{document=**}   │ isAuthenticated  │ BLOCKED (Admin SDK only) │
-// │ /users/{uid}                 │ isOwner(uid)     │ isOwner + no escalation  │
+// │ /users/{uid}                 │ isOwner(uid)     │ isOwner + validated write│
 // │ /users/{uid}/{document=**}   │ isOwner(uid)     │ isOwner(uid)             │
 // │ /admin/{document=**}         │ BLOCKED          │ BLOCKED                  │
 // │ /** (catch-all)              │ BLOCKED          │ BLOCKED                  │
 // └──────────────────────────────┴──────────────────┴──────────────────────────┘
-//
-// Administration writes (isLifetimeArchiveUnlocked, availableTokens) are performed
-// exclusively via the Firebase Admin SDK in Cloud Functions — never via client SDK.
 // =============================================================================
 
 rules_version = '2';
@@ -26,92 +34,157 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     // =========================================================================
-    // HELPER FUNCTIONS
+    // IDENTITY HELPERS
     // =========================================================================
 
-    /// True if the request carries a verified Firebase Auth identity.
+    /// Requires a verified Firebase Auth identity token in the request.
     function isAuthenticated() {
       return request.auth != null && request.auth.uid != null;
     }
 
-    /// True if the authenticated user's UID exactly matches the path segment {uid}.
+    /// Strict owner-only check — UID in the token must exactly match the path segment.
     function isOwner(uid) {
       return isAuthenticated() && request.auth.uid == uid;
     }
 
-    /// Guards against client-side self-escalation of sensitive monetization fields.
-    /// Blocks any write that attempts to set 'isLifetimeArchiveUnlocked' or
-    /// 'availableTokens' — those fields are exclusively managed by Admin SDK.
+    // =========================================================================
+    // MONETISATION ESCALATION GUARD
+    // =========================================================================
+
+    /// Blocks any client write that attempts to set or modify the two fields
+    /// exclusively managed by the Admin SDK.
+    ///
+    /// Defence-in-depth: even if a client bypasses StoreKit and manufactures a
+    /// Firestore write with isLifetimeArchiveUnlocked=true, this function
+    /// causes the rule to evaluate to false and Firestore rejects the write.
     function noMonetizationEscalation() {
-      let sensitiveFields = ['isLifetimeArchiveUnlocked', 'availableTokens'];
-      return !request.resource.data.keys().hasAny(sensitiveFields);
+      return !request.resource.data.keys().hasAny(
+        ['isLifetimeArchiveUnlocked', 'availableTokens']
+      );
     }
 
-    /// True if the write only touches the fields a client is permitted to set.
-    /// Permitted on update: ageBracket, wellnessGoal, unlockedProtocolIDs, updatedAt.
-    function isPermittedProfileUpdate() {
-      let allowed = ['ageBracket', 'wellnessGoal', 'unlockedProtocolIDs', 'updatedAt'];
-      return request.resource.data.keys().hasOnly(
-        allowed.concat(['ageBracket', 'wellnessGoal', 'createdAt',
-                        'isLifetimeArchiveUnlocked', 'availableTokens', 'unlockedProtocolIDs'])
-      ) && noMonetizationEscalation();
+    // =========================================================================
+    // SERVER-SIDE INPUT VALIDATION
+    // =========================================================================
+
+    /// Asserts that text fields in a user profile write satisfy schema caps.
+    /// These limits mirror InputSanitizer constants on the client — both layers
+    /// must reject oversized inputs so that a bypass of one does not bypass both.
+    function isValidProfileTextFields() {
+      let d = request.resource.data;
+      return (
+        // wellnessGoal — max 100 characters
+        (!d.keys().hasAny(['wellnessGoal'])
+          || (d.wellnessGoal is string && d.wellnessGoal.size() <= 100)) &&
+        // ageBracket — max 50 characters
+        (!d.keys().hasAny(['ageBracket'])
+          || (d.ageBracket is string && d.ageBracket.size() <= 50)) &&
+        // notes — max 500 characters (future-proof for profile-level annotation)
+        (!d.keys().hasAny(['notes'])
+          || (d.notes is string && d.notes.size() <= 500)) &&
+        // unlockedProtocolIDs — must be a list when present
+        (!d.keys().hasAny(['unlockedProtocolIDs'])
+          || d.unlockedProtocolIDs is list)
+      );
+    }
+
+    /// Guards the availableTokens field against arbitrary delta manipulation.
+    ///
+    /// Even though noMonetizationEscalation() already blocks client writes to
+    /// availableTokens entirely, this function provides defence-in-depth for any
+    /// future rule relaxation: a single write may only change the value by ±1.
+    ///
+    /// Returns true when:
+    ///   a) The write does not touch availableTokens, OR
+    ///   b) The existing document does not have availableTokens (first write), OR
+    ///   c) The delta between old and new value is at most 1.
+    function isTokenDeltaValid() {
+      let d = request.resource.data;
+      let existing = resource != null ? resource.data : {};
+      return (
+        !d.keys().hasAny(['availableTokens']) ||
+        !existing.keys().hasAny(['availableTokens']) ||
+        (d.availableTokens is int &&
+         existing.availableTokens is int &&
+         math.abs(d.availableTokens - existing.availableTokens) <= 1)
+      );
+    }
+
+    /// Composite write-gate for the user profile document.
+    /// A permitted update may only touch the listed client-writable keys and must
+    /// pass text size caps and the token delta guard.
+    function isPermittedProfileWrite() {
+      let clientWritableKeys = [
+        'ageBracket', 'wellnessGoal', 'unlockedProtocolIDs', 'updatedAt',
+        // Merge-safe keys that may coexist from the creation write:
+        'createdAt', 'isLifetimeArchiveUnlocked', 'availableTokens'
+      ];
+      return (
+        request.resource.data.keys().hasOnly(clientWritableKeys) &&
+        noMonetizationEscalation() &&
+        isValidProfileTextFields() &&
+        isTokenDeltaValid()
+      );
     }
 
     // =========================================================================
     // PROTOCOL COLLECTION  /protocols/{document=**}
     // =========================================================================
-    // Any authenticated user may read any protocol document (including sub-docs).
-    // All write paths are hard-blocked — protocol content managed via Admin SDK.
+    // Any authenticated user may read any protocol document or sub-document.
+    // All write paths are hard-blocked — protocol content is managed via Admin SDK.
     // =========================================================================
 
     match /protocols/{document=**} {
-      allow read:                if isAuthenticated();
+      allow read:                   if isAuthenticated();
       allow create, update, delete: if false;
     }
 
     // =========================================================================
     // APP STRINGS / REMOTE CONFIG  /app_strings/{document=**}
     // =========================================================================
-    // Read-only for authenticated clients. Write: Admin SDK only.
+    // Read-only for authenticated clients. Writes are Admin SDK only.
     // =========================================================================
 
     match /app_strings/{document=**} {
-      allow read:                if isAuthenticated();
+      allow read:                   if isAuthenticated();
       allow create, update, delete: if false;
     }
 
     // =========================================================================
     // USER PROFILES  /users/{uid}
     // =========================================================================
-    // Root profile document: strict owner-only, with escalation guard on writes.
+    // Root profile document:
     //
-    // Create: Owner only. Allowed when creating the profile for the first time
-    //         AND the write does not attempt to self-grant monetization fields.
+    // Create: Owner only. The initial write must not contain monetization fields
+    //         (those are set by Admin SDK in the onboarding Cloud Function).
     //
-    // Update: Owner only. Permitted fields: ageBracket, wellnessGoal,
-    //         unlockedProtocolIDs, updatedAt. Monetization fields are blocked.
+    // Update: Owner only. isPermittedProfileWrite() enforces:
+    //         • Allowlist of client-writable keys
+    //         • noMonetizationEscalation (can't self-grant isLifetimeArchiveUnlocked)
+    //         • Text field size caps (mirrors InputSanitizer constants)
+    //         • Token delta guard (±1 maximum per write)
     //
-    // Delete: Hard-blocked for client SDK. Account deletion handled server-side
-    //         via Admin SDK to ensure cascade cleanup of all sub-collections.
+    // Delete: Hard-blocked. Account deletion is handled server-side via Admin SDK
+    //         to ensure cascade cleanup of all sub-collections and anonymisation.
     // =========================================================================
 
     match /users/{uid} {
       allow read:   if isOwner(uid);
-      allow create: if isOwner(uid) && noMonetizationEscalation();
-      allow update: if isOwner(uid) && isPermittedProfileUpdate();
+      allow create: if isOwner(uid) && noMonetizationEscalation() && isValidProfileTextFields();
+      allow update: if isOwner(uid) && isPermittedProfileWrite();
       allow delete: if false;
     }
 
     // =========================================================================
     // USER SUB-COLLECTIONS  /users/{uid}/{document=**}
     // =========================================================================
-    // Covers any sub-collection under the user document:
-    //   /users/{uid}/journal/...     — daily journal entries
-    //   /users/{uid}/preferences/... — notification and display preferences
-    //   /users/{uid}/activity/...    — engagement tracking (future)
+    // Covers all sub-collections under the user document:
+    //   /users/{uid}/journal/     — daily protocol journal entries
+    //   /users/{uid}/preferences/ — notification and display settings (future)
+    //   /users/{uid}/activity/    — engagement analytics (future)
     //
-    // Rule: read + write if and only if request.auth.uid == uid.
-    // The zero-trust boundary means no cross-user reads are ever permitted.
+    // Zero-trust boundary: read + write only when request.auth.uid == uid.
+    // No cross-user reads are ever permitted.
     // =========================================================================
 
     match /users/{uid}/{document=**} {
@@ -122,7 +195,7 @@ service cloud.firestore {
     // ADMINISTRATION  /admin/{document=**}
     // =========================================================================
     // Completely inaccessible from client SDKs.
-    // Admin SDK uses application default credentials and bypasses these rules.
+    // Admin SDK bypasses these rules using application default credentials.
     // =========================================================================
 
     match /admin/{document=**} {
@@ -130,14 +203,16 @@ service cloud.firestore {
     }
 
     // =========================================================================
-    // DEFAULT DENY (catch-all)
+    // DEFAULT DENY — catch-all
     // =========================================================================
-    // Any path not explicitly matched above is denied.
-    // Principle of least privilege: new collections require an explicit rule.
+    // Any path not explicitly matched above is denied. Principle of least
+    // privilege: new collections require an explicit rule before they are
+    // accessible. This gate eliminates undocumented collection enumeration.
     // =========================================================================
 
     match /{document=**} {
       allow read, write: if false;
     }
+
   }
 }

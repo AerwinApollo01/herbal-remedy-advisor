@@ -65,6 +65,54 @@ struct NysProtocol: Identifiable, Codable, Equatable {
         case isStarterVolume
     }
 
+    // MARK: - Custom decoder with payload bounds enforcement
+
+    /// Decodes a Firestore document payload and validates field sizes before accepting it.
+    ///
+    /// A compromised backend or MITM attack on an unprotected channel could deliver bloated
+    /// or injection-laden payloads. Bounds enforcement ensures the client rejects malformed
+    /// documents before they reach ViewModels or the UI rendering layer.
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+
+        id                 = try c.decode(String.self,              forKey: .id)
+        title              = try c.decode(String.self,              forKey: .title)
+        cycleLengthDays    = try c.decode(Int.self,                 forKey: .cycleLengthDays)
+        systemPriority     = try c.decode(String.self,              forKey: .systemPriority)
+        historicalContext  = try c.decode(String.self,              forKey: .historicalContext)
+        ingredientDetails  = try c.decode([IngredientDetail].self,  forKey: .ingredientDetails)
+        citationReferences = try c.decode([String].self,            forKey: .citationReferences)
+        imageURL           = try c.decodeIfPresent(String.self,     forKey: .imageURL)
+        color              = try c.decodeIfPresent(String.self,     forKey: .color)
+        tid                = try c.decodeIfPresent(String.self,     forKey: .tid)
+        origin             = try c.decodeIfPresent(String.self,     forKey: .origin)
+        isStarterVolume    = (try c.decodeIfPresent(Bool.self,      forKey: .isStarterVolume)) ?? false
+
+        // ── Structural bounds checks ────────────────────────────────────────────
+        func corrupt(_ field: String, _ reason: String) -> DecodingError {
+            .dataCorrupted(.init(codingPath: c.codingPath, debugDescription: "[\(field)] \(reason)"))
+        }
+
+        guard InputSanitizer.isValidDocumentID(id) else {
+            throw corrupt("id", "failed document-path safety check")
+        }
+        guard title.count <= InputSanitizer.maxProtocolTitleLength else {
+            throw corrupt("title", "exceeds \(InputSanitizer.maxProtocolTitleLength) characters")
+        }
+        guard historicalContext.count <= InputSanitizer.maxHistoricalContextLength else {
+            throw corrupt("historicalContext", "exceeds \(InputSanitizer.maxHistoricalContextLength) characters")
+        }
+        guard cycleLengthDays > 0, cycleLengthDays <= 365 else {
+            throw corrupt("cycleLengthDays", "out of range 1–365: \(cycleLengthDays)")
+        }
+        guard !ingredientDetails.isEmpty, ingredientDetails.count <= 30 else {
+            throw corrupt("ingredientDetails", "count \(ingredientDetails.count) outside bounds 1–30")
+        }
+        guard citationReferences.count <= 50 else {
+            throw corrupt("citationReferences", "count exceeds limit of 50")
+        }
+    }
+
     // MARK: - Equatable
 
     static func == (lhs: NysProtocol, rhs: NysProtocol) -> Bool {

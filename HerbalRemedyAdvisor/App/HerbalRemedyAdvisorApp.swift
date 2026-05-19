@@ -1,3 +1,4 @@
+import FirebaseAppCheck
 import FirebaseCore
 import FirebaseCrashlytics
 import SwiftUI
@@ -23,6 +24,13 @@ struct HerbalRemedyAdvisorApp: App {
         // Configure Firebase only when GoogleService-Info.plist is present.
         // App runs in unauthenticated-only mode until plist is added to the bundle.
         if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
+            // App Check must be registered BEFORE FirebaseApp.configure().
+            // The factory selects App Attest (iOS 14+), DeviceCheck (iOS <14),
+            // or the debug provider (simulator). Once Firebase Console enforcement
+            // is enabled, requests without a valid attestation token are rejected
+            // server-side regardless of API key validity.
+            AppCheck.setAppCheckProviderFactory(NysAppCheckProviderFactory())
+
             FirebaseApp.configure()
             Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
         }
@@ -71,6 +79,19 @@ struct HerbalRemedyAdvisorApp: App {
             .task { await authVM.checkOnLaunch() }
             .task { await appConfig.load() }                  // fetch /app_strings/global_config
             .task { await purchaseManager.initialize() }      // StoreKit product + entitlement check
+
+            // MARK: Zero-trust session guard
+            // Attaches a Firebase Auth state listener that detects mid-session token
+            // revocation without requiring a full app relaunch.
+            .task { authVM.attachLiveSessionGuard() }
+
+            // MARK: Session expiry → cache flush
+            // When nysSessionDidExpire fires (token revoked server-side), immediately
+            // zero out all sensitive monetization state so it cannot be read from memory
+            // after the authentication boundary has been broken.
+            .onReceive(NotificationCenter.default.publisher(for: .nysSessionDidExpire)) { _ in
+                userProfileVM.clearSensitiveState()
+            }
 
             // MARK: Auth state reactions
             .onChange(of: authVM.state) { newState in

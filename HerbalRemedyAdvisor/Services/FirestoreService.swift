@@ -25,9 +25,13 @@ final class FirestoreService {
     /// Also writes the monetization defaults on first creation (non-destructive merge).
     func saveUserProfile(uid: String, ageBracket: String, wellnessGoal: String) async throws {
         guard let db else { return }
+        // Sanitize at the write boundary — strip control chars, delimiters, and truncate
+        // to schema caps that mirror the Firestore security rule size assertions.
+        let cleanAge  = InputSanitizer.sanitize(ageBracket,   maxLength: InputSanitizer.maxAgeBracketLength)
+        let cleanGoal = InputSanitizer.sanitize(wellnessGoal, maxLength: InputSanitizer.maxWellnessGoalLength)
         let data: [String: Any] = [
-            "ageBracket":               ageBracket,
-            "wellnessGoal":             wellnessGoal,
+            "ageBracket":               cleanAge,
+            "wellnessGoal":             cleanGoal,
             "createdAt":                FieldValue.serverTimestamp(),
             // Monetization defaults — setData with merge:true won't overwrite if already present
             "isLifetimeArchiveUnlocked": false,
@@ -68,6 +72,15 @@ final class FirestoreService {
 
     /// Deducts one token and records the newly unlocked protocol ID atomically.
     func spendTokenToUnlockProtocol(uid: String, protocolID: String) async throws {
+        // Validate the protocol ID before it is embedded in a Firestore path.
+        // An attacker-controlled ID could otherwise perform path traversal into
+        // sibling collections (e.g., `../../admin/secrets`).
+        guard InputSanitizer.isValidDocumentID(protocolID) else {
+            throw NSError(
+                domain: "NysApp.Sanitizer", code: 400,
+                userInfo: [NSLocalizedDescriptionKey: "Rejected: protocol ID failed document-path safety check"]
+            )
+        }
         guard let db else { return }
         let ref = db.collection("users").document(uid)
         // Firestore transaction ensures atomic decrement + array append
