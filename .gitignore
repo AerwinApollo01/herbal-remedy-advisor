@@ -1,11 +1,74 @@
-# Xcode
-*.xcworkspace
+# =============================================================================
+# NYS · iOS — Comprehensive .gitignore
+# Zero-trust credential leak prevention + Xcode + Firebase + Dev tooling
+# =============================================================================
+
+# =============================================================================
+# SECURITY CRITICAL — Credential & Secret Files
+# These MUST never enter the git staging index under any circumstances.
+# =============================================================================
+
+## Firebase / Google credentials
+GoogleService-Info.plist
+**/GoogleService-Info.plist
+google-services.json
+**/google-services.json
+firebase.json
+.firebaserc
+firebase_admin_credentials.json
+serviceAccountKey.json
+**/*serviceAccount*.json
+**/*credentials*.json
+**/*secrets*.json
+
+## API keys and environment variable files
+.env
+.env.*
+.env.local
+.env.development
+.env.production
+.env.staging
+*.env
+**/.env*
+
+## StoreKit / IAP test config (contains sandbox credentials)
+*.storekit
+Configuration.storekit
+**/*.storekit
+
+## Code signing — private keys and provisioning profiles
+*.p12
+*.pem
+*.cer
+*.certSigningRequest
+*.mobileprovision
+*.provisionprofile
+ExportOptions.plist
+AuthKey_*.p8              # App Store Connect API keys
+
+## macOS Keychain exports
+*.keychain
+*.keychain-db
+
+## SSH keys (if accidentally placed in project root)
+id_rsa
+id_ed25519
+*.pub
+
+## Generic secret patterns
+*_secret*
+*_private_key*
+*_api_key*
+*_token*
+
+# =============================================================================
+# XCODE — Build artifacts, user metadata, cache
+# =============================================================================
+
+## User-specific Xcode state (scheme selections, breakpoints, per-user settings)
 xcuserdata/
 *.xcscmblueprint
 *.xccheckout
-DerivedData/
-build/
-*.moved-aside
 *.pbxuser
 *.mode1v3
 *.mode2v3
@@ -15,32 +78,124 @@ build/
 !default.mode2v3
 !default.perspectivev3
 
-# Swift Package Manager
+## Build output
+DerivedData/
+build/
+*.ipa
+*.dSYM
+*.dSYM.zip
+*.app.dSYM
+*.moved-aside
+
+## Xcode workspace (generated from SPM/CocoaPods — regenerate with `open Package.swift`)
+*.xcworkspace
+!*.xcodeproj/project.xcworkspace
+
+## Index store (large, not portable)
+Index.noindex/
+index/
+
+# =============================================================================
+# SWIFT PACKAGE MANAGER
+# =============================================================================
+
 .build/
 .swiftpm/
+Package.resolved          # Comment out if you want reproducible builds pinned
 
-# CocoaPods (not used but safety)
+# =============================================================================
+# COCOAPODS (not currently used — retained for safety if ever added)
+# =============================================================================
+
 Pods/
 Podfile.lock
+*.xcworkspace
 
-# Fastlane
+# =============================================================================
+# FASTLANE / CI
+# =============================================================================
+
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+fastlane/.env*
 
-# macOS
+# =============================================================================
+# MACOS SYSTEM FILES
+# =============================================================================
+
 .DS_Store
+.DS_Store?
 .AppleDouble
 .LSOverride
 Icon?
 ._*
 .Spotlight-V100
 .Trashes
+ehthumbs.db
+Thumbs.db
+.fseventsd
 
-# Font variable copies (only keep the -Regular named files)
+# =============================================================================
+# IDE & EDITOR TOOLING
+# =============================================================================
+
+# JetBrains
+.idea/
+*.iml
+
+# VSCode
+.vscode/
+
+# Vim / Emacs swap files
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+# =============================================================================
+# TESTING & COVERAGE
+# =============================================================================
+
+*.gcov
+*.gcda
+*.gcno
+coverage/
+*.profdata
+*.profraw
+TestResults/
+
+# =============================================================================
+# DEPLOYMENT & DISTRIBUTION
+# =============================================================================
+
+## Archive products — should be generated fresh; never stored in git
+*.xcarchive
+dist/
+release/
+
+# =============================================================================
+# PROJECT-SPECIFIC EXCLUSIONS
+# =============================================================================
+
+## Variable-weight font copies (only keep statically named files in bundle)
 HerbalRemedyAdvisor/Resources/Fonts/NotoSerif-Variable.ttf
 HerbalRemedyAdvisor/Resources/Fonts/NotoSans-Variable.ttf
 
-# Firebase credentials — never commit to a public repo
-HerbalRemedyAdvisor/GoogleService-Info.plist
+## Local Firestore emulator data
+.firestore/
+firestore-export/
+firestore-debug.log
+ui-debug.log
+database-debug.log
+pubsub-debug.log
+
+## Local Nys dev notes / scratch files (not for version control)
+_dev_notes/
+_scratch/
+TODO_local.md
+
+## Pre-commit hook config (local developer tool — not shared)
+.git-secrets

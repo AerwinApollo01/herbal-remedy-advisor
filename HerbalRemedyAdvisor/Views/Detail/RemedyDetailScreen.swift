@@ -2,9 +2,23 @@ import SwiftUI
 
 struct RemedyDetailScreen: View {
     let remedy: Remedy
-    @EnvironmentObject var journalVM: JournalViewModel
+    @EnvironmentObject var journalVM:     JournalViewModel
+    @EnvironmentObject var userProfileVM: UserProfileViewModel
+    @EnvironmentObject var appConfig:     AppConfigService
     @Environment(\.dismiss) var dismiss
     @State private var selectedIngredient: IngredientDetail?
+
+    // MARK: - Shimmer placeholder for AsyncImage loading state
+    private var shimmerPlaceholder: some View {
+        Rectangle()
+            .fill(
+                LinearGradient(
+                    colors: [Color.mist.opacity(0.2), Color.mist.opacity(0.4), Color.mist.opacity(0.2)],
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            )
+    }
 
     var day1Quote: Quote {
         QuoteDatabase.quote(for: remedy.tid, dayNumber: 1)
@@ -13,15 +27,48 @@ struct RemedyDetailScreen: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
-                // Hero card
+                // MARK: Hero card — remote image when available, SF-symbol fallback
                 ZStack(alignment: .bottomLeading) {
+                    // Background gradient (always rendered — shows through semi-transparent image)
                     LinearGradient(
                         colors: [Color(hex: remedy.color), Color(hex: remedy.color).opacity(0.7)],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
-                    .frame(height: 160)
+                    .frame(height: 200)
 
+                    // Remote hero image via Firebase Storage URL
+                    if let rawURL = remedy.imageURL, let imageURL = URL(string: rawURL) {
+                        AsyncImage(url: imageURL) { phase in
+                            switch phase {
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 200)
+                                    .clipped()
+                                    .overlay(
+                                        // Dark scrim so metadata text remains legible
+                                        LinearGradient(
+                                            colors: [.clear, Color.black.opacity(0.55)],
+                                            startPoint: .top,
+                                            endPoint: .bottom
+                                        )
+                                    )
+                            case .failure:
+                                // Failure placeholder — gradient already visible beneath
+                                Color.clear.frame(height: 200)
+                            case .empty:
+                                // Shimmer placeholder while loading
+                                shimmerPlaceholder.frame(height: 200)
+                            @unknown default:
+                                Color.clear.frame(height: 200)
+                            }
+                        }
+                    }
+
+                    // Text overlay — always on top of image or gradient
                     VStack(alignment: .leading, spacing: 6) {
                         Image(systemName: remedy.sfSymbol)
                             .font(.system(size: 36))
@@ -32,6 +79,18 @@ struct RemedyDetailScreen: View {
                         Text(remedy.origin)
                             .font(.notoSans(size: 12))
                             .foregroundColor(.white.opacity(0.8))
+
+                        // System priority tag from Firestore
+                        if let priority = remedy.systemPriority {
+                            Text(priority.uppercased())
+                                .font(.notoSans(size: 8, weight: .semibold))
+                                .foregroundColor(.white.opacity(0.8))
+                                .kerning(1)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.white.opacity(0.15))
+                                .cornerRadius(8)
+                        }
                     }
                     .padding(.horizontal, 24)
                     .padding(.bottom, 20)
@@ -179,7 +238,7 @@ struct RemedyDetailScreen: View {
                         .cornerRadius(8)
                     }
 
-                    // General reference disclaimer footer
+                    // General reference disclaimer footer — text driven by /app_strings/global_config
                     VStack(alignment: .leading, spacing: 8) {
                         HStack(spacing: 5) {
                             Image(systemName: "info.circle")
@@ -190,7 +249,7 @@ struct RemedyDetailScreen: View {
                                 .foregroundColor(.subtext.opacity(0.5))
                                 .kerning(0.5)
                         }
-                        Text("The sources and preparation methods documented here are provided for educational and cultural archival purposes only. They do not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before beginning any herbal protocol or regimen.")
+                        Text(appConfig.generalReferenceDisclaimer)
                             .font(.notoSans(size: 10))
                             .foregroundColor(.subtext.opacity(0.45))
                             .lineSpacing(3)

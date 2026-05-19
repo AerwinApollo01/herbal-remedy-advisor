@@ -30,6 +30,19 @@ struct WelcomeScreen: View {
                         .font(.system(size: 56))
                         .foregroundColor(.fern)
                         .padding(.top, 72)
+                        .padding(.bottom, 16)
+
+                    // Brand wordmark + pronunciation
+                    Text("NYS")
+                        .font(.notoSerif(size: 40, weight: .bold))
+                        .foregroundColor(.cream)
+                        .tracking(5)
+
+                    Text("[ /niːs/ · rhymes with niece ]")
+                        .font(.notoSans(size: 11))
+                        .foregroundColor(.mist.opacity(0.45))
+                        .tracking(1.5)
+                        .padding(.top, 4)
                         .padding(.bottom, 20)
 
                     Text(greeting)

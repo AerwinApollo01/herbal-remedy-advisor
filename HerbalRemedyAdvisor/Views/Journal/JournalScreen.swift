@@ -48,7 +48,7 @@ struct JournalScreen: View {
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("To receive daily reminders, enable notifications for Nise in Settings.")
+            Text("To receive daily reminders, enable notifications for Nys in Settings.")
         }
     }
 

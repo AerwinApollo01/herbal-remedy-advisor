@@ -6,7 +6,7 @@ struct OurStoryView: View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 0) {
 
-                // MARK: Hero icon
+                // MARK: Hero icon + wordmark
                 Image(systemName: "drop.fill")
                     .font(.system(size: 52))
                     .foregroundStyle(
@@ -17,6 +17,18 @@ struct OurStoryView: View {
                         )
                     )
                     .padding(.top, 44)
+                    .padding(.bottom, 14)
+
+                Text("NYS")
+                    .font(.notoSerif(size: 36, weight: .bold))
+                    .foregroundColor(.cream.opacity(0.9))
+                    .tracking(5)
+
+                Text("[ /niːs/ · rhymes with niece ]")
+                    .font(.notoSans(size: 10))
+                    .foregroundColor(.mist.opacity(0.4))
+                    .tracking(1.5)
+                    .padding(.top, 4)
                     .padding(.bottom, 32)
 
                 // MARK: Story body
@@ -35,11 +47,11 @@ struct OurStoryView: View {
                     )
 
                     paragraph(
-                        "I built Nise because I realized that every healing tradition has something the others do not. Across global cultures — from Ayurveda to European Herbalism — communities have spent centuries cultivating a quiet, profound archive of natural remedies to restore systemic balance. This ancestral knowledge shouldn't be trapped in old text histories or hidden across scattered web forums; it deserves a living, accessible place in our modern routines."
+                        "I built Nys because I realized that every healing tradition has something the others do not. Across global cultures — from Ayurveda to European Herbalism — communities have spent centuries cultivating a quiet, profound archive of natural remedies to restore systemic balance. This ancestral knowledge shouldn't be trapped in old text histories or hidden across scattered web forums; it deserves a living, accessible place in our modern routines."
                     )
 
                     paragraph(
-                        "Nise was born to bridge this gap for other families. We make this heritage accessible without the noise — free of extreme claims, quick-fix myths, and ingredient overwhelm. Just thoughtful, culturally attributed guidance and daily journal tracking to support your body's natural resilience, one day at a time."
+                        "Nys was born to bridge this gap for other families. We make this heritage accessible without the noise — free of extreme claims, quick-fix myths, and ingredient overwhelm. Just thoughtful, culturally attributed guidance and daily journal tracking to support your body's natural resilience, one day at a time."
                     )
 
                     paragraph(

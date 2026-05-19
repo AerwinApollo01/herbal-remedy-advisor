@@ -34,11 +34,40 @@ struct IngredientDetailSheet: View {
 
                     // Where to source
                     detailSection(icon: "bag.fill", label: "WHERE TO SOURCE") {
-                        Text(ingredient.whereToBuy)
-                            .font(.notoSans(size: 14))
-                            .foregroundColor(.subtext)
-                            .lineSpacing(4)
-                            .fixedSize(horizontal: false, vertical: true)
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(ingredient.whereToBuy)
+                                .font(.notoSans(size: 14))
+                                .foregroundColor(.subtext)
+                                .lineSpacing(4)
+                                .fixedSize(horizontal: false, vertical: true)
+
+                            // Partner deep-link — only rendered when present in Firestore payload
+                            if let rawURL = ingredient.purchasePartnerURL,
+                               let partnerURL = URL(string: rawURL) {
+                                Link(destination: partnerURL) {
+                                    HStack(spacing: 6) {
+                                        Image(systemName: "arrow.up.right.square.fill")
+                                            .font(.system(size: 12))
+                                        Text("View Verified Distributor")
+                                            .font(.notoSans(size: 12, weight: .semibold))
+                                        Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .font(.system(size: 10))
+                                            .opacity(0.5)
+                                    }
+                                    .foregroundColor(.sage)
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 10)
+                                    .background(Color.sage.opacity(0.07))
+                                    .cornerRadius(10)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.sage.opacity(0.2), lineWidth: 1)
+                                    )
+                                }
+                                .accessibilityLabel("Open verified distributor for \(ingredient.name)")
+                            }
+                        }
                     }
 
                     // Safety notes (conditional)

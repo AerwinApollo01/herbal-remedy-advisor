@@ -1,0 +1,121 @@
+// =============================================================================
+// NYS · Firestore Security Rules
+// Attribute-Based Access Control (ABAC)
+// Last updated: 2026-05-18
+// =============================================================================
+//
+// Access model:
+//   /protocols/*         — global read for authenticated clients; write locked
+//   /app_strings/*       — global read for authenticated clients; write locked
+//   /users/{uid}/*       — read + write ONLY by the owning authenticated user
+//   /admin/*             — blocked for all client requests (server SDK only)
+//
+// Administration writes are performed exclusively via the Firebase Admin SDK
+// running in a secure server environment (Cloud Functions / backend service).
+// No client-side write path to /protocols/ or /app_strings/ is ever granted.
+// =============================================================================
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // =========================================================================
+    // HELPER FUNCTIONS
+    // =========================================================================
+
+    /// Returns true if the request comes from a signed-in Firebase Auth user.
+    function isAuthenticated() {
+      return request.auth != null && request.auth.uid != null;
+    }
+
+    /// Returns true if the authenticated user's UID matches the path segment {uid}.
+    function isOwner(uid) {
+      return isAuthenticated() && request.auth.uid == uid;
+    }
+
+    /// Returns true if the incoming write does NOT attempt to set sensitive
+    /// monetization fields that should only be written by trusted server code.
+    function noMonetizationEscalation() {
+      // Block any client attempt to self-grant lifetime archive access or
+      // inflate their token balance.
+      return !request.resource.data.keys().hasAny([
+        'isLifetimeArchiveUnlocked',
+        'availableTokens'
+      ]);
+    }
+
+    // =========================================================================
+    // PROTOCOL COLLECTION  (/protocols/{protocolId})
+    // =========================================================================
+    // Read:  Any authenticated client may read protocol documents.
+    //        This enables the global feed in ResultsScreen.
+    // Write: Completely denied for all client requests.
+    //        Protocol content is managed exclusively via Admin SDK.
+    // =========================================================================
+
+    match /protocols/{protocolId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if false;  // Admin SDK only
+    }
+
+    // =========================================================================
+    // APP STRINGS / REMOTE CONFIG  (/app_strings/{document})
+    // =========================================================================
+    // Read:  Any authenticated client may read config documents.
+    // Write: Completely denied. Config updates deployed via Admin SDK.
+    // =========================================================================
+
+    match /app_strings/{document} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if false;  // Admin SDK only
+    }
+
+    // =========================================================================
+    // USER PROFILES  (/users/{uid})
+    // =========================================================================
+    // Read:  Strictly the owning user only.
+    // Write: Owning user ONLY, with escalation guard:
+    //   - Users CAN write: ageBracket, wellnessGoal, unlockedProtocolIDs
+    //   - Users CANNOT self-grant: isLifetimeArchiveUnlocked, availableTokens
+    //     (those fields are set exclusively by Cloud Functions post-StoreKit
+    //      receipt verification or Firestore transactions via Admin SDK)
+    // =========================================================================
+
+    match /users/{uid} {
+      allow read:   if isOwner(uid);
+      allow create: if isOwner(uid) && noMonetizationEscalation();
+      allow update: if isOwner(uid) && noMonetizationEscalation();
+      allow delete: if false;  // Account deletion handled via Admin SDK
+
+      // Sub-collections (future: journal entries, preferences, etc.)
+      match /{subcollection}/{document} {
+        allow read, write: if isOwner(uid);
+      }
+    }
+
+    // =========================================================================
+    // ADMINISTRATION  (/admin/*)
+    // =========================================================================
+    // Completely inaccessible from client SDKs. Any document under /admin/
+    // can only be accessed by server-side Admin SDK with application default
+    // credentials — never by an end-user Firebase client session.
+    // =========================================================================
+
+    match /admin/{document=**} {
+      allow read, write: if false;
+    }
+
+    // =========================================================================
+    // DEFAULT DENY
+    // =========================================================================
+    // Any path not explicitly matched above is denied.
+    // This follows the principle of least privilege — new collections require
+    // an explicit rule to be accessible.
+    // =========================================================================
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -27,7 +27,7 @@ struct SafetyDisclaimerView: View {
                         disclaimerBlock(
                             icon: "info.circle.fill",
                             heading: "For Educational Purposes Only",
-                            body: "The information provided in Nise is for educational and informational purposes only. It is not intended as medical advice, diagnosis, or treatment. Nothing in this app should be used as a substitute for professional medical guidance."
+                            body: "The information provided in Nys is for educational and informational purposes only. It is not intended as medical advice, diagnosis, or treatment. Nothing in this app should be used as a substitute for professional medical guidance."
                         )
 
                         disclaimerBlock(
@@ -45,7 +45,7 @@ struct SafetyDisclaimerView: View {
                         disclaimerBlock(
                             icon: "heart.fill",
                             heading: "A Wellness Companion",
-                            body: "Nise is a wellness companion, not a medical tool. It is designed to support mindful daily habits inspired by traditional healing systems — not to replace clinical care."
+                            body: "Nys is a wellness companion, not a medical tool. It is designed to support mindful daily habits inspired by traditional healing systems — not to replace clinical care."
                         )
 
                         disclaimerBlock(

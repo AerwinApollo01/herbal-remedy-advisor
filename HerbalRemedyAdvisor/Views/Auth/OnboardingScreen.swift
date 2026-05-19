@@ -44,6 +44,18 @@ struct OnboardingScreen: View {
                         Image(systemName: "leaf.fill")
                             .font(.system(size: 36))
                             .foregroundColor(.fern)
+                            .padding(.bottom, 2)
+
+                        // Brand wordmark + pronunciation
+                        Text("NYS")
+                            .font(.notoSerif(size: 32, weight: .bold))
+                            .foregroundColor(.cream)
+                            .tracking(4)
+
+                        Text("[ /niːs/ · rhymes with niece ]")
+                            .font(.notoSans(size: 10))
+                            .foregroundColor(.mist.opacity(0.45))
+                            .tracking(1.2)
                             .padding(.bottom, 4)
 
                         Text(greeting)

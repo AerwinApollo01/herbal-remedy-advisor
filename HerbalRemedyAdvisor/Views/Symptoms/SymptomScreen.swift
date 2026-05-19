@@ -20,7 +20,7 @@ struct SymptomScreen: View {
             AppHeader(
                 icon: "leaf.fill",
                 label: "Traditional Medicine",
-                title: "Nise",
+                title: "Nys",
                 subtitle: "Eastern & Traditional Medicine"
             )
 

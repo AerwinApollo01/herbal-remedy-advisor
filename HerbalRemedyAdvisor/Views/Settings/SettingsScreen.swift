@@ -22,7 +22,7 @@ struct SettingsScreen: View {
                     // MARK: Header
                     AppHeader(
                         icon: "leaf.fill",
-                        label: "Nise",
+                        label: "Nys",
                         title: "Settings & About",
                         subtitle: "Your account and app information"
                     )
@@ -107,7 +107,7 @@ struct SettingsScreen: View {
                                 }
                             }
                         }
-                        .confirmationDialog("Sign out of Nise?",
+                        .confirmationDialog("Sign out of Nys?",
                                             isPresented: $showSignOutConfirm,
                                             titleVisibility: .visible) {
                             Button("Sign Out", role: .destructive) { authVM.signOut() }

@@ -83,10 +83,17 @@ struct LoginScreen: View {
                         .padding(.top, 72)
                         .padding(.bottom, 12)
 
-                    Text("Nise")
+                    Text("NYS")
                         .font(.notoSerif(size: 48, weight: .bold))
                         .foregroundColor(.cream)
                         .tracking(4)
+
+                    // Pronunciation guide
+                    Text("[ /niːs/ · rhymes with niece ]")
+                        .font(.notoSans(size: 11))
+                        .foregroundColor(.mist.opacity(0.5))
+                        .tracking(1.5)
+                        .padding(.top, 4)
 
                     Text("Ancient wisdom, daily practice")
                         .font(.notoSans(size: 13))

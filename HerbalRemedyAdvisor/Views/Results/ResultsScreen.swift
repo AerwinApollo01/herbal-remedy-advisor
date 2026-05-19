@@ -1,23 +1,42 @@
 import SwiftUI
 
 struct ResultsScreen: View {
-    @EnvironmentObject var symptomVM: SymptomViewModel
-    @EnvironmentObject var journalVM: JournalViewModel
-    @EnvironmentObject var traditionVM: TraditionViewModel
+    @EnvironmentObject var symptomVM:      SymptomViewModel
+    @EnvironmentObject var journalVM:      JournalViewModel
+    @EnvironmentObject var traditionVM:    TraditionViewModel
+    @EnvironmentObject var userProfileVM:  UserProfileViewModel
     @Binding var selectedTab: Int
 
-    @State private var showTraditionFilter = false
-    @State private var selectedRemedy: Remedy?
-    @State private var navigateToDetail = false
-    @State private var pendingReplaceRemedy: Remedy?
+    @State private var showTraditionFilter    = false
+    @State private var selectedRemedy:         Remedy?
+    @State private var navigateToDetail        = false
+    @State private var pendingReplaceRemedy:   Remedy?
+    /// Active `systemPriority` filter chip value — nil means "All".
+    @State private var activePriorityFilter:   String? = nil
+
+    // MARK: - Derived data
+
+    /// Distinct `systemPriority` values present in the current result set,
+    /// sorted alphabetically to drive the dynamic chip row.
+    var presentPriorities: [String] {
+        let values = symptomVM.matchedRemedies.compactMap(\.systemPriority)
+        return Array(Set(values)).sorted()
+    }
 
     var displayedRemedies: [Remedy] {
-        if traditionVM.selectedTraditionIds.isEmpty {
-            return symptomVM.matchedRemedies
+        var base = symptomVM.matchedRemedies
+
+        // System-priority filter (from dynamic Firestore metadata)
+        if let priority = activePriorityFilter {
+            base = base.filter { $0.systemPriority == priority }
         }
-        return symptomVM.matchedRemedies.filter {
-            traditionVM.selectedTraditionIds.contains($0.tid)
+
+        // Tradition filter
+        if !traditionVM.selectedTraditionIds.isEmpty {
+            base = base.filter { traditionVM.selectedTraditionIds.contains($0.tid) }
         }
+
+        return base
     }
 
     var presentTraditions: [String] {
@@ -168,7 +187,8 @@ struct ResultsScreen: View {
                                     } else {
                                         journalVM.startJournal(remedy: remedy)
                                     }
-                                }
+                                },
+                                isLocked: !userProfileVM.isRemedyAccessible(remedy)
                             )
                         }
                     }
@@ -201,25 +221,52 @@ struct ResultsScreen: View {
     // MARK: - Filter row
 
     private var filterRow: some View {
-        HStack(spacing: 10) {
-            filterChip(label: "All", active: traditionVM.selectedTraditionIds.isEmpty) {
-                traditionVM.clearAll()
+        VStack(alignment: .leading, spacing: 8) {
+            // Top row: tradition filter + count
+            HStack(spacing: 10) {
+                filterChip(label: "All", active: traditionVM.selectedTraditionIds.isEmpty && activePriorityFilter == nil) {
+                    traditionVM.clearAll()
+                    activePriorityFilter = nil
+                }
+
+                filterChip(
+                    label: traditionVM.selectedTraditionIds.isEmpty
+                        ? "Filter by Tradition"
+                        : "Tradition (\(traditionVM.selectedTraditionIds.count))",
+                    active: !traditionVM.selectedTraditionIds.isEmpty
+                ) {
+                    showTraditionFilter = true
+                }
+
+                Spacer()
+
+                Text("\(displayedRemedies.count) shown")
+                    .font(.notoSans(size: 10))
+                    .foregroundColor(.subtext)
             }
 
-            filterChip(
-                label: traditionVM.selectedTraditionIds.isEmpty
-                    ? "Filter by Tradition"
-                    : "Tradition (\(traditionVM.selectedTraditionIds.count))",
-                active: !traditionVM.selectedTraditionIds.isEmpty
-            ) {
-                showTraditionFilter = true
+            // System-priority chips — only rendered when Firestore metadata is present
+            if !presentPriorities.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        Text("SYSTEM")
+                            .font(.notoSans(size: 8, weight: .semibold))
+                            .foregroundColor(.subtext.opacity(0.5))
+                            .kerning(0.8)
+
+                        ForEach(presentPriorities, id: \.self) { priority in
+                            filterChip(
+                                label: priority.capitalized,
+                                active: activePriorityFilter == priority
+                            ) {
+                                withAnimation(.easeInOut(duration: 0.15)) {
+                                    activePriorityFilter = activePriorityFilter == priority ? nil : priority
+                                }
+                            }
+                        }
+                    }
+                }
             }
-
-            Spacer()
-
-            Text("\(displayedRemedies.count) shown")
-                .font(.notoSans(size: 10))
-                .foregroundColor(.subtext)
         }
         .padding(.horizontal, 16)
     }

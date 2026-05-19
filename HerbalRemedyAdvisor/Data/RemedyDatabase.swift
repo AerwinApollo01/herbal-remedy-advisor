@@ -15,8 +15,8 @@ struct RemedyDatabase {
                 name: "Triphala powder",
                 what: "A classical Ayurvedic blend of three dried fruits — amalaki, bibhitaki, and haritaki — used for over 2,000 years as a gentle digestive tonic and detoxifier.",
                 why: "Triphala gently cleanses the colon, reduces Ama (metabolic waste), and tonifies the digestive tract without dependency.",
-                whereToBuy: "Indian grocery stores, health food stores, or online via Banyan Botanicals or Mountain Rose Herbs.",
-                safety: "Start with a small dose — may cause loose stools initially. Avoid during pregnancy."
+                whereToBuy: "Indian grocery stores, health food stores, or online via verified botanical distributors or organic food repositories.",
+                safety: "Start with a small dose — may cause loose stools initially. Traditional literature suggests caution during pregnancy. Consult a qualified healthcare provider before use."
             ),
             IngredientDetail(
                 name: "Fresh ginger root",
@@ -47,7 +47,7 @@ struct RemedyDatabase {
                 safety: nil
             )
         ],
-        desc: "A foundational Ayurvedic cleansing tonic combining the three fruits of Triphala — amalaki, bibhitaki, and haritaki — with warming ginger to stimulate Agni (digestive fire), eliminate Ama (toxins), and restore balance to all three doshas.",
+        desc: "A foundational Ayurvedic cleansing tonic combining the three fruits of Triphala — amalaki, bibhitaki, and haritaki — with warming ginger to stimulate Agni (digestive fire), historically associated with supporting the body's natural elimination pathways, and restore balance to all three doshas.",
         steps: [
             "Traditionally, Ayurvedic vaidyas began this decoction by bringing two cups of water to a boil with one teaspoon of Triphala powder and half a teaspoon of freshly grated ginger root.",
             "The mixture was simmered on low heat for ten minutes, then removed from the flame and allowed to steep undisturbed for five more — a resting period classical Ayurvedic texts described as allowing Agni to settle into the brew.",
@@ -80,8 +80,8 @@ struct RemedyDatabase {
                 name: "Ashwagandha root powder",
                 what: "The root of Withania somnifera, an adaptogenic shrub used in Ayurveda for over 3,000 years. Its active compounds — withanolides — modulate the stress response system (HPA axis) and support adrenal function.",
                 why: "Ashwagandha directly addresses deep fatigue by tonifying the adrenal glands, reducing cortisol, and rebuilding Ojas — the vital essence that governs immunity and energy reserves.",
-                whereToBuy: "Health food stores, Indian grocery stores, or online via Banyan Botanicals or Sun Potion.",
-                safety: "May interact with thyroid medications, sedatives, and immunosuppressants. Do not use during pregnancy. If you have a thyroid condition, consult your doctor before starting."
+                whereToBuy: "Health food stores, Indian grocery stores, or online via verified botanical distributors or organic food repositories.",
+                safety: "Literature notes potential interactions with thyroid medication pathways. Consult a healthcare provider for personal cross-reference. Literature notes potential interactions with immunosuppressant pathways. Consult a healthcare provider for personal cross-reference. Traditional literature suggests caution during pregnancy. Consult a qualified healthcare provider before use. If you have a thyroid condition, consult your doctor before starting."
             ),
             IngredientDetail(
                 name: "Turmeric",
@@ -145,8 +145,8 @@ struct RemedyDatabase {
                 name: "Dried neem leaf",
                 what: "Leaves of Azadirachta indica — called 'the village pharmacy' across India. Rich in nimbin, nimbidin, and azadirachtin. One of Ayurveda's most powerful blood purifiers and bitter tonics.",
                 why: "Clears heat and toxins (Pitta and Ama) from the blood and lymphatic system, addressing skin conditions at their root rather than suppressing symptoms at the surface.",
-                whereToBuy: "Indian grocery stores, Banyan Botanicals, or Mountain Rose Herbs (online).",
-                safety: "Do not use during pregnancy — may stimulate uterine contractions. Not suitable for children under 12. Use only leaf preparations; neem oil is not safe for internal use."
+                whereToBuy: "Indian grocery stores, verified botanical distributors or organic food repositories (online).",
+                safety: "Traditional literature suggests caution during pregnancy. Consult a qualified healthcare provider before use — may stimulate uterine contractions. Not suitable for children under 12. Use only leaf preparations; neem oil is not safe for internal use."
             ),
             IngredientDetail(
                 name: "Turmeric root or powder",
@@ -159,7 +159,7 @@ struct RemedyDatabase {
                 name: "Licorice root",
                 what: "Root of Glycyrrhiza glabra, used in both Ayurveda and TCM as a harmonizer and soother. Glycyrrhizin coats and protects mucous membranes and modulates inflammatory responses.",
                 why: "Soothes the bitter intensity of neem, protects the digestive lining during cleansing, and adds its own anti-inflammatory action.",
-                whereToBuy: "Health food stores or online via Mountain Rose Herbs. Look for cut root pieces, not candy.",
+                whereToBuy: "Health food stores or verified botanical distributors or organic food repositories. Look for cut root pieces, not candy.",
                 safety: "Not for people with high blood pressure, kidney disease, or edema — glycyrrhizin raises blood pressure at therapeutic doses. Limit to 14-day courses as directed."
             ),
             IngredientDetail(
@@ -210,7 +210,7 @@ struct RemedyDatabase {
                 name: "Boswellia serrata resin or powder",
                 what: "Resin from the Boswellia serrata tree, known in Sanskrit as Shallaki. Contains boswellic acids — particularly AKBA (acetyl-11-keto-β-boswellic acid) — that selectively inhibit the 5-LOX enzyme pathway responsible for producing pro-inflammatory leukotrienes.",
                 why: "AKBA targets the same inflammatory pathway as many prescription anti-inflammatories, but without the gastrointestinal side effects associated with NSAIDs.",
-                whereToBuy: "Health food stores or online via Banyan Botanicals, Zandu, or Himalaya brand.",
+                whereToBuy: "Health food stores or verified botanical distributors or organic food repositories.",
                 safety: "Generally well-tolerated. May interact with anti-inflammatory medications — consult your doctor if you take NSAIDs or prescription arthritis medication."
             ),
             IngredientDetail(
@@ -275,8 +275,8 @@ struct RemedyDatabase {
                 name: "Trikatu (ginger, black pepper, long pepper)",
                 what: "A classical Ayurvedic compound formula of three warming spices — shunthi (dry ginger), maricha (black pepper), and pippali (long pepper). Documented in the Charaka Samhita as a premier digestive stimulant.",
                 why: "Trikatu kindles Agni (digestive fire), stimulates digestive enzyme and bile secretion, reduces Ama (metabolic waste), and drives other herbs deeper into the tissues.",
-                whereToBuy: "Indian grocery stores, Banyan Botanicals, or online. Often sold pre-blended as 'Trikatu powder'.",
-                safety: "Contraindicated in Pitta conditions such as acid reflux or GERD — these warming herbs can aggravate excess stomach heat. Avoid during pregnancy."
+                whereToBuy: "Indian grocery stores, verified botanical distributors or organic food repositories. Often sold pre-blended as 'Trikatu powder'.",
+                safety: "Contraindicated in Pitta conditions such as acid reflux or GERD — these warming herbs can aggravate excess stomach heat. Traditional literature suggests caution during pregnancy. Consult a qualified healthcare provider before use."
             ),
             IngredientDetail(
                 name: "Dried orange peel",
@@ -303,7 +303,7 @@ struct RemedyDatabase {
                 name: "Apple cider vinegar",
                 what: "Raw, unpasteurized ACV containing acetic acid and live Acetobacter culture (the 'mother'). Acetic acid mimics stomach acid, priming the digestive environment before meals.",
                 why: "Stimulates stomach acid (HCl) production — a common deficiency in people with sluggish digestion — and lowers the pH of the gastric environment to optimize enzyme function.",
-                whereToBuy: "Any grocery store. Look for raw, unfiltered ACV 'with the mother' — Bragg is a common brand.",
+                whereToBuy: "Any grocery store. Look for raw, unfiltered ACV 'with the mother' — widely available at organic food repositories.",
                 safety: "Always dilute as directed — undiluted ACV erodes tooth enamel over time. Rinse mouth after drinking. Not suitable for those with active GERD or peptic ulcers."
             )
         ],
@@ -340,7 +340,7 @@ struct RemedyDatabase {
                 name: "Dried wormwood (Artemisia)",
                 what: "Known as Qing Hao in TCM — a bitter, cold herb documented in the Bencao Gangmu by Li Shizhen (1578). Contains artemisinin and absinthin, which clear damp-heat from the middle jiao (digestive center).",
                 why: "Directly addresses the TCM pattern of damp-heat in the stomach and intestines, which presents as bloating, nausea, foul breath, and a heavy, uncomfortable sensation after eating.",
-                whereToBuy: "TCM herb shops, Mayway (online), or Pacific Botanicals.",
+                whereToBuy: "TCM herb shops or verified botanical distributors.",
                 safety: "Contains thujone — do not exceed the stated dose. Not safe during pregnancy or for children under 12. Do not use for more than 14 days continuously."
             ),
             IngredientDetail(
@@ -354,7 +354,7 @@ struct RemedyDatabase {
                 name: "Huang Lian (Coptis root)",
                 what: "One of the bitterest herbs in the TCM pharmacopoeia — a premier damp-heat clearing agent. Its active compound berberine has been extensively studied for antimicrobial and gut-microbiome modulating properties.",
                 why: "Clears fire toxins and damp-heat from the stomach and intestines, reducing microbial imbalances that drive bloating, and restoring harmonious Qi flow through the stomach meridian.",
-                whereToBuy: "TCM herb shops or online via Plum Flower or Pacific Botanicals.",
+                whereToBuy: "TCM herb shops or verified botanical distributors.",
                 safety: "Berberine lowers blood sugar — monitor carefully if diabetic. Avoid during pregnancy. May interact with certain antibiotics and blood sugar medications."
             ),
             IngredientDetail(
@@ -404,16 +404,16 @@ struct RemedyDatabase {
             IngredientDetail(
                 name: "Brahmi (Bacopa monnieri) powder",
                 what: "A water-soluble herb from Ayurveda — one of the most studied nootropic plants in modern research. Its active compounds (bacosides A and B) enhance synaptic communication and protect neurons from oxidative stress.",
-                why: "Clinical trials show consistent improvement in memory, learning rate, and mental processing speed after 8–12 weeks of use. Addresses the Ayurvedic root cause of brain fog: insufficient nourishment of the Majja dhatu (nerve tissue).",
-                whereToBuy: "Health food stores, Banyan Botanicals, or online via Gaia Herbs or NOW Foods.",
-                safety: "May mildly slow heart rate. Avoid combining with calcium channel blockers. Not recommended for children without practitioner guidance."
+                why: "Clinical trials show consistent improvement in memory, learning rate, and mental processing speed after 8–12 weeks of use. historically cataloged to support mental clarity: insufficient nourishment of the Majja dhatu (nerve tissue).",
+                whereToBuy: "Health food stores or verified botanical distributors.",
+                safety: "May mildly slow heart rate. Literature indicates potential interactions with specific cardiovascular pathways. Consult a healthcare provider for personal cross-reference. Not recommended for children without practitioner guidance."
             ),
             IngredientDetail(
                 name: "Ginkgo biloba leaf",
                 what: "Leaves of the Ginkgo biloba tree — one of the oldest living tree species on Earth, used in TCM for centuries. Its flavonoids (quercetin, kaempferol) and terpenoids (ginkgolides, bilobalide) improve blood flow to the brain and protect neurons from free radical damage.",
                 why: "Increases cerebral microcirculation, delivering more oxygen and glucose to brain cells — directly addressing the cognitive sluggishness and poor recall associated with brain fog.",
-                whereToBuy: "Health food stores or online via Nature's Way or Gaia Herbs.",
-                safety: "Thins the blood — do not combine with warfarin, aspirin, NSAIDs, or other blood thinners. Stop use 2 weeks before any surgery."
+                whereToBuy: "Health food stores or verified botanical distributors.",
+                safety: "Literature notes potential interactions with anticoagulant pathways. Consult a healthcare provider for personal cross-reference — do not combine with warfarin, aspirin, NSAIDs, or other blood thinners. Stop use 2 weeks before any surgery."
             ),
             IngredientDetail(
                 name: "He Shou Wu (Fo-Ti root)",
@@ -470,15 +470,15 @@ struct RemedyDatabase {
                 name: "Persian saffron threads",
                 what: "Stigmas of Crocus sativus — the world's most precious spice, with Iran producing over 90% of the global supply. Active compounds crocin and safranal modulate serotonin, dopamine, and norepinephrine reuptake — the same pathways targeted by many antidepressant medications.",
                 why: "Ibn Sina (Avicenna) prescribed saffron in his Canon of Medicine to 'elevate the spirits and strengthen the heart.' Modern clinical trials confirm significant mood-brightening effects at 30mg/day over 6–8 weeks.",
-                whereToBuy: "Persian or Middle Eastern grocery stores, specialty spice shops, or online via Heray Spice. Look for 'Super Negin' or 'Sargol' grade (deep red threads, no yellow styles).",
-                safety: "Safe at culinary doses. At therapeutic doses (30mg+), saffron may stimulate uterine contractions — avoid medicinal use during pregnancy. Always steep in warm water first to extract crocin."
+                whereToBuy: "Persian or Middle Eastern grocery stores, specialty spice shops, or verified botanical distributors. Look for 'Super Negin' or 'Sargol' grade (deep red threads, no yellow styles).",
+                safety: "Safe at culinary doses. At therapeutic doses (30mg+), saffron may stimulate uterine contractions — traditional literature suggests caution during pregnancy. Consult a qualified healthcare provider before use. Always steep in warm water first to extract crocin."
             ),
             IngredientDetail(
                 name: "Rhodiola rosea root powder",
                 what: "Root of a Siberian alpine plant used in traditional medicine across Russia, Scandinavia, and Central Asia. Active compounds rosavins and salidrosides regulate the cortisol stress response and support mitochondrial energy production.",
                 why: "Directly addresses the cortisol dysregulation that underlies mood instability and emotional reactivity. Clinical trials show reduced anxiety, improved stress resilience, and reduced fatigue within 2–4 weeks.",
-                whereToBuy: "Health food stores or online via Gaia Herbs, Natrol, or Himalaya. Look for standardized extracts with ≥3% rosavins.",
-                safety: "Has mild stimulant properties — avoid taking after 3 PM to preserve sleep. May interact with MAOIs and SSRIs. If you are on antidepressants, consult your doctor before combining."
+                whereToBuy: "Health food stores or verified botanical distributors. Look for standardized extracts with ≥3% rosavins.",
+                safety: "Has mild stimulant properties — avoid taking after 3 PM to preserve sleep. Literature notes potential interactions with monoamine oxidase inhibitor (MAOI) pathways. Consult a healthcare provider for personal cross-reference. If you are on antidepressants, consult your doctor before combining."
             ),
             IngredientDetail(
                 name: "Rose water",
@@ -536,7 +536,7 @@ struct RemedyDatabase {
                 what: "The black seeds found inside a ripe papaya, typically discarded. They contain carpaine (an alkaloid), benzyl isothiocyanate (an isothiocyanate), and proteolytic enzymes — compounds revered in Thai, Indonesian, and Filipino traditional healing for digestive cleansing.",
                 why: "Used across the Jamu tradition of Java and Thai folk medicine as a 7-day intensive digestive cleanse. Proteolytic enzymes help break down proteins in the gut, while carpaine supports the gut environment.",
                 whereToBuy: "Any grocery store that sells fresh whole papaya — seeds are inside and usually discarded. Use only seeds from ripe (orange/yellow) papaya, not green.",
-                safety: "Do not use during pregnancy — carpaine may stimulate uterine contractions. Limit to 7 days as directed. Not for children under 12."
+                safety: "Traditional literature suggests caution during pregnancy. Consult a qualified healthcare provider before use — carpaine may stimulate uterine contractions. Limit to 7 days as directed. Not for children under 12."
             ),
             IngredientDetail(
                 name: "Raw wildflower honey",
@@ -614,7 +614,7 @@ struct RemedyDatabase {
                 name: "Raw apple cider vinegar",
                 what: "Unpasteurized ACV containing acetic acid and live Acetobacter culture (the 'mother' — visible as cloudy strands). Hippocrates used oxymel — a mixture of vinegar and honey — as a medicine for multiple conditions, documented in 'On the Nature of Man.'",
                 why: "Provides the acidic medium of the oxymel that inhibits pathogens, supports low stomach acid, and serves as the extraction medium that draws the active compounds from garlic and thyme.",
-                whereToBuy: "Any grocery store. Look for raw, unfiltered ACV with 'the mother' — Bragg Organic is widely available.",
+                whereToBuy: "Any grocery store. Look for raw, unfiltered ACV with 'the mother' — widely available at organic food repositories.",
                 safety: "Always dilute as directed — undiluted ACV erodes tooth enamel. Not suitable for those with active peptic ulcers or GERD."
             ),
             IngredientDetail(
@@ -665,8 +665,8 @@ struct RemedyDatabase {
                 name: "Black walnut hull tincture",
                 what: "A tincture made from the green outer hull of Juglans nigra — the black walnut tree. The hull contains juglone, a naphthoquinone compound with potent antifungal and antimicrobial properties. Used by European monastic healers and referenced by Hildegard von Bingen in the 12th century.",
                 why: "Juglone disrupts the energy metabolism of pathogens and fungi in the gut, addressing microbial imbalances that are often the hidden driver of intense sugar cravings.",
-                whereToBuy: "Health food stores or online via Herb Pharm or Gaia Herbs. Always purchase as a standardized tincture — never use raw green hulls directly (caustic and staining).",
-                safety: "Do not use during pregnancy. Use only standardized tinctures, not raw hull preparations. Do not exceed the stated dose."
+                whereToBuy: "Health food stores or verified botanical distributors. Always purchase as a standardized tincture — never use raw green hulls directly (caustic and staining).",
+                safety: "Traditional literature suggests caution during pregnancy. Consult a qualified healthcare provider before use. Use only standardized tinctures, not raw hull preparations. Do not exceed the stated dose."
             ),
             IngredientDetail(
                 name: "Oil of oregano (Origanum vulgare)",
@@ -686,8 +686,8 @@ struct RemedyDatabase {
                 name: "Wormwood tincture",
                 what: "A tincture of Artemisia absinthium — European wormwood, distinct from Chinese Qing Hao. Contains absinthin and artabsin, which have bitter tonic and antimicrobial properties documented in Paracelsus's 16th-century writings on intestinal purification.",
                 why: "Provides bitter tonic action that disrupts the dysbiotic gut environment supporting pathogenic overgrowth, completing the classical European three-herb purge cycle with black walnut and oregano.",
-                whereToBuy: "Health food stores or online via Herb Pharm. Purchase as a standardized tincture for controlled dosing.",
-                safety: "Contains thujone — strictly do not exceed 20 drops as directed. Avoid during pregnancy. Not for use by those with epilepsy or taking epilepsy medications."
+                whereToBuy: "Health food stores or verified botanical distributors. Purchase as a standardized tincture for controlled dosing.",
+                safety: "Contains thujone — strictly do not exceed 20 drops as directed. Traditional literature suggests caution during pregnancy. Consult a qualified healthcare provider before use. Not for use by those with epilepsy or taking epilepsy medications."
             ),
             IngredientDetail(
                 name: "Probiotic-rich kefir or yogurt",
@@ -730,15 +730,15 @@ struct RemedyDatabase {
                 name: "Valerian root (dried or tincture)",
                 what: "Root of Valeriana officinalis — one of the most widely studied sleep herbs in Western botanical medicine. Valerenic acid inhibits GABA-transaminase, the enzyme that breaks down the calming neurotransmitter GABA, extending its calming effect without the dependency associated with pharmaceutical sedatives.",
                 why: "Addresses the neurological root of sleep difficulties by enhancing GABAergic tone — the brain's primary 'braking system' that quiets racing thoughts and helps initiate sleep onset.",
-                whereToBuy: "Health food stores or online via Gaia Herbs or Herb Pharm. Available as dried root or tincture — tincture works faster.",
+                whereToBuy: "Health food stores or verified botanical distributors. Available as dried root or tincture — tincture works faster.",
                 safety: "May cause vivid dreams; drowsiness may persist into the morning at high doses. Do not combine with alcohol, prescription sedatives, or benzodiazepines — additive sedative effect."
             ),
             IngredientDetail(
                 name: "Passionflower leaf",
                 what: "Leaves of Passiflora incarnata — a native North American vine used by Indigenous peoples and later adopted into European herbal medicine. Chrysin and orientin bind GABA-A receptors, reducing anxiety and helping the mind 'let go' at bedtime.",
                 why: "Particularly effective for sleep difficulties driven by an overactive, anxious mind — the type that replays the day's events or generates worry at night. Passionflower quiets this without the next-morning grogginess of stronger sedatives.",
-                whereToBuy: "Health food stores or online via Mountain Rose Herbs.",
-                safety: "Avoid during pregnancy — may cause uterine contractions. Mild sedative — do not drive or operate machinery after use."
+                whereToBuy: "Health food stores or verified botanical distributors.",
+                safety: "Traditional literature suggests caution during pregnancy. Consult a qualified healthcare provider before use — may cause uterine contractions. Mild sedative — do not drive or operate machinery after use."
             ),
             IngredientDetail(
                 name: "Lemon balm",
@@ -869,8 +869,8 @@ struct RemedyDatabase {
                 name: "Buchu leaf",
                 what: "Leaves of Agathosma betulina — a fynbos (Cape scrub) shrub used medicinally by the Khoikhoi and Xhosa peoples of South Africa for over 300 years before European contact. Rich in diosphenol and flavonoids with anti-inflammatory and diuretic properties.",
                 why: "Supports the kidneys and lymphatic elimination pathways — the drainage channels whose congestion the Khoikhoi tradition identifies as the root of skin irritation. Also provides direct anti-inflammatory compounds that reduce dermal inflammation.",
-                whereToBuy: "Health food stores or online via Mountain Rose Herbs or Cape Kingdom Nutraceuticals.",
-                safety: "Generally safe. Avoid during pregnancy. Not for long-term use by those with kidney disease."
+                whereToBuy: "Health food stores or verified botanical distributors or organic food repositories.",
+                safety: "Generally safe. Traditional literature suggests caution during pregnancy. Consult a qualified healthcare provider before use. Not for long-term use by those with kidney disease."
             ),
             IngredientDetail(
                 name: "Honeybush leaf",
