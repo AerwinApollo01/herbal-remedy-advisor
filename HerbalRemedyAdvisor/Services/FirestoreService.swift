@@ -107,6 +107,38 @@ final class FirestoreService {
     }
 
     // =========================================================================
+    // MARK: - Firestore → JSON bridge
+    // =========================================================================
+
+    /// Recursively converts a Firestore document dictionary into a plain
+    /// JSON-serializable `[String: Any]` by dropping Firestore-native types
+    /// (`Timestamp`, `GeoPoint`, `DocumentReference`, etc.) that
+    /// `JSONSerialization` cannot handle.
+    ///
+    /// Any field whose value cannot be represented as JSON is silently omitted.
+    /// Fields required by our Codable models must be JSON-primitive types in
+    /// Firestore (String, Number, Bool, Array, Map) — if they are timestamps,
+    /// the model's `init(from:)` will fall back to its default / optional nil.
+    private func jsonSafe(_ value: Any) -> Any? {
+        switch value {
+        case let map as [String: Any]:
+            return map.compactMapValues { jsonSafe($0) }
+        case let arr as [Any]:
+            return arr.compactMap { jsonSafe($0) }
+        case is String, is NSNumber, is Bool:
+            return value
+        default:
+            // Drops FIRTimestamp, GeoPoint, DocumentReference, etc.
+            return nil
+        }
+    }
+
+    private func jsonData(from raw: [String: Any]) -> Data? {
+        let safe = raw.compactMapValues { jsonSafe($0) }
+        return try? JSONSerialization.data(withJSONObject: safe)
+    }
+
+    // =========================================================================
     // MARK: - Protocol Collection
     // =========================================================================
 
@@ -118,10 +150,10 @@ final class FirestoreService {
         let snapshot = try await db.collection("protocols").getDocuments()
         return snapshot.documents.compactMap { doc -> NysProtocol? in
             var data = doc.data()
-            data["id"] = doc.documentID          // inject Firestore doc ID
+            data["id"] = doc.documentID
             data["isStarterVolume"] = data["isStarterVolume"] ?? false
-            guard let jsonData = try? JSONSerialization.data(withJSONObject: data) else { return nil }
-            return try? JSONDecoder().decode(NysProtocol.self, from: jsonData)
+            guard let jd = jsonData(from: data) else { return nil }
+            return try? JSONDecoder().decode(NysProtocol.self, from: jd)
         }
     }
 
@@ -132,8 +164,8 @@ final class FirestoreService {
         guard doc.exists, var data = doc.data() else { return nil }
         data["id"] = doc.documentID
         data["isStarterVolume"] = data["isStarterVolume"] ?? false
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: data) else { return nil }
-        return try? JSONDecoder().decode(NysProtocol.self, from: jsonData)
+        guard let jd = jsonData(from: data) else { return nil }
+        return try? JSONDecoder().decode(NysProtocol.self, from: jd)
     }
 
     // =========================================================================
@@ -148,8 +180,8 @@ final class FirestoreService {
         do {
             let doc = try await db.collection("app_strings").document("global_config").getDocument()
             guard doc.exists, let data = doc.data(),
-                  let jsonData = try? JSONSerialization.data(withJSONObject: data),
-                  let config = try? JSONDecoder().decode(AppConfig.self, from: jsonData)
+                  let jd = jsonData(from: data),
+                  let config = try? JSONDecoder().decode(AppConfig.self, from: jd)
             else { return .fallback }
             return config
         } catch {
